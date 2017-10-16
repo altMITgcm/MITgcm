@@ -202,7 +202,7 @@ Other lines in the file `input/data` are standard values
 that are described in the MITgcm Getting Started and MITgcm Parameters
 notes.
 
-.. literalinclude:: ../../verification/rotating_tank/input/data
+.. literalinclude:: ../../../verification/rotating_tank/input/data
     :linenos:
     :caption: `verification/rotating_tank/input/data`
 
@@ -256,7 +256,7 @@ this line sets
 the lateral domain extent in grid points for the
 axis aligned with the y-coordinate.
 
-.. literalinclude:: ../../verification/rotating_tank/code/SIZE.h
+.. literalinclude:: ../../../verification/rotating_tank/code/SIZE.h
     :linenos:
     :caption: `verification/rotating_tank/code/SIZE.h`
 

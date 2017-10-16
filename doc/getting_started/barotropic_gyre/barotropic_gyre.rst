@@ -34,7 +34,7 @@ where :math:`L_{y}` is the lateral domain extent (1200~km) and
 :numref:`fig_eg_baro_simulation_config` summarizes the configuration simulated.
 
 
-  .. figure:: barotropic_gyre/figs/simulation_config.*
+  .. figure:: figs/simulation_config.*
       :width: 70%
       :align: center
       :alt: barotropic gyre configuration
@@ -221,7 +221,7 @@ are
 
 other lines in the file `input/data` are standard values that are described in the MITgcm Getting Started and MITgcm Parameters notes.
 
-.. literalinclude:: ../../verification/tutorial_barotropic_gyre/input/data
+.. literalinclude:: ../../../verification/tutorial_barotropic_gyre/input/data
     :linenos:
     :caption: verification/tutorial_barotropic_gyre/input/data
 
@@ -270,7 +270,7 @@ Two lines are customized in this file for the current experiment
    - `sNy=60,`
    - this line sets the lateral domain extent in grid points for the axis aligned with the y-coordinate.
 
-.. literalinclude:: ../../verification/tutorial_barotropic_gyre/code/SIZE.h
+.. literalinclude:: ../../../verification/tutorial_barotropic_gyre/code/SIZE.h
     :linenos:
     :caption: verification/tutorial_barotropic_gyre/code/SIZE.h
 
