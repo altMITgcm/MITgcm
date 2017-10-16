@@ -93,11 +93,10 @@ this example.
 These lines set horizontal and vertical diffusion coefficients for
 temperature and salinity.  Similarly to the friction coefficients, the
 values are a couple of orders of magnitude less than most
- configurations.
+configurations.
 
 
- - Line 17, `f0=0.5`, this line sets the 
-coriolis term, and represents a tank spinning at about 2.4 rpm.
+ - Line 17, `f0=0.5`, this line sets the coriolis term, and represents a tank spinning at about 2.4 rpm.
 
  - Lines 23 and 24
 

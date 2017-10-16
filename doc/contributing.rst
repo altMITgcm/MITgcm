@@ -117,6 +117,7 @@ A detailed explanation of steps for contributing MITgcm code edits:
 
 
 3. Switch to the master branch, and make sure we're up to date. 
+
   ``git checkout master``
 
   Git checkout is the command to switch branches; this puts you on master branch, in the event you were sufficiently git-savy already to have created different branches in your git-cloned local repository. (It won’t hurt to type this if you are already on the master branch)
@@ -145,6 +146,7 @@ A detailed explanation of steps for contributing MITgcm code edits:
     - if you are fixing a more involved bug or adding a new feature, such that many changes are required, it is preferable to break your contribution into multiple commits (each documented separately) rather than submitting one massive commit; each commit should encompass a single conceptual change to the code base, regardless of how many files it touches. This will allow the MITgcm maintainers to more easily understand your proposed changes and will expedite the review process.
 
 6. Now we “push” our modified branch with committed changes onto the origin remote in the GitHub cloud. This effectively updates your GitHub cloud copy of the MITgcm repo to reflect the wonderful changes you are contributing.
+
   ``git push -u origin bugfix``
 
 7. Finally create a “pull request” (a.k.a. “PR”; in other words, you are requesting that the maintainers pull your changes into the main code repository). In GitHub, go to the fork of the project that you made (https://github.com/user_name/MITgcm66h.git). There is a button for "Compare and Pull" in your newly created branch. Click the button! Now you can add a final succinct summary description of what you've done in your commit(s), and flag up any issues. At last the maintainers will be notified and be able to peruse your changes! While the PR remains open, you can go back to step #5 and make additional edits, git adds, git commits, and then redo step #6; such changes will be added to the PR (and maintainers re-notified). The pull request remains open until either the maintainers fully accept and merge your code changes into the main repository, or decide to reject your changes. But much more likely than the latter, you will instead be asked to respond to feedback, modify your code changes in some way, and/or clean up your code to better satisfy our style requirements, etc., and the pull request will remain open instead of outright rejection.

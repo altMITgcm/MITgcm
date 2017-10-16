@@ -1,7 +1,7 @@
 .. _chap_getting_started:
 
 Getting Started with MITgcm
-****************************
+***************************
 
 This chapter is divided into two main parts. The first part, which is
 covered in sections :numref:`whereToFindInfo` through
@@ -102,7 +102,7 @@ Be forewarned, this will only work if you have not modified ANY of the files in 
 .. _approach2:
 
 Approach 2: I’m willing to learn some basic Git functionality
------------------------------------------------------------
+-------------------------------------------------------------
 
 Need to figure out level of detail here... suggest workflow etc.?
 
@@ -146,7 +146,7 @@ description of the directory structure of the model under the root tree.
    that generates the adjoint code. The latter is described in detail in
    part [chap.ecco]. This directory also contains the subdirectory
    build\_options, which contains the ‘optfiles’ with the compiler
-   options for the different compilers and machines that can run MITgcm (see :numref:`genmake_optfiles`).
+   options for the different compilers and machines that can run MITgcm (see :numref:`genmake2_optfiles`).
 
 -  ``utils``: this directory contains various utilities. The
    subdirectory ``knudsen2`` contains code and a makefile that compute
@@ -470,7 +470,7 @@ The most important command-line options are:
 Running the model 
 =================
 
-If compilation finished successfully (:numref:`buildingCode`) then an
+If compilation finished successfully (:numref:`building_code`) then an
 executable called ``mitgcmuv`` will now exist in the local directory.
 
 To run the model as a single process (i.e., not in parallel) simply
