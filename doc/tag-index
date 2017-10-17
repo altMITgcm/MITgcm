@@ -4,6 +4,7 @@ $Name:  $
     Notes on tags used in MITgcmUV
     ==============================
 
+o migrate from CVS to Git
 o pkg/cheapaml: major changes to relaxation coefficient setting:
   - rename parameters cheapaml_taurelax & cheapaml_taurelaxocean (in days)
     to cheap_tauRelax & cheap_tauRelaxOce (now in seconds);
