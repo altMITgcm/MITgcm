@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/gchem/gchem_check.F,v 1.7 2014/05/21 19:31:23 jmc Exp $
-C $Name:  $
-
 #include "GCHEM_OPTIONS.h"
 
       SUBROUTINE GCHEM_CHECK( myThid )

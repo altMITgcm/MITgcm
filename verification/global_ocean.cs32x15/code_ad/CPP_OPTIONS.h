@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/verification/global_ocean.cs32x15/code_ad/CPP_OPTIONS.h,v 1.8 2013/01/23 16:53:09 jmc Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

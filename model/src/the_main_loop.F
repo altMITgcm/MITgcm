@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/model/src/the_main_loop.F,v 1.182 2017/06/20 11:32:33 mlosch Exp $
-C $Name:  $
-
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
 #ifdef ALLOW_AUTODIFF

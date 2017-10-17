@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/verification/lab_sea/code/CPP_OPTIONS.h,v 1.16 2010/10/07 21:17:48 gforget Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

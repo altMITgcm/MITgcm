@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/verification/tutorial_global_oce_biogeo/code_oad/CPP_OPTIONS.h,v 1.3 2014/09/11 19:32:52 jmc Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

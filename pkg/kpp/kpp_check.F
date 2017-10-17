@@ -1,5 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/kpp/kpp_check.F,v 1.10 2012/07/07 22:23:46 jmc Exp $
-C $Name:  $
 #include "KPP_OPTIONS.h"
 
       SUBROUTINE KPP_CHECK( myThid )

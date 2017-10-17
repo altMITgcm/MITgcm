@@ -6,9 +6,6 @@
 #PBS -e /u/jcampin/test_pleiades/output/tst_ieee.stderr
 #PBS -o /u/jcampin/test_pleiades/output/tst_ieee.stdout
 
-# $Header: /u/gcmpack/MITgcm/tools/example_scripts/nasa_ames/test_pleiades_ieee,v 1.5 2017/09/19 18:11:58 jmc Exp $
-# $Name:  $
-
 if test -f /etc/profile.d/modules.sh ; then
     . /etc/profile.d/modules.sh
 fi

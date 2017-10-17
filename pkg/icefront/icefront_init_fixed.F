@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/icefront/icefront_init_fixed.F,v 1.8 2017/02/07 00:18:59 jmc Exp $
-C $Name:  $
-
 #include "ICEFRONT_OPTIONS.h"
 #ifdef ALLOW_EXF
 # include "EXF_OPTIONS.h"

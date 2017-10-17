@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/rbcs/RBCS_PARAMS.h,v 1.3 2013/12/31 22:21:47 jmc Exp $
-C $Name:  $
-
 #ifdef ALLOW_RBCS
 
 CBOP

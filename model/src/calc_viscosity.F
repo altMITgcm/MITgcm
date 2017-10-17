@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/model/src/calc_viscosity.F,v 1.11 2014/12/24 19:09:33 jmc Exp $
-C $Name:  $
-
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
 

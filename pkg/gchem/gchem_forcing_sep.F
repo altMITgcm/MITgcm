@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/gchem/gchem_forcing_sep.F,v 1.44 2017/03/29 15:46:27 mmazloff Exp $
-C $Name:  $
-
 #include "GCHEM_OPTIONS.h"
 #ifdef ALLOW_DIC
 # include "DIC_OPTIONS.h"

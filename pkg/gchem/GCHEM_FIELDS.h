@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/gchem/GCHEM_FIELDS.h,v 1.1 2004/11/28 23:48:31 mlosch Exp $
-C $Name:  $
-
 #ifdef ALLOW_GCHEM
 CBOP
 C    !ROUTINE: GCHEM_FIELDS.h

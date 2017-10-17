@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/gchem/GCHEM_OPTIONS.h,v 1.9 2011/12/24 01:04:47 jmc Exp $
-C $Name:  $
-
 #ifndef GCHEM_OPTIONS_H
 #define GCHEM_OPTIONS_H
 #include "PACKAGES_CONFIG.h"

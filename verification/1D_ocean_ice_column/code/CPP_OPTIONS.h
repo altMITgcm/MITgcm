@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/verification/1D_ocean_ice_column/code/CPP_OPTIONS.h,v 1.2 2012/01/16 19:17:56 jmc Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

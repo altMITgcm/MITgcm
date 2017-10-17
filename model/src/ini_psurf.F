@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/model/src/ini_psurf.F,v 1.11 2009/06/14 21:45:12 jmc Exp $
-C $Name:  $
-
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
 

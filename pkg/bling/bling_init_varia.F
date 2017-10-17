@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/bling/bling_init_varia.F,v 1.7 2017/03/29 15:47:49 mmazloff Exp $
-C $Name:  $
-
 #include "BLING_OPTIONS.h"
 
 CBOP

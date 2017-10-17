@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/model/src/forward_step.F,v 1.242 2017/03/29 15:44:00 mmazloff Exp $
-C $Name:  $
-
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
 

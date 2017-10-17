@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/model/inc/CPP_OPTIONS.h,v 1.54 2016/11/28 22:55:00 jmc Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

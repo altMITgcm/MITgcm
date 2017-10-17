@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/aim_v23/AIM_PARAMS.h,v 1.12 2010/10/26 20:59:53 dfer Exp $
-C $Name:  $
-
 #ifdef ALLOW_AIM
 C     *==========================================================*
 C     | AIM_PARAMS.h  

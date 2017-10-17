@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/gchem/gchem_add_tendency.F,v 1.5 2014/07/09 16:56:08 jmc Exp $
-C $Name:  $
-
 #include "GCHEM_OPTIONS.h"
 
 CBOP

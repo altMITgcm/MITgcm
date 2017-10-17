@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/aim_v23/phy_driver.F,v 1.9 2010/10/26 20:59:53 dfer Exp $
-C $Name:  $
-
 #include "AIM_OPTIONS.h"
 
 CBOP

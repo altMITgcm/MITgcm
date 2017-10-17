@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/model/src/ini_parms.F,v 1.277 2017/10/04 20:37:19 jmc Exp $
-C $Name:  $
-
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
 #ifdef ALLOW_EXCH2

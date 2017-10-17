@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/verification/vermix/code/CPP_OPTIONS.h,v 1.4 2012/03/16 21:07:06 jmc Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

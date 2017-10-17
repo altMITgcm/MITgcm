@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/gchem/gchem_init_vari.F,v 1.15 2016/05/23 13:09:31 jmc Exp $
-C $Name:  $
-
 #include "GCHEM_OPTIONS.h"
 #ifdef ALLOW_BLING
 # include "BLING_OPTIONS.h"

@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/verification/short_surf_wave/code/CPP_OPTIONS.h,v 1.1 2010/01/23 19:39:04 jmc Exp $
-C $Name:  $
-
 #ifndef CPP_OPTIONS_H
 #define CPP_OPTIONS_H
 

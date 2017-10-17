@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/gchem/gchem_diagnostics_init.F,v 1.8 2014/07/18 22:12:17 jmc Exp $
-C $Name:  $
-
 #include "GCHEM_OPTIONS.h"
 
 C !INTERFACE: ==========================================================

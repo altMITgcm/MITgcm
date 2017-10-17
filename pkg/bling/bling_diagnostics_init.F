@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/bling/bling_diagnostics_init.F,v 1.7 2017/05/11 13:32:24 mmazloff Exp $
-C $Name:  $
-
 #include "GCHEM_OPTIONS.h"
 
 CBOP

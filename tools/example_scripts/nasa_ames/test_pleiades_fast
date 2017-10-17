@@ -6,9 +6,6 @@
 #PBS -e /u/jcampin/test_pleiades/output/tst_fast.stderr
 #PBS -o /u/jcampin/test_pleiades/output/tst_fast.stdout
 
-# $Header: /u/gcmpack/MITgcm/tools/example_scripts/nasa_ames/test_pleiades_fast,v 1.5 2017/09/19 18:11:58 jmc Exp $
-# $Name:  $
-
 if test -f /etc/profile.d/modules.sh ; then
     . /etc/profile.d/modules.sh
 fi

@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/pkg/diagnostics/diagstats_ascii_out.F,v 1.7 2015/12/08 19:18:31 jmc Exp $
-C $Name:  $
-
 #include "DIAG_OPTIONS.h"
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
