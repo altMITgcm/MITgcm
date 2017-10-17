@@ -14,6 +14,5 @@ Welcome to MITgcm's user manual
    overview/overview
    getting_started/getting_started
    contributing
-   examples/examples
    phys_pkgs/phys_pkgs
    zreferences
