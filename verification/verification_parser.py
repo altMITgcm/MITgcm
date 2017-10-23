@@ -49,6 +49,15 @@ def verification_parser(filename, threshold):
                 except ValueError:
                     pass
 
+
+            if len(dp_similarity) >= 17:
+                # this means that the test wasn't an offline advection test.
+                # Remove the means of u and v since they are constrained 
+                # to ~0 by domain geometry and can cause the test to fail 
+                # when it shouldn't.
+                del dp_similarity[15]
+                del dp_similarity[11]
+
             assert all(elements > threshold[j] for elements in dp_similarity)
 
 if __name__ == '__main__':

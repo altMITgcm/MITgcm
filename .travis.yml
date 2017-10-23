@@ -19,7 +19,7 @@ script:
  - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_advection_in_gyre/testreport_out.txt' -threshold 15"
  # tutorial baroclinic gyre
  - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_baroclinic_gyre | tee tutorial_baroclinic_gyre/testreport_out.txt"
- - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_baroclinic_gyre/testreport_out.txt' -threshold 15"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_baroclinic_gyre/testreport_out.txt' -threshold 13"
  # tutorial barotropic gyre
  - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_barotropic_gyre | tee tutorial_barotropic_gyre/testreport_out.txt"
  - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_barotropic_gyre/testreport_out.txt' -threshold 15"
