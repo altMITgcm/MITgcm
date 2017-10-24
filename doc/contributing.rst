@@ -37,7 +37,7 @@ Quickstart Guide
 
     % git clone https://github.com/user_name/MITgcm.git
 
-2. Move into your local clone directory (cd MITgcm6) and and set up a remote that points to the original:
+2. Move into your local clone directory (cd MITgcm) and and set up a remote that points to the original:
 
 ::
 
@@ -293,7 +293,7 @@ The only people with write access to the main repository are a small number of c
 
 To test pull requests locally you should:
 
- - add the repository of the user proposing the pull request as a remote, :code:`git remote add USERNAME https://github.com/user_name/MITgcm66.git` where user_name is replaced by the user name of the person who has made the pull request;
+ - add the repository of the user proposing the pull request as a remote, :code:`git remote add user_name https://github.com/user_name/MITgcm.git` where user_name is replaced by the user name of the person who has made the pull request;
 
  - download a local version of the branch from the pull request, :code:`git fetch user_name` followed by :code:`git checkout --track user_name/foo`;
 
