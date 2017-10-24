@@ -15,7 +15,7 @@ model is to run the case study examples provided in the MITgcm repository.
 Information is also provided
 here on how to customize the code when you are ready to try implementing 
 the configuration you have in mind.  The code and algorithm
-are described more fully in chapters \ref{chap:discretization} through 
+are described more fully in :numref:`discret_algorithm` through 
 \ref{chap:sarch}. 
 
 .. _whereToFindInfo:
@@ -35,12 +35,12 @@ To browse through the support archive, click `here <http://mitgcm.org/pipermail/
 Obtaining the code
 ==================
 
-The MITgcm code and documentation are under continuous development and we generally recommend that one downloads the latest version of the code. You will need to decide if you want to work in a “git-aware” environment (`Method 1`_) or with a one-time “stagnant” download (`Method 2`_). We generally recommend method 1, as it is more flexible and allows your version of the code to be regularly updated as MITgcm developers check in bug fixes and new features. However, this typically requires a rudimentary understanding of git to make it worth one’s while; see :numref:`approach2`. 
+The MITgcm code and documentation are under continuous development and we generally recommend that one downloads the latest version of the code. You will need to decide if you want to work in a “git-aware” environment (`Method 1`_) or with a one-time “stagnant” download (`Method 2`_). We generally recommend method 1, as it is more flexible and allows your version of the code to be regularly updated as MITgcm developers check in bug fixes and new features. However, this typically requires at minimum a rudimentary understanding of git in order to make it worth one’s while. 
 
-Periodically we release an official checkpoint (or “tag”). We recommend one download the latest code, unless there are reasons for obtaining a specific checkpoint (e.g. duplicating older results, collaborating with someone using an older release, etc.). 
+Periodically we release an official checkpoint (or “tag”). We recommend one download the latest code, unless there are reasons for obtaining a specific checkpoint (e.g. duplicating older results, collaborating with someone using an older release, etc.) 
 
-**Method 1**
-------------
+Method 1
+--------
 
 This section describes how to download git-aware copies of the repository.
 In a terminal window, cd to the directory where you want your code to reside. 
@@ -57,14 +57,14 @@ Alternatively, if you prefer to use ssh keys (say for example, you have a firewa
 
 ::
 
-    % git clone git@github.com:altMITgcm/MITgcm66h.git
+    % git clone git@github.com:altMITgcm/MITgcm.git
 
 You will need a GitHub account for this, and will have to generate a ssh key though your GitHub account user settings. 
 
 The fully git-aware download is over several hundred MB, which is considerable if one has limited internet download speed. In comparison, the one-time download zip file (`Method 2`_, below) is order 100MB. However, one can obtain a truncated, yet still git-aware copy of the current code by adding the option ``--depth=1`` to the git clone command above; all files will be present, but it will not include the full git history. However, the repository can be updated going forward. 
 
-**Method 2**
-------------
+Method 2
+--------
 
 This section describes how to do a one-time download of the MITgcm, NOT git-aware.
 In a terminal window, ``cd`` to the directory where you want your code to reside. 
@@ -83,29 +83,31 @@ For specific checkpoint release ``XXX``, instead type:
 Updating the code
 =================
 
-If you have downloaded the code through a git clone command (`Method 1`_ above), you can incorporate any changes to the source code (including any changes to any files in the MITgcm repository, new packages or analysis routines, etc.) that may have occurred since your original download. 
+There are several different approaches one can use to obtain updates to the MITgcm; which is best for you depends a bit on how you intend to use the MITgcm and your knowledge of git (and/or willingness to learn). Below we outline three suggested update pathways:
 
-Approach 1: I don’t want to learn how to use Git!
--------------------------------------------------
+1. **Fresh Download of the MITgcm**
 
-Fair enough, there is a simple command to bring all code in the repository to a ‘current release’ state.
-From the MITgcm top directory or any of its subdirectories, type:
+This approach is the most simple, and virtually foolproof. Whether you downloaded the code from a static zip file (`Method 2`_) or used the git clone command (`Method 1`_), create a new directory and repeat this procedure to download a current copy of the MITgcm. Say for example you are starting a new research project, this would be a great time to grab the most recent code repository and keep this new work entirely separate from any past simulations. This approach requires no understanding of git, and you are free to make changes to any files in the MIT repo tree (although we generally recommend that you avoid doing so, instead working in new subdirectories or on separate scratch disks as described in :numref:`build_elsewhere`, for example). 
+
+2. **Using** ``git pull`` **to update the (unmodified) MITgcm repo tree**
+
+If you have downloaded the code through a git clone command (`Method 1`_ above), you can incorporate any changes to the source code (including any changes to any files in the MITgcm repository, new packages or analysis routines, etc.) that may have occurred since your original download. There is a simple command to bring all code in the repository to a ‘current release’ state. From the MITgcm top directory or any of its subdirectories, type:
 
 ::
 
     % git pull
 
-and all files will be updated to match the current state of the code repository, as it exists at `GitHub <https://github.com/altMITgcm/MITgcm.git>`_
+and all files will be updated to match the current state of the code repository, as it exists at `GitHub <https://github.com/altMITgcm/MITgcm.git>`_.
 
-Be forewarned, this will only work if you have not modified ANY of the files in the MITgcm repository (adding new files is ok, however). If you have modified files and the ``git pull`` fails with errors, there is no easy fix other than to learn something about git (see Approach 2).
+This update pathway is ideal if you are in the midst of a project and you want to incorporate new MITgcm features into your executable(s), or take advantage of recently added analysis utilties, etc. After the git pull, any changes in model source code and include files will be updated, so you can repeat the build procedure (:numref:`building_code`) and you will include all these new features in your new executable.
 
-.. _approach2:
+Be forewarned, this will only work if you have not modified ANY of the files in the MITgcm repository (adding new files is ok; also, all verification run subdirectories ``build`` and ``run`` are also ignored by git). If you have modified files and the ``git pull`` fails with errors, there is no easy fix other than to learn something about git (continue reading...)
 
-Approach 2: I’m willing to learn some basic Git functionality
--------------------------------------------------------------
+3. **Fully embracing the power of git!**
 
-Need to figure out level of detail here... suggest workflow etc.?
+Git offers many tools to help organize and track changes in your work.  For example, one might keep separate projects on different branches, and update the code separately (using ``git pull``) on these separate branches. You can even make changes to code in the MIT repo tree; when git then tries to update code from upstream (see :numref:`git_setup`), it will notify you about possible conflicts and even merge the code changes together if it can. You can also use ``git commit`` to track user modifications in code (but not for the purpose of contributing such changes to the main code repo), to help you track what you are modifying in your simulations over time. See here (...) for more information and how to use git effectively to manage your workflow.
 
+(we should be more specific above, need to agree how so however)
 
 Model and directory structure
 =============================
@@ -125,19 +127,19 @@ need to worry about the wrapper support code. The top-level routine for the nume
 part of the code is in ``model/src/THE_MODEL_MAIN.F``. Here is a brief
 description of the directory structure of the model under the root tree.
 
--  ``doc``: contains the MITgcm documentation in reStructured Text (rst) format.
-
--  ``eesupp``: contains the execution environment source code. Also
+-  ``model``: this directory contains the main source code. Also
    subdivided into two subdirectories ``inc`` (includes files) and ``src`` (source code).
 
--  ``model``: this directory contains the main source code. Also
+-  ``eesupp``: contains the execution environment source code. Also
    subdivided into two subdirectories ``inc`` and ``src``.
 
 -  ``pkg``: contains the source code for the packages. Each package
    corresponds to a subdirectory. For example, ``gmredi`` contains the
    code related to the Gent-McWilliams/Redi scheme, ``aim`` the code
    relative to the atmospheric intermediate physics. The packages are
-   described in detail in chapter [chap:packagesI].
+   described in detail in :numref:`packagesI`].
+
+-  ``doc``: contains the MITgcm documentation in reStructured Text (rst) format.
 
 -  ``tools``: this directory contains various useful tools. For example,
    ``genmake2`` is a script written in bash that should be used
@@ -153,9 +155,10 @@ description of the directory structure of the model under the root tree.
    coefficients of the polynomial approximation to the knudsen formula
    for an ocean nonlinear equation of state. The ``matlab`` subdirectory
    contains matlab scripts for reading model output directly into
-   matlab. ``scripts`` contains C-shell post-processing scripts for
-   joining processor-based and tiled-based model output. The
-   subdirectory exch2 contains the code needed for the exch2 package to
+   matlab. The subdirectory ``python`` contains similar routines for python.
+   ``scripts`` contains C-shell post-processing scripts for
+   joining processor-based and tiled-based model output. 
+   The subdirectory ``exch2`` contains the code needed for the exch2 package to
    work with different combinations of domain decompositions.
 
 -  ``verification``: this directory contains the model examples. See
@@ -193,24 +196,25 @@ First, build the ``Makefile``:
     % ../../../tools/genmake2 -mods ../code
 
 The ``-mods`` command line option tells ``genmake2`` to override model source code
-with any files in the directory ``../code/``. ``genmake2`` command line options are described
-in :numref:`genmake_commandline`.
+with any files in the directory ``../code/``. This and additional ``genmake2`` command line options are described
+more fully in :numref:`genmake_commandline`.
 
 On many systems, the ``genmake2`` program will be able to automatically
 recognize the hardware, find compilers and other tools within the user’s
 path (“``echo $PATH``”), and then choose an appropriate set of options
 from the files (“optfiles”) contained in the ``tools/build_options``
 directory. Under some circumstances, a user may have to create a new
-“optfile” in order to specify the exact combination of compiler,
+optfile in order to specify the exact combination of compiler,
 compiler flags, libraries, and other options necessary to build a
 particular configuration of MITgcm. In such cases, it is generally
-helpful to peruse the existing “optfiles” and mimic their syntax.
+helpful to peruse the existing optfiles and mimic their syntax.
 See :numref:`genmake2_optfiles`.
 
-Through the MITgcm-support list, the MITgcm developers are willing to
-provide help writing or modifing “optfiles”. And we encourage users to
-post new “optfiles” (particularly ones for new machines or
-architectures) to the MITgcm-support@mitgcm.org list.
+The MITgcm developers are willing to
+provide help writing or modifing optfiles. And we encourage users to
+ask for assistance or post new optfiles (particularly ones for new machines or
+architectures) through the `GitHub issue tracker <https://github.com/altMITgcm/MITgcm/issues>`_
+or email the MITgcm-support@mitgcm.org list.
 
 To specify an optfile to ``genmake2``, the command line syntax is:
 
@@ -228,9 +232,18 @@ the command:
 This modifies the ``Makefile`` by attaching a (usually, long) list of
 files upon which other files depend. The purpose of this is to reduce
 re-compilation if and when you start to modify the code. The ``make depend``
-command also creates links from the model source to this directory. It
-is important to note that the make depend stage will occasionally
-produce warnings or errors since the dependency parsing tool is unable
+command also creates links from the model source to this directory, except for links to those files 
+in the specified ``-mods`` directory. **IMPORTANT NOTE:** Editing the source code files in the build directory
+will not edit a local copy (since these are just links) but will edit the original files in ``model/src`` (or ``model/inc``)
+or in the specified ``-mods`` directory. While the latter might be what you intend, editing the copy in ``model/src``
+is usually not intended and may cause grief somewhere down the road. Rather, if you need to add 
+to the list of modified source code files, make a copy of
+the file(s) to edit in the ``-mods`` directory, make the edits, 
+and then re-build the makefile (the latter step critical or the makefile will not 
+link to to this newly edited file).
+
+It is important to note that the make depend stage will occasionally
+produce warnings or errors if the dependency parsing tool is unable
 to find all of the necessary header files (e.g., ``netcdf.inc``). In some cases you
 may need to obtain help from your system administrator to locate these files.
 
@@ -256,6 +269,8 @@ number of cores (or discrete CPUs) available.
 Now you are ready to run the model. General instructions for doing so
 are given in section :numref:`run_the_model`. 
 
+.. _build_elsewhere:
+
 Building/compiling the code elsewhere
 -------------------------------------
 
@@ -265,9 +280,9 @@ Model object files and output data can use up large amounts of disk
 space so it is often preferable to operate on a large
 scratch disk. Here, we show how to configure and compile the code on a scratch disk,
 without having to copy the entire source
-tree. The only requirement to do so is you have genmake2 in your path, or
-you know the absolute path to genmake2.
-
+tree. The only requirement to do so is you have ``genmake2`` in your path, or
+you know the absolute path to ``genmake2``.
+-
 Assuming the model source is in ``~/MITgcm``, then the
 following commands will build the model in ``/scratch/exp2-run1``:
 
@@ -279,7 +294,7 @@ following commands will build the model in ``/scratch/exp2-run1``:
     % make depend
     % make
 
-Note the use of the command line option ``rootdir`` to tell genamke2 where to find the MITgcm directory tree.
+Note the use of the command line option ``-rootdir`` to tell genamke2 where to find the MITgcm directory tree.
 
 In general, one can compile the code in any given directory following this procedure.
 
@@ -306,8 +321,8 @@ following sources:
 
 -
     a ``packages.conf`` file (if one is found) with the specific list of
-    packages to compile. The search path for file ``packages.conf`` is,
-    first, the current directory and then each of the ``-mods`` directories
+    packages to compile. The search path for file ``packages.conf`` is
+    first the current directory, and then each of the ``-mods`` directories
     in the given order (see below).
 
 .. _genmake2_optfiles:
@@ -319,17 +334,17 @@ The purpose of the optfiles is to provide all the compilation options
 for particular “platforms” (where “platform” roughly means the
 combination of the hardware and the compiler) and code configurations.
 Given the combinations of possible compilers and library dependencies
-(*e.g.,* MPI and NetCDF) there may be numerous optfiles available for a
+(e.g., MPI and NetCDF) there may be numerous optfiles available for a
 single machine. The naming scheme for the majority of the optfiles
-shipped with the code is ``OS_HARDWARE_COMPILER`` where
+shipped with the code is **OS_HARDWARE_COMPILER** where
 
-``OS``
+**OS**
     is the name of the operating system (generally the lower-case output
-    of the ``uname`` command)
+    of a linux terminal ``uname`` command)
 
-``HARDWARE``
+**HARDWARE**
     is a string that describes the CPU type and corresponds to output
-    from the ``uname -m`` command:
+    from a ``uname -m`` command. Some common CPU types:
 
     amd64
         is for x86\_64 systems (most common, including AMD and Intel 64-bit CPUs)
@@ -340,31 +355,31 @@ shipped with the code is ``OS_HARDWARE_COMPILER`` where
     ppc
         is for (old) Mac PowerPC systems
 
-``COMPILER``
+**COMPILER**
     is the compiler name (generally, the name of the FORTRAN executable)
 
 In many cases, the default optfiles are sufficient and will result in
 usable Makefiles. However, for some machines or code configurations, new
-“optfiles” must be written. To create a new optfile, it is generally
+optfiles must be written. To create a new optfile, it is generally
 best to start with one of the defaults and modify it to suit your needs.
 Like ``genmake2``, the optfiles are all written using a simple
-“sh”–compatible syntax. While nearly all variables used within
+sh–compatible syntax. While nearly all variables used within
 ``genmake2`` may be specified in the optfiles, the critical ones that
 should be defined are:
 
-FC
+``FC``
     the FORTRAN compiler (executable) to use
 
-DEFINES
+``DEFINES``
     the command-line DEFINE options passed to the compiler
 
-CPP
+``CPP``
     the C pre-processor to use
 
-NOOPTFLAGS
+``NOOPTFLAGS``
     options flags for special files that should not be optimized
 
-For example, the optfile for a typical Red Hat Linux machine (“amd64”
+For example, the optfile for a typical Red Hat Linux machine (amd64
 architecture) using the GCC (g77) compiler is
 
 ::
@@ -384,7 +399,8 @@ architecture) using the GCC (g77) compiler is
 
 If you write an optfile for an unrepresented machine or compiler, you
 are strongly encouraged to submit the optfile to the MITgcm project for
-inclusion. Please send the file to MITgcm-support@mitgcm.org. (**how about posting to maintainers somewhere on github instead?**)
+inclusion. Please submit the file through the `GitHub issue tracker <https://github.com/altMITgcm/MITgcm/issues>`_
+or email the MITgcm-support@mitgcm.org list.
 
 .. _genmake_commandline:
 
@@ -403,9 +419,9 @@ The most important command-line options are:
 ``–optfile /path/to/file``
     specifies the optfile that should be used for a particular build.
 
-    If no “optfile” is specified (either through the command line or the
-    MITGCM\_OPTFILE environment variable), genmake2 will try to make a
-    reasonable guess from the list provided in ``tools/build\_options``.
+    If no optfile is specified (either through the command line or the
+    ``MITGCM_OPTFILE`` environment variable), ``genmake2`` will try to make a
+    reasonable guess from the list provided in ``tools/build_options``.
     The method used for making this guess is to first determine the
     combination of operating system and hardware (eg. “linux\_amd64”) and
     then find a working FORTRAN compiler within the user’s path. When
@@ -416,9 +432,9 @@ The most important command-line options are:
     specifies a list of directories containing “modifications”. These
     directories contain files with names that may (or may not) exist in
     the main MITgcm source tree but will be overridden by any
-    identically-named sources within the “mods” directories.
+    identically-named sources within the ``-mods`` directories.
 
-    The order of precedence for this “name-hiding” is as follows (*what does this mean?*):
+    The order of precedence for this “name-hiding” is as follows:
 
     -  “mods” directories (in the order given)
 
@@ -436,24 +452,22 @@ The most important command-line options are:
 
 ``–adof /path/to/file``
     specifies the “adjoint” or automatic differentiation options file to
-    be used. The file is analogous to the “optfile” defined above but it
+    be used. The file is analogous to the optfile defined above but it
     specifies information for the AD build process.
 
     The default file is located in
-    ``tools/adjoint\_options/adjoint\_default`` and it defines the “TAF”
+    ``tools/adjoint_options/adjoint_default`` and it defines the “TAF”
     and “TAMC” compilers. An alternate version is also available at
-    ``tools/adjoint\_options/adjoint\_staf`` that selects the newer “STAF”
+    ``tools/adjoint_options/adjoint_staf`` that selects the newer “STAF”
     compiler. As with any compilers, it is helpful to have their
     directories listed in your $PATH environment variable.
 
 ``–mpi``
-    enables certain MPI features (using CPP ``#define``\ s)
-    within the code and is necessary for MPI builds (see Section
-    [sec:mpi-build]).
+    enables certain MPI features (using CPP ``#define``)
+    within the code and is necessary for MPI builds (see :numref:`build_mpi`).
 
 ``–omp``
     enables OPENMP code and compiler flag OMPFLAG 
-
 
 ``–ieee``
     use IEEE numerics (requires support in optfile) 
@@ -465,23 +479,72 @@ The most important command-line options are:
     option provides a means for specifying the make executable to be
     used.
 
+.. _build_mpi:
+
+Building  with MPI
+------------------
+
+Building MITgcm to use MPI libraries can be complicated due to the
+variety of different MPI implementations available, their dependencies
+or interactions with different compilers, and their often ad-hoc
+locations within file systems. For these reasons, its generally a good
+idea to start by finding and reading the documentation for your
+machine(s) and, if necessary, seeking help from your local systems
+administrator.
+
+The steps for building MITgcm with MPI support are:
+
+#. Determine the locations of your MPI-enabled compiler and/or MPI
+   libraries and put them into an options file as described in :numref:`genmake2_optfiles`. 
+   One can start with one of the examples in
+   `tools/build_options <https://github.com/altMITgcm/MITgcm66/tree/master/tools/build_options>`_
+   such as ``linux_amd64_gfortran`` or ``linux_amd64_ifort+impi`` and
+   then edit it to suit the machine at hand. You may need help from your
+   user guide or local systems administrator to determine the exact
+   location of the MPI libraries. If libraries are not installed, MPI
+   implementations and related tools are available including:
+
+   -  `Open MPI <https://www.open-mpi.org/>`_ 
+
+   -  `MVAPICH2 <https:mvapich.cse.ohio-state.edu/>`_
+
+   -  `MPICH <https://www.mpich.org/>`_
+
+   -  `Intel MPI <https://software.intel.com/en-us/intel-mpi-library/>`_
+
+  
+#. Build the code with the ``genmake2`` ``-mpi`` option (see :numref:`genmake_commandline`)
+   using commands such as:
+
+   ::
+
+         %  ../../../tools/genmake2 -mods=../code -mpi -of=YOUR_OPTFILE
+         %  make depend
+         %  make
+
+
 .. _run_the_model:
 
 Running the model 
 =================
 
 If compilation finished successfully (:numref:`building_code`) then an
-executable called ``mitgcmuv`` will now exist in the local directory.
+executable called ``mitgcmuv`` will now exist in the local (``build``) directory.
 
 To run the model as a single process (i.e., not in parallel) simply
-type:
+type (assuming you are still in the ``build`` directory):
 
 ::
 
+    % cd ../run
+    % ln -s ../input/* .
+    % cp ../build/mitgcmuv .
     % ./mitgcmuv
 
-The ``./`` is a safe-guard to make sure you use the local executable in
-case you have others that exist in your path.
+Here, we are making a link to all the support data files needed by the MITgcm
+for this experiment, and then copying the executable from the the build directory.
+The ``./`` in the last step is a safe-guard to make sure you use the local executable in
+case you have others that might exist in your $PATH.
 The above command will spew out many lines of text output to your
 screen. This output contains details such as parameter values as well as
 diagnostics such as mean kinetic energy, largest CFL number, etc. It is
@@ -499,21 +562,22 @@ with the (``stderr``) error message within any bug reports.
 For the example experiments in ``verification``, an example of the
 output is kept in ``results/output.txt`` for comparison. You can compare
 your ``output.txt`` with the corresponding one for that experiment to
-check that the set-up works.
+check that your set-up indeed works. Congratulations!
 
 Output files
 ------------
 
-The model produces various output files and, when using ``mnc``,
+The model produces various output files and, when using ``mnc`` (i.e., NetCDF),
 sometimes even directories. Depending upon the I/O package(s) selected
 at compile time (either ``mdsio`` or ``mnc`` or both as determined by
 ``code/packages.conf``) and the run-time flags set (in
-``input/data.pkg``), the following output may appear.
+``input/data.pkg``), the following output may appear. More complete information describing output files
+and model diagnostics is described in chap_diagnosticsio.
 
 MDSIO output files
 ~~~~~~~~~~~~~~~~~~
 
-The “traditional” output files are generated by the ``mdsio`` package (link to mdsio pkg).
+The “traditional” output files are generated by the ``mdsio`` package (link to section_mdsio).
 At a minimum, the instantaneous “state” of the model is written out,
 which is made of the following files:
 
@@ -545,8 +609,8 @@ In addition, a “pickup” or “checkpoint” file called:
 -  ``pickup.00000nIter``
 
 is written out. This file represents the state of the model in a
-condensed form and is used for restarting the integration. Some additional packages
-and parameterizations also produce separate pickup files, e.g.,
+condensed form and is used for restarting the integration (at the specific iteration number).
+Some additional packages and parameterizations also produce separate pickup files, e.g.,
 
 -  ``pickup_cd.00000nIter`` if the C-D scheme is used (see link to description)
 
@@ -564,18 +628,18 @@ they are output to save disk space during long integrations.
 MNC output files
 ~~~~~~~~~~~~~~~~
 
-The MNC package (link to mnc pkg) is a set of convenience routines written to expedite the process of creating,
-appending, and reading `NetCDF files <http://www.unidata.ucar.edu/software/netcdf/>`_. Unlike the ``mdsio`` output, the ``mnc``–generated output is usually
+The MNC package (link to section_mnc) is a set of routines written to read, write, and
+append `NetCDF files <http://www.unidata.ucar.edu/software/netcdf/>`_. Unlike the ``mdsio`` output, the ``mnc``–generated output is usually
 placed within a subdirectory with a name such as ``mnc_output_`` (by default, NetCDF tries to append, rather than overwrite, existing files,
 so a unique output directory is helpful for each separate run).
 
 Looking at the output
 ---------------------
 
-The “traditional” or mdsio model data are written according to a
+The traditional or ``mdsio`` model data are written according to a
 “meta/data” file format. Each variable is associated with two files with
 suffix names ``.data`` and ``.meta``. The ``.data`` file contains the
-data written in binary form (big\_endian by default). The ``.meta`` file
+data written in binary form (big endian by default). The ``.meta`` file
 is a “header” file that contains information about the size and the
 structure of the ``.data`` file. This way of organizing the output is
 particularly useful when running multi-processors calculations. The repository
@@ -604,92 +668,37 @@ Some examples of reading and visualizing some output in Matlab:
 Similar scripts for netCDF output (``rdmnc.m``) are available and they
 are described in Section [sec:pkg:mnc].
 
-The MNC output files are all in the “self-describing” netCDF format and
+The MNC output files are all in the “self-describing” NetCDF format and
 can thus be browsed and/or plotted using tools such as:
 
--  `ncdump <https://www.unidata.ucar.edu/software/netcdf/netcdf-4/newdocs/netcdf/ncdump.html>`_ is a utility which is typically included with every netCDF
-   install, and converts the netCDF binaries into formatted ASCII text files.
+-  `ncdump <https://www.unidata.ucar.edu/software/netcdf/netcdf-4/newdocs/netcdf/ncdump.html>`_ is a utility which is typically included with every NetCDF
+   install, and converts the NetCDF binaries into formatted ASCII text files.
 
--  `ncview <http://meteora.ucsd.edu/~pierce/ncview_home_page.html>`_ is a very convenient and quick way to plot netCDF
+-  `ncview <http://meteora.ucsd.edu/~pierce/ncview_home_page.html>`_ is a very convenient and quick way to plot NetCDF
    data and it runs on most platforms. `Panoply <https://www.giss.nasa.gov/tools/panoply/>`_ is similar alternative.
 
 -  Matlab, GrADS, IDL and other common post-processing environments provide
-   built-in netCDF interfaces.
+   built-in NetCDF interfaces.
 
+.. _running_mpi:
 
-Building with MPI
------------------
+Running with MPI
+----------------
 
-Building MITgcm to use MPI libraries can be complicated due to the
-variety of different MPI implementations available, their dependencies
-or interactions with different compilers, and their often ad-hoc
-locations within file systems. For these reasons, its generally a good
-idea to start by finding and reading the documentation for your
-machine(s) and, if necessary, seeking help from your local systems
-administrator.
-
-The steps for building MITgcm with MPI support are:
-
-#. Determine the locations of your MPI-enabled compiler and/or MPI
-   libraries and put them into an options file as described in :numref:`genmake2_optfiles`. 
-   One can start with one of the examples in
-   `tools/build_options <https://github.com/altMITgcm/MITgcm66h/tree/master/tools/build_options>`_
-   such as ``linux_amd64_gfortran`` or ``linux_amd64_ifort+impi`` (add links) and
-   then edit it to suit the machine at hand. You may need help from your
-   user guide or local systems administrator to determine the exact
-   location of the MPI libraries. If libraries are not installed, MPI
-   implementations and related tools are available including:
-
-   -  `Open MPI <https://www.open-mpi.org/>`_ 
-
-   -  `MVAPICH2 <https:mvapich.cse.ohio-state.edu/>`_
-
-   -  `MPICH <https://www.mpich.org/>`_
-
-   -  `Intel MPI <https://software.intel.com/en-us/intel-mpi-library/>`_
-  
-#. Build the code with the ``genmake2`` ``-mpi`` option (see :numref:`genmake_commandline`)
-   using commands such as:
-
-   ::
-
-         %  ../../../tools/genmake2 -mods=../code -mpi -of=YOUR_OPTFILE
-         %  make depend
-         %  make
-
-#. Run the code with the appropriate MPI “run” or “exec” program
-   provided with your particular implementation of MPI. Typical MPI
-   packages such as `Open MPI <https://www.open-mpi.org/>`_ will use something like:
+Run the code with the appropriate MPI “run” or “exec” program
+provided with your particular implementation of MPI. Typical MPI
+packages such as `Open MPI <https://www.open-mpi.org/>`_ will use something like:
 
    ::
 
          %  mpirun -np 4 ./mitgcmuv
 
-   Sightly more complicated scripts may be needed for many machines
-   since execution of the code may be controlled by both the MPI library
-   and a job scheduling and queueing system such as SLURM, PBS, LoadLeveler,
-   or any of a number of similar tools. A few example scripts
-   (those used for our regular `verification runs <http://mitgcm.org/public/testing.html>`_) are available at:
+Sightly more complicated scripts may be needed for many machines
+since execution of the code may be controlled by both the MPI library
+and a job scheduling and queueing system such as SLURM, PBS, LoadLeveler,
+or any of a number of similar tools. See your local cluster documentation 
+or system administrator for the specific syntax required to run on your computing facility.
 
-   `MITgcm_contrib/test_scripts <http://mitgcm.org/viewvc/MITgcm/MITgcm_contrib/test_scripts/>`_
-
-(fix this link; also examples scripts is where these should be, but the ones here are not understandable)
-
-An example of the above process on the MIT cluster (“engaging”) using the
-GNU g77 compiler and the mpich library is (Oliver can we simplify?):
-
-::
-
-      %  cd MITgcm/verification/exp5
-      %  mkdir build
-      %  cd build
-      %  ../../../tools/genmake2 -mpi -mods ../code \
-         -of ../../../tools/build_options/linux_amd64_gfortran
-      %  make depend
-      %  make
-      %  cd ../input
-      %  /usr/local/pkg/mpi/mpi-1.2.4..8a-gm-1.5/g77/bin/mpirun.ch_gm  \
-         -machinefile mf --gm-kill 5 -v -np 2 ../build/mitgcmuv
 
 .. _chap_modelExamples:
 

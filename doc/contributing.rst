@@ -9,7 +9,7 @@ The MITgcm is an open source project that relies on the participation of its use
 Bugs and feature requests
 =========================
 
-If you think you've found a bug, the best thing to check that you're using the latest version of the model. If the bug is still in the latest version, then think about how you might fix it and file a ticket in the GitHub issue tracker [url to be inserted once we have the proper repo]. Please include as much detail as possible. At a minimum your ticket should include:
+If you think you've found a bug, the first thing to check that you're using the latest version of the model. If the bug is still in the latest version, then think about how you might fix it and file a ticket in the `GitHub issue tracker <https://github.com/altMITgcm/MITgcm/issues>`_. Please include as much detail as possible. At a minimum your ticket should include:
 
  - what the bug does;
  - the location of the bug: file name and line number(s); and
@@ -33,33 +33,39 @@ Quickstart Guide
 
 1. Fork the project on GitHub (using the fork button) and create a local clone, if you haven’t already:
 
-  ``git clone https://github.com/user_name/MITgcm66h.git``
+::
 
-2. Move into your local clone directory (cd MITgcm66h) and and set up a remote that points to the original:
+    % git clone https://github.com/user_name/altMITgcm/MITgcm.git
 
-  ``git remote add upstream https://github.com/altMITgcm/MITgcm66h.git``
+2. Move into your local clone directory (cd MITgcm6) and and set up a remote that points to the original:
+
+::
+
+    % git remote add upstream https://github.com/altMITgcm/MITgcm.git
 
 3. This step is optional, but highly recommended. It will ensure that your GitHub repo stays up to date with the main repository. Checkout the master branch and sync everywhere:
 
-|  ``git checkout master``
-|  ``git pull upstream master``
-|  ``git push origin master``
-|  
+::
 
+   % git checkout master
+   % git pull upstream master
+   % git push origin master
+   
+4. Make a new branch from ``upstream/master`` (name it something appropriate, here we assume it is a bugfix) and make edits on this branch:
 
-4. Make a new branch from `upstream/master` (name it something appropriate, here we assume it is a bugfix) and make edits on this branch:
+::
 
-| ``git fetch upstream``
-| ``git checkout -b bugfix upstream/master``
-|
+   % git fetch upstream
+   % git checkout -b bugfix upstream/master
 
 5. When edits are done, do all git add’s and git commit’s. In the commit, make a succinct (<70 char) summary, followed by a blank line and a longer description. Reference any outstanding issues addressed using the syntax ``#ISSUE_NUMBER``.
 
-|  
 
 6. Push the edited branch to the origin remote (i.e. your fork) on GitHub:
 
-  ``git push -u origin bugfix``
+::
+
+    % git push -u origin bugfix
 
 7. On GitHub, go to your fork and hit the pull request (PR) button, and wait for the MITgcm head developers to review your proposed changes. You may get additional questions or requests before your changes are accepted into the primary MITgcm source code.
 
@@ -99,44 +105,63 @@ One other aspect of Git that requires some explanation to the uninitiated: your 
 
 A detailed explanation of steps for contributing MITgcm code edits:
 
-1. On GitHub, create a local clone (copy) of the repository in your GitHub cloud user space. From the main repository (https://github.com/altMITgcm/MITgcm) hit the **Fork** button. You now need to download the code onto your local computer using the git clone command. If you previously downloaded the code through a tarball or some other means, you will need to obtain a new, local, git-aware version via
+1. On GitHub, create a local clone (copy) of the repository in your GitHub cloud user space. From the main repository (https://github.com/altMITgcm/MITgcm) hit the **Fork** button. You now need to download the code onto your local computer using the git clone command. If you previously downloaded the code through a tarball or some other means, you will need to obtain a new, local, git-aware version via:
 
-  ``git clone https://github.com/user_name/MITgcm66h.git``
+::
 
-  from your terminal (technically, here you are copying the forked “origin” version from the cloud, not the “upstream” version, but these will be identical at this point).
+    % git clone https://github.com/user_name/MITgcm66h.git
+
+|  from your terminal (technically, here you are copying the forked “origin” version from the cloud, not the “upstream” version, but these will be identical at this point).
+|  
 
 2. Move into the local clone directory on your computer:
 
-  ``cd MITgcm66h``
+::
 
-  Finally, we need to set up a remote that points to the main repository:
+    % cd MITgcm66h
 
-  ``git remote add upstream https://github.com/altMITgcm/MITgcm66h.git``
+|  Finally, we need to set up a remote that points to the main repository:
+|  
 
-  This means that we now have two "remotes" of the project (a “remote” is just a pointer to a repository not on your computer, i.e. in the GitHub cloud), one pointing to your GitHub user space (“origin”), and this new remote pointing to the original (“upstream”). You can read and write into your "origin" version (since it belongs to you, in the cloud), but not into the "upstream" version. This command just sets up this remote, which is needed in step 3 -- no actual file manipulation is done.
+::
 
+    % git remote add upstream https://github.com/altMITgcm/MITgcm66h.git
+
+|  This means that we now have two "remotes" of the project (a “remote” is just a pointer to a repository not on your computer, i.e. in the GitHub cloud), one pointing to your GitHub user space (“origin”), and this new remote pointing to the original (“upstream”). You can read and write into your "origin" version (since it belongs to you, in the cloud), but not into the "upstream" version. This command just sets up this remote, which is needed in step 3 -- no actual file manipulation is done.
+|  
 
 3. Switch to the master branch, and make sure we're up to date. 
 
-  ``git checkout master``
+::
 
-  Git checkout is the command to switch branches; this puts you on master branch, in the event you were sufficiently git-savy already to have created different branches in your git-cloned local repository. (It won’t hurt to type this if you are already on the master branch)
+    % git checkout master
 
-  ``git pull upstream master``
+|  Git checkout is the command to switch branches; this puts you on master branch, in the event you were sufficiently git-savy already to have created different branches in your git-cloned local repository. (It won’t hurt to type this if you are already on the master branch)
+|  
+
+::
+
+    % git pull upstream master
    
-  This command will synchronize your local master branch with the main MITgcm repository master branch (i.e. “pull” any new changes that might have occurred in the upstream repository into your local clone). Note if you have made changes to files in the master branch, git will complain (files you created will not cause complaints, however) -- this is why we recommend doing other general MITgcm work (editing and running) on a separate branch and thus not working on the master branch. This command is necessary so that you use the most recently available code to begin your edits.
+|  This command will synchronize your local master branch with the main MITgcm repository master branch (i.e. “pull” any new changes that might have occurred in the upstream repository into your local clone). Note if you have made changes to files in the master branch, git will complain (files you created will not cause complaints, however) -- this is why we recommend doing other general MITgcm work (editing and running) on a separate branch and thus not working on the master branch. This command is necessary so that you use the most recently available code to begin your edits.
+|  
 
-  ``git push origin master``
+::
+
+    % git push origin master
   
-  The “push” command does the opposite of “pull”, so here you are synchronizing your GitHub cloud copy master branch to your local master branch (which you just updated). If you had performed step #1 above in the last few minutes, this step is not going to do anything (since you had just forked the “origin” from the “upstream” in step #1), but if any time elapsed, it will be necessary (the current version of the MITgcm source code is updated regularly).
+|  The “push” command does the opposite of “pull”, so here you are synchronizing your GitHub cloud copy master branch to your local master branch (which you just updated). If you had performed step #1 above in the last few minutes, this step is not going to do anything (since you had just forked the “origin” from the “upstream” in step #1), but if any time elapsed, it will be necessary (the current version of the MITgcm source code is updated regularly).
+|  
 
 4.  Next make a new branch.
-  
-| ``git fetch upstream``
-| ``git checkout -b bugfix_thebug upstream/master``
-|
 
-  You will make edits on this new branch, to keep these new edits separate from any other changes to the repository in the course of your work (say through normal running of the model or any other separate research and/or modifications to repository files). Note that this command above not only creates the new branch ‘bugfix_thebug’ from the `upstream/master` branch, it switches you onto this newly created branch.  Naming the branch something descriptive helps. 
+::
+  
+    % git fetch upstream
+    % git checkout -b bugfix_thebug upstream/master
+
+|  You will make edits on this new branch, to keep these new edits separate from any other changes to the repository in the course of your work (say through normal running of the model or any other separate research and/or modifications to repository files). Note that this command above not only creates the new branch ‘bugfix_thebug’ from the `upstream/master` branch, it switches you onto this newly created branch.  Naming the branch something descriptive helps. 
+|  
 
 5. Doing stuff! This usually comes in two flavors, fixing bugs or adding a feature. To do this you should:
 
@@ -147,9 +172,11 @@ A detailed explanation of steps for contributing MITgcm code edits:
 
 6. Now we “push” our modified branch with committed changes onto the origin remote in the GitHub cloud. This effectively updates your GitHub cloud copy of the MITgcm repo to reflect the wonderful changes you are contributing.
 
-  ``git push -u origin bugfix``
+::
 
-7. Finally create a “pull request” (a.k.a. “PR”; in other words, you are requesting that the maintainers pull your changes into the main code repository). In GitHub, go to the fork of the project that you made (https://github.com/user_name/MITgcm66h.git). There is a button for "Compare and Pull" in your newly created branch. Click the button! Now you can add a final succinct summary description of what you've done in your commit(s), and flag up any issues. At last the maintainers will be notified and be able to peruse your changes! While the PR remains open, you can go back to step #5 and make additional edits, git adds, git commits, and then redo step #6; such changes will be added to the PR (and maintainers re-notified). The pull request remains open until either the maintainers fully accept and merge your code changes into the main repository, or decide to reject your changes. But much more likely than the latter, you will instead be asked to respond to feedback, modify your code changes in some way, and/or clean up your code to better satisfy our style requirements, etc., and the pull request will remain open instead of outright rejection.
+    % git push -u origin bugfix
+
+7. Finally create a “pull request” (a.k.a. “PR”; in other words, you are requesting that the maintainers pull your changes into the main code repository). In GitHub, go to the fork of the project that you made (https://github.com/user_name/MITgcm.git). There is a button for "Compare and Pull" in your newly created branch. Click the button! Now you can add a final succinct summary description of what you've done in your commit(s), and flag up any issues. At last the maintainers will be notified and be able to peruse your changes! While the PR remains open, you can go back to step #5 and make additional edits, git adds, git commits, and then redo step #6; such changes will be added to the PR (and maintainers re-notified). The pull request remains open until either the maintainers fully accept and merge your code changes into the main repository, or decide to reject your changes. But much more likely than the latter, you will instead be asked to respond to feedback, modify your code changes in some way, and/or clean up your code to better satisfy our style requirements, etc., and the pull request will remain open instead of outright rejection.
 
 
 .. _subsec_code_style_guide:
@@ -266,9 +293,9 @@ The only people with write access to the main repository are a small number of c
 
 To test pull requests locally you should:
 
- - add the repository of the user proposing the pull request as a remote, :code:`git remote add USERNAME https://github.com/USERNAME/MITgcm66h.git` where USERNAME is replaced by the user name of the person who has made the pull request;
+ - add the repository of the user proposing the pull request as a remote, :code:`git remote add USERNAME https://github.com/user_name/MITgcm66.git` where user_name is replaced by the user name of the person who has made the pull request;
 
- - download a local version of the branch from the pull request, :code:`git fetch USERNAME` followed by :code:`git checkout --track USERNAME/foo`;
+ - download a local version of the branch from the pull request, :code:`git fetch user_name` followed by :code:`git checkout --track user_name/foo`;
 
  - run tests locally; and
 
