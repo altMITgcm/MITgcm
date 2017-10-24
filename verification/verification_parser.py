@@ -58,7 +58,7 @@ def verification_parser(filename, threshold):
                 del dp_similarity[15]
                 del dp_similarity[11]
 
-            assert all(elements > threshold[j] for elements in dp_similarity)
+            assert all(elements >= threshold[j] for elements in dp_similarity)
 
 if __name__ == '__main__':
 
