@@ -35,7 +35,7 @@ Quickstart Guide
 
 ::
 
-    % git clone https://github.com/user_name/altMITgcm/MITgcm.git
+    % git clone https://github.com/user_name/MITgcm.git
 
 2. Move into your local clone directory (cd MITgcm6) and and set up a remote that points to the original:
 
@@ -109,7 +109,7 @@ A detailed explanation of steps for contributing MITgcm code edits:
 
 ::
 
-    % git clone https://github.com/user_name/MITgcm66h.git
+    % git clone https://github.com/user_name/MITgcm.git
 
 |  from your terminal (technically, here you are copying the forked “origin” version from the cloud, not the “upstream” version, but these will be identical at this point).
 |  
@@ -118,14 +118,14 @@ A detailed explanation of steps for contributing MITgcm code edits:
 
 ::
 
-    % cd MITgcm66h
+    % cd MITgcm
 
 |  Finally, we need to set up a remote that points to the main repository:
 |  
 
 ::
 
-    % git remote add upstream https://github.com/altMITgcm/MITgcm66h.git
+    % git remote add upstream https://github.com/altMITgcm/MITgcm.git
 
 |  This means that we now have two "remotes" of the project (a “remote” is just a pointer to a repository not on your computer, i.e. in the GitHub cloud), one pointing to your GitHub user space (“origin”), and this new remote pointing to the original (“upstream”). You can read and write into your "origin" version (since it belongs to you, in the cloud), but not into the "upstream" version. This command just sets up this remote, which is needed in step 3 -- no actual file manipulation is done.
 |  
