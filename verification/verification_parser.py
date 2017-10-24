@@ -11,8 +11,21 @@ def verification_parser(filename, threshold):
     # how many additional tests are run with tweaks to this configuration
     num_exps = len(glob.glob(directory+'/input.*'))+1
 
-    assert len(threshold)==num_exps
+    # check that the correct number of values for `threshold` have been given
+    if len(threshold) != num_exps:
+        # some if statements to deal with grammar
+        if len(threshold)==1:
+            error_message = '{0} value given for threshold, '.format(len(threshold))
+        else:
+            error_message = '{0} values given for threshold, '.format(len(threshold))
+        
+        if num_exps==1:
+            error_message = error_message + 'but {0} subtest found.'.format(num_exps)        
+        else:
+            error_message = error_message + 'but {0} subtests found.'.format(num_exps)
 
+        raise ValueError(error_message)
+        
     # open the testreport output to assess pass/fail            
     with open(filename) as f:
         lines = f.readlines()
