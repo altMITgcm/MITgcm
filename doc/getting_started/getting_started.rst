@@ -564,6 +564,27 @@ output is kept in ``results/output.txt`` for comparison. You can compare
 your ``output.txt`` with the corresponding one for that experiment to
 check that your set-up indeed works. Congratulations!
 
+
+.. _running_mpi:
+
+Running with MPI
+----------------
+
+Run the code with the appropriate MPI “run” or “exec” program
+provided with your particular implementation of MPI. Typical MPI
+packages such as `Open MPI <https://www.open-mpi.org/>`_ will use something like:
+
+   ::
+
+         %  mpirun -np 4 ./mitgcmuv
+
+Sightly more complicated scripts may be needed for many machines
+since execution of the code may be controlled by both the MPI library
+and a job scheduling and queueing system such as SLURM, PBS, LoadLeveler,
+or any of a number of similar tools. See your local cluster documentation 
+or system administrator for the specific syntax required to run on your computing facility.
+
+
 Output files
 ------------
 
@@ -679,25 +700,6 @@ can thus be browsed and/or plotted using tools such as:
 
 -  Matlab, GrADS, IDL and other common post-processing environments provide
    built-in NetCDF interfaces.
-
-.. _running_mpi:
-
-Running with MPI
-----------------
-
-Run the code with the appropriate MPI “run” or “exec” program
-provided with your particular implementation of MPI. Typical MPI
-packages such as `Open MPI <https://www.open-mpi.org/>`_ will use something like:
-
-   ::
-
-         %  mpirun -np 4 ./mitgcmuv
-
-Sightly more complicated scripts may be needed for many machines
-since execution of the code may be controlled by both the MPI library
-and a job scheduling and queueing system such as SLURM, PBS, LoadLeveler,
-or any of a number of similar tools. See your local cluster documentation 
-or system administrator for the specific syntax required to run on your computing facility.
 
 
 .. _chap_modelExamples:
