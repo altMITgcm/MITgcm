@@ -14,5 +14,39 @@ before_install:
 
 script: 
  - echo `pwd`
- - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_barotropic_gyre | tee tutorial_barotropic_gyre/testreport_out.txt"
- - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_barotropic_gyre/testreport_out.txt' -threshold 15"
+ # aim.5l_cs
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t aim.5l_cs | tee aim.5l_cs/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'aim.5l_cs/testreport_out.txt' -threshold 14 16"
+ # global_ocean.cs32x15
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t global_ocean.cs32x15 | tee global_ocean.cs32x15/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'global_ocean.cs32x15/testreport_out.txt' -threshold 16 16 16 16 16"
+ # global_ocean.90x40x15
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t global_ocean.90x40x15 | tee global_ocean.90x40x15/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'global_ocean.90x40x15/testreport_out.txt' -threshold 16 16 16"
+ # hs94.cs-32x32x5
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t hs94.cs-32x32x5 | tee hs94.cs-32x32x5/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'hs94.cs-32x32x5/testreport_out.txt' -threshold 13 16" 
+ # isomip
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t isomip | tee isomip/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'isomip/testreport_out.txt' -threshold 16 16 16"
+ # offline_exf_seaice
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t offline_exf_seaice | tee offline_exf_seaice/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'offline_exf_seaice/testreport_out.txt' -threshold 16 16 16 16 16"
+ # tutorial advection in gyre
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_advection_in_gyre | tee tutorial_advection_in_gyre/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_advection_in_gyre/testreport_out.txt' -threshold 16"
+ # tutorial cfc offline
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_cfc_offline | tee tutorial_cfc_offline/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_cfc_offline/testreport_out.txt' -threshold 16"
+ # tutorial deep convection
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_deep_convection | tee tutorial_deep_convection/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_deep_convection/testreport_out.txt' -threshold 16 16"
+ # tutorial global oce biogeo
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_global_oce_biogeo | tee tutorial_global_oce_biogeo/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_global_oce_biogeo/testreport_out.txt' -threshold 16"
+ # tutorial global oce in p
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_global_oce_in_p | tee tutorial_global_oce_in_p/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_global_oce_in_p/testreport_out.txt' -threshold 16"
+ # tutorial_plume_on_slope
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; ./testreport -t tutorial_plume_on_slope | tee tutorial_plume_on_slope/testreport_out.txt"
+ - docker exec -i fc11-testreport bash -c "cd /MITgcm/verification; python verification_parser.py -filename 'tutorial_plume_on_slope/testreport_out.txt' -threshold 16"
