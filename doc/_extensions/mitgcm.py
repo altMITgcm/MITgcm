@@ -61,6 +61,11 @@ def filelink(pattern):
     return role
 
 def autolink(pattern):
+    """
+    Return a role processor for external links based on a URL pattern.
+
+    %s in *pattern* will be replaced by the role text.
+    """
     def role(name, rawtext, text, lineno, inliner, options={}, content=[]):
         url = pattern % (text,)
         node = nodes.reference(rawtext, text, refuri=url, **options)
