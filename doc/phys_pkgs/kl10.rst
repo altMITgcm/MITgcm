@@ -29,9 +29,9 @@ with the strength of the turbulence :math:`\epsilon`, and the
 stratification :math:`N`, as
 
 .. math::
+   :label: eq-pkg-kl10-Lo
 
-   \label{eq:pkg:kl10:Lo}
-     L_O^2 \approx \epsilon N^{-3}.
+   L_O^2 \approx \epsilon N^{-3}.
 
 The Osborn relation relates the strength of the dissipation to the
 vertical diffusivity as

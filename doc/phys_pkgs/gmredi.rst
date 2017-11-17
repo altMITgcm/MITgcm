@@ -443,7 +443,7 @@ The LDD97 tapering scheme is activated in the model by setting
 **GM\_taper\_scheme = ’ldd97’** in *data.gmredi*.
 
 
-.. figure:: figure_missing
+.. figure::
     :width: 70%
     :align: center
     :alt: Mixed layer depth with GM
