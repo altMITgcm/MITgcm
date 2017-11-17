@@ -87,6 +87,15 @@ The most common git commands are:
 
 What is GitHub then? GitHub is a website that has three major purposes: 1) Code Viewer: through your browser, you can view all source code and all changes to such over time; 2) “Pull Requests”: facilitates the process whereby code developers submit changes to the primary MITgcm maintainers; 3) the “Cloud”: GitHub functions as a cloud server to store different copies of the code. The utility of #1 is fairly obvious. For #2 and #3, without GitHub, one might envision making a big tarball of edited files and emailing the maintainers for inclusion in the main repository. Instead, GitHub effectively does something like this for you in a much more elegant way.  Note unlike using (linux terminal command) git, GitHub commands are NOT typed in a terminal, but are typically invoked by hitting a button on the web interface, or clicking on a webpage link etc. To contribute edits to MITgcm, you need to obtain a github account. It’s free; do this first if you don’t have one already. 
 
+Before you start working with git, make sure you identify yourself. Type:
+
+::
+
+    % git config --global user.email your_email@example.edu
+    % git config --global user.name ‘John Doe’ 
+
+(note the required quotes around your name). You should also personalize your profile associated with your GitHub account.
+
 There are many online tutorials to using Git and GitHub (see for example https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project ); here, we are just communicating the basics necessary to submit code changes to the MITgcm. Spending some time learning the more advanced features of Git will likely pay off in the long run, and not just for MITgcm contributions, as you are likely to encounter it in all sorts of different projects.
 
 To better understand this process, :numref:`git_setup` shows a conceptual map of the Git setup. Note three copies of the code: the main MITgcm repository sourcecode “upstream” (i.e., owned by the MITgcm maintainers) in the GitHub cloud, a copy of the repository “origin” owned by you, also residing in the GitHub cloud, and a local copy on your personal computer or compute cluster (where you intend to compile and run). The Git and GitHub commands to create this setup are explained more fully below.
@@ -181,9 +190,10 @@ A detailed explanation of steps for contributing MITgcm code edits:
 
 .. _subsec_code_style_guide:
 
-Style guide
------------
+Coding Style guide
+------------------
 
+**Detailed instructions or link to be added.**
 
 Automatic testing with Travis-CI
 --------------------------------
@@ -192,6 +202,24 @@ The MITgcm uses the continuous integration service Travis-CI to test code before
 
 **Detailed instructions or link to be added.**
 
+Reviewing pull requests
+-----------------------
+
+The only people with write access to the main repository are a small number of core MITgcm developers. They are the people that will eventually merge your pull requests. However, before your PR gets merged, it will undergo the automated testing on Travis-CI, and it will be assessed by the MITgcm community.
+
+**Everyone can review and comment on pull requests.** Even if you are not one of the core developers you can still comment on a pull request.
+
+To test pull requests locally you should:
+
+ - add the repository of the user proposing the pull request as a remote, :code:`git remote add user_name https://github.com/user_name/MITgcm.git` where user_name is replaced by the user name of the person who has made the pull request;
+
+ - download a local version of the branch from the pull request, :code:`git fetch user_name` followed by :code:`git checkout --track user_name/foo`;
+
+ - run tests locally; and
+
+ - possibly push fixes or changes directly to the pull request.
+
+None of these steps, apart from the final one, require write access to the main repository. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
 
 
 Contributing to the manual
@@ -284,21 +312,3 @@ This information should go in an 'adominition' block. The source code to achieve
 
 
 
-Reviewing pull requests
-=======================
-
-The only people with write access to the main repository are a small number of core MITgcm developers. They are the people that will eventually merge your pull requests. However, before your PR gets merged, it will undergo the automated testing on Travis-CI, and it will be assessed by the MITgcm community.
-
-**Everyone can review and comment on pull requests.** Even if you are not one of the core developers you can still comment on a pull request.
-
-To test pull requests locally you should:
-
- - add the repository of the user proposing the pull request as a remote, :code:`git remote add user_name https://github.com/user_name/MITgcm.git` where user_name is replaced by the user name of the person who has made the pull request;
-
- - download a local version of the branch from the pull request, :code:`git fetch user_name` followed by :code:`git checkout --track user_name/foo`;
-
- - run tests locally; and
-
- - possibly push fixes or changes directly to the pull request.
-
-None of these steps, apart from the final one, require write access to the main repository. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.

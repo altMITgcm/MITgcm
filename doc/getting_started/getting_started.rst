@@ -97,7 +97,8 @@ If you have downloaded the code through a git clone command (`Method 1`_ above),
 
     % git pull
 
-and all files will be updated to match the current state of the code repository, as it exists at `GitHub <https://github.com/altMITgcm/MITgcm.git>`_.
+and all files will be updated to match the current state of the code repository, as it exists at `GitHub <https://github.com/altMITgcm/MITgcm.git>`_. (*Note:* if you plan to contribute to the MITgcm and followed the steps to download the code as described in 
+:numref:`chap_contributing`, you will need to type ``git pull upstream`` instead.)
 
 This update pathway is ideal if you are in the midst of a project and you want to incorporate new MITgcm features into your executable(s), or take advantage of recently added analysis utilties, etc. After the git pull, any changes in model source code and include files will be updated, so you can repeat the build procedure (:numref:`building_code`) and you will include all these new features in your new executable.
 
@@ -506,7 +507,7 @@ The steps for building MITgcm with MPI support are:
 
    -  `Open MPI <https://www.open-mpi.org/>`_ 
 
-   -  `MVAPICH2 <https:mvapich.cse.ohio-state.edu/>`_
+   -  `MVAPICH2 <http:mvapich.cse.ohio-state.edu/>`_
 
    -  `MPICH <https://www.mpich.org/>`_
 
