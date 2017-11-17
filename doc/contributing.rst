@@ -22,10 +22,10 @@ To request a new feature, or guidance on how to implement it yourself, please op
 
 
 
-Contributing to the code
+Using Git and Github
 ========================
 
-To contribute to the source code of the model you will need to fork the repository and place a pull request on GitHub. The two following sections describe this process in different levels of detail. If you are unfamiliar with git, you may wish to skip the quickstart guide and use the detailed instructions. All contributions are expected to conform with the :ref:`subsec_code_style_guide`.
+To contribute to the source code of the model you will need to fork the repository and place a pull request on GitHub. The two following sections describe this process in different levels of detail. If you are unfamiliar with git, you may wish to skip the quickstart guide and use the detailed instructions. All contributions are expected to conform with the :ref:`sec_code_style_guide`.
 
 
 Quickstart Guide
@@ -185,13 +185,15 @@ A detailed explanation of steps for contributing MITgcm code edits:
 
     % git push -u origin bugfix
 
-7. Finally create a “pull request” (a.k.a. “PR”; in other words, you are requesting that the maintainers pull your changes into the main code repository). In GitHub, go to the fork of the project that you made (https://github.com/user_name/MITgcm.git). There is a button for "Compare and Pull" in your newly created branch. Click the button! Now you can add a final succinct summary description of what you've done in your commit(s), and flag up any issues. At last the maintainers will be notified and be able to peruse your changes! While the PR remains open, you can go back to step #5 and make additional edits, git adds, git commits, and then redo step #6; such changes will be added to the PR (and maintainers re-notified). The pull request remains open until either the maintainers fully accept and merge your code changes into the main repository, or decide to reject your changes. But much more likely than the latter, you will instead be asked to respond to feedback, modify your code changes in some way, and/or clean up your code to better satisfy our style requirements, etc., and the pull request will remain open instead of outright rejection.
+7. Finally create a “pull request” (a.k.a. “PR”; in other words, you are requesting that the maintainers pull your changes into the main code repository). In GitHub, go to the fork of the project that you made (https://github.com/user_name/MITgcm.git). There is a button for "Compare and Pull" in your newly created branch. Click the button! Now you can add a final succinct summary description of what you've done in your commit(s), and flag up any issues. At last the maintainers will be notified and be able to peruse your changes! While the PR remains open, you can go back to step #5 and make additional edits, git adds, git commits, and then redo step #6; such changes will be added to the PR (and maintainers re-notified). 
+
+Your pull request remains open until either the maintainers fully accept and merge your code changes into the main repository, or decide to reject your changes. But much more likely than the latter, you will instead be asked to respond to feedback, modify your code changes in some way, and/or clean up your code to better satisfy our style requirements, etc., and the pull request will remain open instead of outright rejection. It is possible for other users (besides the maintainers) to examine or even download your pull request; see :ref:`sec_pullreq`.
 
 
-.. _subsec_code_style_guide:
+.. _sec_code_style_guide:
 
-Coding Style guide
-------------------
+Coding style guide
+==================
 
 **Detailed instructions or link to be added.**
 
@@ -201,25 +203,6 @@ Automatic testing with Travis-CI
 The MITgcm uses the continuous integration service Travis-CI to test code before it is accepted into the repository. When you submit a pull request your contributions will be automatically tested. However, it is a good idea to test before submitting a pull request, so that you have time to fix any issues that are identified. To do this, you will need to activate Travis-CI for your fork of the repository.
 
 **Detailed instructions or link to be added.**
-
-Reviewing pull requests
------------------------
-
-The only people with write access to the main repository are a small number of core MITgcm developers. They are the people that will eventually merge your pull requests. However, before your PR gets merged, it will undergo the automated testing on Travis-CI, and it will be assessed by the MITgcm community.
-
-**Everyone can review and comment on pull requests.** Even if you are not one of the core developers you can still comment on a pull request.
-
-To test pull requests locally you should:
-
- - add the repository of the user proposing the pull request as a remote, :code:`git remote add user_name https://github.com/user_name/MITgcm.git` where user_name is replaced by the user name of the person who has made the pull request;
-
- - download a local version of the branch from the pull request, :code:`git fetch user_name` followed by :code:`git checkout --track user_name/foo`;
-
- - run tests locally; and
-
- - possibly push fixes or changes directly to the pull request.
-
-None of these steps, apart from the final one, require write access to the main repository. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
 
 
 Contributing to the manual
@@ -309,6 +292,27 @@ This information should go in an 'adominition' block. The source code to achieve
     :math:`S_x`: **SlopeX** (argument on exit)
 
     :math:`S_y`: **SlopeY** (argument on exit)
+
+.. _sec_pullreq:
+
+Reviewing pull requests
+=======================
+
+The only people with write access to the main repository are a small number of core MITgcm developers. They are the people that will eventually merge your pull requests. However, before your PR gets merged, it will undergo the automated testing on Travis-CI, and it will be assessed by the MITgcm community.
+
+**Everyone can review and comment on pull requests.** Even if you are not one of the core developers you can still comment on a pull request.
+
+To test pull requests locally you should:
+
+ - add the repository of the user proposing the pull request as a remote, :code:`git remote add user_name https://github.com/user_name/MITgcm.git` where user_name is replaced by the user name of the person who has made the pull request;
+
+ - download a local version of the branch from the pull request, :code:`git fetch user_name` followed by :code:`git checkout --track user_name/foo`;
+
+ - run tests locally; and
+
+ - possibly push fixes or changes directly to the pull request.
+
+None of these steps, apart from the final one, require write access to the main repository. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
 
 
 
