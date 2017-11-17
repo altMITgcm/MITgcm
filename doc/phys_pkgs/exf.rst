@@ -124,7 +124,7 @@ General flags and parameters
     +-------------------------+------------------+-------------------------------------------------------------------------------+
     | twoDigitYear            | :code:`.FALSE.`  | instead of appending ``_YYYY`` append  ``YY``                                 |
     +-------------------------+------------------+-------------------------------------------------------------------------------+
-    | repeatPeriod            | 0.0              | :math:`\gt` 0: cycle through all input fields at the same period (in seconds) |
+    | repeatPeriod            | 0.0              | > 0: cycle through all input fields at the same period (in seconds) |
     +                         +                  +-------------------------------------------------------------------------------+
     |                         |                  | = 0: use period assigned to each field                                        |
     +-------------------------+------------------+-------------------------------------------------------------------------------+
