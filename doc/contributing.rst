@@ -302,17 +302,33 @@ The only people with write access to the main repository are a small number of c
 
 **Everyone can review and comment on pull requests.** Even if you are not one of the core developers you can still comment on a pull request.
 
-To test pull requests locally you should:
+To test pull requests locally you should download the pull request branch. You can do this either by cloning the branch from the pull request:
 
- - add the repository of the user proposing the pull request as a remote, :code:`git remote add user_name https://github.com/user_name/MITgcm.git` where user_name is replaced by the user name of the person who has made the pull request;
+::
+    
+    git clone -b BRANCHNAME https://github.com/USERNAME/MITgcm.git
 
- - download a local version of the branch from the pull request, :code:`git fetch user_name` followed by :code:`git checkout --track user_name/foo`;
+where `USERNAME` is replaced by the username of the person proposing the pull request, and `BRANCHNAME` is the branch from the pull request.
 
- - run tests locally; and
+Alternatively, you can add the repository of the user proposing the pull request as a remote to your existing local repository. Move directories in to your local repository and then
 
- - possibly push fixes or changes directly to the pull request.
+::
+    
+    git remote add USERNAME https://github.com/USERNAME/MITgcm.git
 
-None of these steps, apart from the final one, require write access to the main repository. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
+where USERNAME is replaced by the user name of the person who has made the pull request. Then download the branch from the pull request 
+
+::
+    
+    git fetch USERNAME 
+
+and switch to the desired branch
+
+::
+    
+    git checkout --track USERNAME/foo
 
 
+You now have a local copy of the code from the pull request and can run tests locally. If you have write access to the main repository you can push fixes or changes directly to the pull request.
 
+None of these steps, apart from pushing fixes back to the pull request, require write access to either the main repository or the repository of the person proposing the pull request. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
