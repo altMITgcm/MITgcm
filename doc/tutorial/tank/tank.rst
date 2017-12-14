@@ -1,26 +1,3 @@
-.. _sec_eg_tank:
-
-A Rotating Tank in Cylindrical Coordinates
-==========================================
-
-  (in directory: :code:`verification/rotating_tank/`)
-
-
-Overview
---------
-
-This example configuration demonstrates using the MITgcm to simulate a
-laboratory demonstration using a differentially heated rotating
-annulus of water.  The simulation is configured for a laboratory scale
-on a :math:`3^{\circ}\times1\mathrm{cm}` cyclindrical grid with twenty-nine
-vertical levels of 0.5cm each.  This is a typical laboratory setup for
-illustration principles of GFD, as well as for a laboratory data
-assimilation project. The files for this experiment can be found in
-the verification directory under :code:`rotating_tank`.
-
-
-example illustration from GFD lab here
- 
 
 Equations Solved
 ----------------

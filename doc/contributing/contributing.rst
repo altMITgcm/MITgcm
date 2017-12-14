@@ -25,7 +25,7 @@ To request a new feature, or guidance on how to implement it yourself, please op
 Using Git and Github
 ========================
 
-To contribute to the source code of the model you will need to fork the repository and place a pull request on GitHub. The two following sections describe this process in different levels of detail. If you are unfamiliar with git, you may wish to skip the quickstart guide and use the detailed instructions. All contributions are expected to conform with the :ref:`sec_code_style_guide`.
+To contribute to the source code of the model you will need to fork the repository and place a pull request on GitHub. The two following sections describe this process in different levels of detail. If you are unfamiliar with git, you may wish to skip the quickstart guide and use the detailed instructions. All contributions to the source code are expected to conform with the :ref:`sec_code_style_guide`. Contributions to the manual should follow the same procedure and conform with :numref:`contrib_manual`.
 
 
 Quickstart Guide
@@ -204,19 +204,15 @@ The MITgcm uses the continuous integration service Travis-CI to test code before
 
 **Detailed instructions or link to be added.**
 
+.. _contrib_manual:
 
 Contributing to the manual
 ==========================
 
-Whether you are correcting typos or describing currently undocumented packages, we welcome all contributions to the manual. The following information will help you make sure that your contribution is consistent with the style of the MITgcm documentation. (We know that not all of the current documentation follows these guidelines - we're working on it)
+Whether you are simply correcting typos or describing undocumented packages, we welcome all contributions to the manual. The following information will help you make sure that your contribution is consistent with the style of the MITgcm documentation. (We know that not all of the current documentation follows these guidelines - we're working on it)
 
-Once you've made your changes to the manual, you should build it locally to verify that it works as expected. To do this you will need a working python installation with the following modules installed (use :code:`pip install MODULE` in the terminal):
-
- - sphinx
- - sphinxcontrib-bibtex
- - sphinx_rtd_theme
-
-Then, run :code:`make html` in the :code:`docs` directory.
+The manual is written in **rst** format, which is short for ReStructuredText directives. rst offers many wonderful features: it automatically does much of the formatting for you, it is reasonably well documented on the web (e.g. primers available `here <http://www.sphinx-doc.org/en/stable/rest.html>`_ and
+`here <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_), it can accept raw latex syntax and track equation labelling for you, in addition to numerous other useful features. On the down side however, it can be very fussy about formatting, requiring exact spacing and indenting, and seemingly innocuous things such as blank spaces at ends of lines can wreak havoc. We suggest looking at the existing rst files in the manual to see exactly how something is formatted, along with the syntax guidelines specified in this section, prior to writing and formatting your own manual text.
 
 
 Section headings
@@ -231,67 +227,109 @@ Section headings
 N.B. all underlinings should be the same length as the heading. If they are too short an error will be produced.
 
 
-Cross referencing
+Internal document references
+----------------------------
+
+rst allows internal referencing of figures, tables, section headings, and equations, i.e. clickable links that bring the reader to the respective figure etc. in the manual.
+To be referenced, a unique label is required. To reference figures, tables, or section headings by number,
+the rst (inline) directive is ``:numref:`LABELNAME```. For example, this syntax would write out ``Figure XX`` on a line. and when clicked, would relocate your position
+in the manual to figure XX.  Section Headings can also be referenced so that the name is written out instead of the section number, instead using this 
+directive ``:ref:`LABELNAME```.
+
+Equation references have a slightly different inline syntax: ``:eq:`LABELNAME``` will produce a clickable equation number reference,  surrounded by parentheses. 
+
+For instructions how to assign a label to tables and figures, see below. To label a section heading, labels go above the section they refer to, with the format ``.. _LABELNAME:``.
+Note the necessary leading underscore.
+
+
+External references
+--------------------
+
+hyperlinks
+filelink
+varlink
+
+Symbolic Notation
 -----------------
 
-Labels go above the section they refer to, with the format ``.. _LABELNAME:``. The leading underscore is important.
-
-To reference sections/figures/tables/equations by number use this format for the reference: ``:numref:`sec_eg_baro```
-
-To reference sections by name use this format: ``:ref:`sec_eg_baro```
-
-
-Maths
------
-
-Inline maths is done with ``:math:`LATEX_HERE```
+Inline math is done with ``:math:`LATEX_HERE```
 
 Separate equations, which will be typeset on their own lines, are produced with::
 
   .. math::
-      :label: eqn_label_here
+     LATEX_HERE
+     :label: EQN_LABEL_HERE
 
-      LATEX_HERE
+
+Labelled separate equations are assigned an equation number, which may be referenced elsewhere in the document (see :numref:`referencing`). Omitting the ``:label:`` above
+will still produce an equation on its own line, except without an equation label.
+Note that using using latex formatting ``\begin{aligned}`` ...  ``\end{aligned}`` across multiple lines of equations will not work in conjunction with unique equation labels for each separate line.
+
+
+Figures and tables
+------------------
+
+provide example syntax of each
+
+
+Other text blocks
+-----------------
+
+To set several lines apart in an whitespace box, e.g. useful for showing lines in from a terminal session, rst uses ``::`` to set off a ‘literal block’.
+For example::
+
+   ::
+
+       % unix_command_foo
+       % unix_command_fum 
+
+
+
+A splashier way to outline a block, including a box label, is to employ what is termed in rst as an ‘admonition block’.
+In the manual these are used to show calling trees and for describing subroutine inputs and outputs. An example of 
+a subroutine input/output block is as follows:
+
+
+.. admonition:: This is an admonition block showing subroutine in/out syntax
+   :class: note
+
+   |   .. admonition:: :filelink:`SUBROUTINE_NAME </model/src/subroutine_name.F>`
+   |     :class: note
+   | 
+   |     | :math:`var1` : **VAR1** ( :filelink:`WHERE_VAR1_DEFINED.h </model/inc/where_var1_defined.h>`)
+   |     | :math:`var2` : **VAR1** ( :filelink:`WHERE_VAR2_DEFINED.h </model/inc/where_var2_defined.h>` )
+   |     | :math:`var3` : **VAR1** ( :filelink:`WHERE_VAR3_DEFINED.h </model/inc/where_var3_defined.h>` )
+
+
+
+An example of a calling tree syntax is :filelink:`here </doc/discrete_algorithm/discret_algorithm.rst>`.
+
+
 
 
 .. _subsec_manual_style_guide:
 
 
-Units
------
+Other style conventions
+-----------------------
 
-Units should be typeset in normal text, and exponents added with the ``:sup:`` command. 
-
-::
-
-  100 N m\ :sup:`--2`
-
-If the exponent is negative use two dashes ``--`` to make the minus sign long enough. The backslash removes the space between the unit and the exponent.
+double quotes for inline literal computer output, variables, typing etc.
+how to break up into smaller files
+probably want to add more to this subsection; maybe add another subsection “other useful rst syntax”
 
 
+Building the manual
+-------------------
+
+Once you've made your changes to the manual, you should build it locally to verify that it works as expected. To do this you will need a working python installation with the following modules installed (use :code:`pip install MODULE` in the terminal):
+
+ - sphinx
+ - sphinxcontrib-bibtex
+ - sphinx_rtd_theme
+
+Then, run :code:`make html` in the :code:`docs` directory.
 
 
-Describing subroutine inputs and outputs
-----------------------------------------
-
-This information should go in an 'adominition' block. The source code to achieve this is:
-
-::
-
-  .. admonition:: Subroutine
-    :class: note
-
-    S/R GMREDI_CALC_TENSOR (*pkg/gmredi/gmredi_calc_tensor.F*)
-
-    :math:`\sigma_x`: **SlopeX** (argument on entry)
-
-    :math:`\sigma_y`: **SlopeY** (argument on entry)
-
-    :math:`\sigma_z`: **SlopeY** (argument)
-
-    :math:`S_x`: **SlopeX** (argument on exit)
-
-    :math:`S_y`: **SlopeY** (argument on exit)
 
 .. _sec_pullreq:
 
@@ -332,3 +370,40 @@ and switch to the desired branch
 You now have a local copy of the code from the pull request and can run tests locally. If you have write access to the main repository you can push fixes or changes directly to the pull request.
 
 None of these steps, apart from pushing fixes back to the pull request, require write access to either the main repository or the repository of the person proposing the pull request. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
+
+
+Old Stuff to remove:
+
+Units should be typeset in normal text, and exponents added with the ``:sup:`` command. 
+
+::
+
+  100 N m\ :sup:`--2`
+
+If the exponent is negative use two dashes ``--`` to make the minus sign long enough. The backslash removes the space between the unit and the exponent.
+
+
+
+
+Describing subroutine inputs and outputs
+----------------------------------------
+
+This information should go in an 'adminition' block. The source code to achieve this is:
+
+::
+
+  .. admonition:: Subroutine
+    :class: note
+
+    S/R GMREDI_CALC_TENSOR (*pkg/gmredi/gmredi_calc_tensor.F*)
+
+    :math:`\sigma_x`: **SlopeX** (argument on entry)
+
+    :math:`\sigma_y`: **SlopeY** (argument on entry)
+
+    :math:`\sigma_z`: **SlopeY** (argument)
+
+    :math:`S_x`: **SlopeX** (argument on exit)
+
+    :math:`S_y`: **SlopeY** (argument on exit)
+

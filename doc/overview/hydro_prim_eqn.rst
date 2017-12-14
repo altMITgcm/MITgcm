@@ -106,6 +106,8 @@ In :math:`p-`\coordinates, the upper boundary acts like a solid boundary
 (:math:`\omega=0` ); in :math:`z-`\coordinates the lower boundary is analogous to a
 free surface (:math:`\phi` is imposed and :math:`\omega \neq 0`).
 
+.. _hpe-p-geo-potential-split:
+
 Splitting the geopotential
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
