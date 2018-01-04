@@ -1,3 +1,5 @@
+.. _finding_the_pressure_field:
+
 Finding the pressure field
 --------------------------
 

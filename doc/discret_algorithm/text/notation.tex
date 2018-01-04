@@ -1,0 +1,42 @@
+% $Header: /u/gcmpack/manual/s_algorithm/text/notation.tex,v 1.8 2011/05/04 22:42:48 jmc Exp $
+% $Name:  $
+
+\section{Notation} 
+
+Because of the particularity of the vertical direction in stratified fluid
+context, in this chapter, the vector notations are mostly used
+for the horizontal component:
+the horizontal part of a vector is simply written 
+$\vec{\bf v}$ (instead of ${\bf v_h}$ or $\vec{\mathbf{v}}_{h}$ in chaper 1)
+and a 3.D vector is simply written $\vec{v}$ (instead of $\vec{\mathbf{v}}$ 
+in chapter 1).
+
+The notations we use to describe the discrete formulation 
+of the model are summarized hereafter:\\
+general notation:
+\\ $\Delta x, \Delta y, \Delta r$ grid spacing in X,Y,R directions.
+\\ $A_c,A_w,A_s,A_{\zeta}$ : 
+horizontal area of a grid cell surrounding $\theta,u,v,\zeta$ point.
+\\ ${\cal V}_u , {\cal V}_v , {\cal V}_w , {\cal V}_\theta$ :
+Volume of the grid box surrounding $u,v,w,\theta$ point;
+\\ $i,j,k$ : current index relative to X,Y,R directions;
+\\basic operator:
+\\ $\delta_i $ : $\delta_i \Phi = \Phi_{i+1/2} - \Phi_{i-1/2} $
+\label{eq:delta_i}
+\\ $~^{-i}$ : $\overline{\Phi}^i = ( \Phi_{i+1/2} + \Phi_{i-1/2} ) / 2 $ 
+\label{eq:bar_i}
+\\ $\delta_x $ : $\delta_x \Phi = \frac{1}{\Delta x} \delta_i \Phi $
+\label{eq:delta_x}
+\\
+\\ $\overline{\nabla}$ = horizontal gradient operator :  
+$\overline{\nabla} \Phi = \{ \delta_x \Phi , \delta_y \Phi \}$
+\label{eq:d_grad}
+\\ $\overline{\nabla} \cdot$ = horizontal divergence operator :  
+$\overline{\nabla}\cdot \vec{\mathrm{f}}  = 
+\frac{1}{\cal A} \{ \delta_i \Delta y \, \mathrm{f}_x 
+                  + \delta_j \Delta x \, \mathrm{f}_y \} $
+\label{eq:d_div}
+\\ $\overline{\nabla}^2 $ = horizontal Laplacian operator :
+$ \overline{\nabla}^2 \Phi = 
+   \overline{\nabla}\cdot \overline{\nabla}\Phi $
+\label{eq:d_lap}

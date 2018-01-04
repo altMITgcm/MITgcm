@@ -12,7 +12,15 @@ Welcome to MITgcm's user manual
    :numbered: 4
 
    overview/overview
+   discret_algorithm/discret_algorithm
    getting_started/getting_started
-   contributing
-   phys_pkgs/phys_pkgs
+   tutorial/tutorial.rst
+   contributing/contributing.rst
+   software_arch/software_arch.rst
+   auto_diff/auto_diff.rst
+   phys_pkgsI/phys_pkgsI
+   phys_pkgsII/phys_pkgsII
+   ocean_state_est/ocean_state_est.rst
+   under_dev/under_dev.rst
+   prev_applications/prev_applications.rst
    zreferences
