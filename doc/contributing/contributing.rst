@@ -16,7 +16,7 @@ If you think you've found a bug, the first thing to check that you're using the 
  - any suggestions you have for how it might be fixed.
 
 To request a new feature, or guidance on how to implement it yourself, please open a ticket with the following details:
-
+ 
  - a clear explanation of what the feature will do; and
  - a summary of the equations to be solved.
 
@@ -174,7 +174,7 @@ A detailed explanation of steps for contributing MITgcm code edits:
 
 5. Doing stuff! This usually comes in two flavors, fixing bugs or adding a feature. To do this you should:
 
-    - edit the relevant file(s) and/or create new files. Refer to :ref:`subsec_code_style_guide` for details on expected documentation standards and code style requirements. Of course, changes should be thoroughly tested to ensure they compile and run successfully!
+    - edit the relevant file(s) and/or create new files. Refer to :ref:`sec_code_style_guide` for details on expected documentation standards and code style requirements. Of course, changes should be thoroughly tested to ensure they compile and run successfully!
     - type ``git add <FILENAME1> <FILENAME2> ...`` to stage the file(s) ready for a commit command (note both existing and brand new files need to be added). “Stage” effectively means to notify Git of the the list of files you plan to “commit” for changes into the version tracking system. Note you can change other files and NOT have them sent to model developers; only staged files will be sent. You can repeat this ``git add`` command as many times as you like and it will continue to augment the list of files.  ``git diff`` and ``git status`` are useful commands to see what you have done so far.
     - use ``git commit`` to commit the files. This is the first step in bundling a collection of files together to be sent off to the MITgcm maintainers. When you enter this command, an editor window will pop up. On the top line, type a succinct (<70 character) summary of what these changes accomplished. Then, leave a blank line and type a longer description of why the action in this commit was appropriate. It is good practice to link with known issues using the syntax ``#ISSUE_NUMBER`` in either the summary line or detailed comment. Note that all the changes do not have to be handled in a single commit (i.e. you can git add some files, do a commit, than continue anew by adding different files, do another commit etc.); git commit does not submit anything to maintainers.  
     - if you are fixing a more involved bug or adding a new feature, such that many changes are required, it is preferable to break your contribution into multiple commits (each documented separately) rather than submitting one massive commit; each commit should encompass a single conceptual change to the code base, regardless of how many files it touches. This will allow the MITgcm maintainers to more easily understand your proposed changes and will expedite the review process.
@@ -226,6 +226,7 @@ Section headings
 
 N.B. all underlinings should be the same length as the heading. If they are too short an error will be produced.
 
+.. _referencing:
 
 Internal document references
 ----------------------------
@@ -240,7 +241,6 @@ Equation references have a slightly different inline syntax: ``:eq:`LABELNAME```
 
 For instructions how to assign a label to tables and figures, see below. To label a section heading, labels go above the section they refer to, with the format ``.. _LABELNAME:``.
 Note the necessary leading underscore.
-
 
 External references
 --------------------

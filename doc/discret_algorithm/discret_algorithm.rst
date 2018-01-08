@@ -30,14 +30,13 @@ General notation:
 
 | :math:`\Delta x, \Delta y, \Delta r` grid spacing in X, Y, R directions
 |
-| :math:`A_c,A_w,A_s,A_{\zeta}` : horizontal area of a grid cell
-  surrounding :math:`\theta,u,v,\zeta` point
+| :math:`A_c,A_w,A_s,A_{\zeta}` : horizontal area of a grid cell surrounding :math:`\theta,u,v,\zeta` point
 |
-| :math:`{\cal V}_u , {\cal V}_v , {\cal V}_w , {\cal V}_\theta` :
-  Volume of the grid box surrounding :math:`u,v,w,\theta` point
+| :math:`{\cal V}_u , {\cal V}_v , {\cal V}_w , {\cal V}_\theta` : Volume of the grid box surrounding :math:`u,v,w,\theta` point
 |
 | :math:`i,j,k` : current index relative to X, Y, R directions
-| 
+|
+
 Basic operators:
 
 | :math:`\delta_i` :
@@ -361,7 +360,7 @@ time discretization of the explicit terms. We have historically used the
 quasi-second order Adams-Bashforth method for all explicit terms in both
 the momentum and tracer equations. This is still the default mode of
 operation but it is now possible to use alternate schemes for tracers
-(see :numref:`tracer-advection`). In the previous sections, we summarized an explicit scheme as:
+(see :numref:`tracer_eqns`). In the previous sections, we summarized an explicit scheme as:
 
 .. math::
    \tau^{*} = \tau^{n} + \Delta t G_\tau^{(n+1/2)}
@@ -981,8 +980,6 @@ conjugate gradient 3D solver (:filelink:`CG3D <model/src/cg3d.F>`) that is initi
 at the same point in the code.
 
 .. toctree::
-   :maxdepth:3
-
    crank-nicol.rst
    nonlinear-freesurf.rst
 
@@ -998,8 +995,6 @@ the boundary. We treat the horizontal and vertical directions as
 separable and differently.
 
 .. toctree::
-   :maxdepth:3
-
    finitevol-meth.rst
    c-grid.rst
    horiz-grid.rst
@@ -1478,7 +1473,7 @@ and quadratic bottom drag.
 .. math::
    G_u^{v-diss} =
    \frac{1}{\Delta r_f h_w} \delta_k \tau_{13}
-   :label: gu_v-diss
+   :label: gu_u-diss
 
 .. math::
    G_v^{v-diss} =
@@ -1488,7 +1483,7 @@ and quadratic bottom drag.
 .. math::
    G_w^{v-diss} = \epsilon_{nh}
    \frac{1}{\Delta r_f h_d} \delta_k \tau_{33}
-   :label: gw_v-diss
+   :label: gw_w-diss
 
 represents the general discrete form of the vertical dissipation terms.
 
@@ -1902,7 +1897,7 @@ Currently, this is exactly the same code as the flux form equations.
 .. math::
    G_v^{v-diss} =
    \frac{1}{\Delta r_f h_s} \delta_k \tau_{23}
-   :label: gu_v-dissip
+   :label: gv_v-dissip
 
 represents the general discrete form of the vertical dissipation terms.
 
@@ -1918,6 +1913,8 @@ In the interior the vertical stresses are discretized:
   :class: note
 
     | :math:`\tau_{13}, \tau_{23}` : :varlink:`vrf` ( local to :filelink:`MOM_VECINV.F <pkg/mom_vecinv/mom_vecinv.F>` )
+
+.. _tracer_eqns:
 
 Tracer equations
 ================
@@ -2195,7 +2192,7 @@ First order upwind advection
 ----------------------------
 
 Although the upwind scheme is the underlying scheme for the robust or
-non-linear methods given in :numref:`_nonlinear_adv`, we haven’t actually implemented this method
+non-linear methods given in :numref:`nonlinear_adv`, we haven’t actually implemented this method
 for general use. It would be very diffusive and it is unlikely that it
 could ever produce more useful results than the positive higher order
 schemes.
@@ -2458,7 +2455,7 @@ A schematic of multi-dimension time stepping for the cube sphere configuration i
 Comparison of advection schemes
 ===============================
 
-:numref:`adv_scheme_summary` shows a summary of the different advection schemes available in MITgcm. ``A.B.'' stands for Adams-Bashforth and ``DST'' for direct space time. The code corresponds to the number used to select the corresponding advection scheme in the parameter file (e.g., tempAdvScheme=3 in file data selects the 3rd order upwind advection scheme for temperature).
+:numref:`adv_scheme_summary` shows a summary of the different advection schemes available in MITgcm. “A.B.” stands for Adams-Bashforth and “DST” for direct space time. The code corresponds to the number used to select the corresponding advection scheme in the parameter file (e.g., tempAdvScheme=3 in file data selects the 3rd order upwind advection scheme for temperature).
 
 .. table:: MITgcm Advection Schemes
   :name: adv_scheme_summary
@@ -3148,7 +3145,7 @@ projection about a latitude :math:`\theta_0` and geopotential height
    = -\frac{\mu{\rm Ro} \tan\theta({\tilde u}^2 + {\tilde v}^2)}{r/L} 
    - \frac{{\rm Fr}^2M_{Ro} {\tilde v} w}{r/H}
    + \frac{{\rm Ro} {\bf \hat y}\cdot\nabla^2{\bf u}}{{\rm Re}}
-   :label: gill_u
+   :label: gill_v
 
 .. math::
    {\rm Fr}^2\lambda^2\frac{D{w}}{Dt}  - b + {\frac{\partial{\pi}}{\partial{z}}}

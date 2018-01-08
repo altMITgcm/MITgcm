@@ -307,7 +307,7 @@ original code have been modified and improved :cite:`losch10:_mitsim`:
 -  three different solution methods for solving the nonlinear momentum
    equations have been adopted: LSOR :cite:`zhang97`, EVP :cite:`hun97`, JFNK :cite:`lemieux10,losch14:_jfnk`;
 
--  ice-ocean stress can be formulated as in :cite:`hibler87` or as in :cite:`cam08`;
+-  ice-ocean stress can be formulated as in :cite:`hibler87` or as in :cite:`cam:08`;
 
 -  ice variables are advected by sophisticated, conservative advection
    schemes with flux limiting;
