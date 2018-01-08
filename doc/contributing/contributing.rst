@@ -263,7 +263,7 @@ Separate equations, which will be typeset on their own lines, are produced with:
 
 Labelled separate equations are assigned an equation number, which may be referenced elsewhere in the document (see :numref:`referencing`). Omitting the ``:label:`` above
 will still produce an equation on its own line, except without an equation label.
-Note that using using latex formatting ``\begin{aligned}`` ...  ``\end{aligned}`` across multiple lines of equations will not work in conjunction with unique equation labels for each separate line.
+Note that using latex formatting ``\begin{aligned}`` ...  ``\end{aligned}`` across multiple lines of equations will not work in conjunction with unique equation labels for each separate line. (Latex alignment will work however if you assign a single label for the multiple lines of equations.)
 
 
 Figures and tables

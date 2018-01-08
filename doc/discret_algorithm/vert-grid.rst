@@ -18,11 +18,11 @@ used by the model. :math:`\Delta r_f` is the difference in :math:`r`
 surface layer has index :math:`k=1`.).
 
 The vertical grid is calculated in subroutine :filelink:`INI_VERTICAL_GRID <model/src/ini_vertical_grid.F>` and
-specified via the vector :varlink:`DELR` in namelist ``PARM04``. The units of “r”
+specified via the vector :varlink:`delR` in namelist ``PARM04``. The units of “r”
 are either meters or Pascals depending on the isomorphism being used
 which in turn is dependent only on the choice of equation of state.
 
-There are alternative namelist vectors :varlink:`DELZ` and :varlink:`DELP` which
+There are alternative namelist vectors :varlink:`delZ` and :varlink:`delP` which
 dictate whether z- or p- coordinates are to be used but we intend to
 phase this out since they are redundant.
 
@@ -49,8 +49,8 @@ center, :math:`Nr-1` center to center, and center to bottom distances.
 .. admonition:: S/R :filelink:`INI_VERTICAL_GRID <model/src/ini_vertical_grid.F>`
   :class: note
 
-    | :math:`\Delta r_f , \Delta r_c` : **DRf, DRc** ( :filelink:`GRID.h <model/inc/GRID.h>` )
-    | :math:`\Delta r_f^{-1} , \Delta r_c^{-1}` : **RECIP_DRfc, RECIP_DRc** ( :filelink:`GRID.h <model/inc/GRID.h>` )
+    | :math:`\Delta r_f , \Delta r_c` : :varlink:`drF`, :varlink:`drC` ( :filelink:`GRID.h <model/inc/GRID.h>` )
+    | :math:`\Delta r_f^{-1} , \Delta r_c^{-1}` : :varlink:`recip_drF`, :varlink:`recip_drC` ( :filelink:`GRID.h <model/inc/GRID.h>` )
 
 
 Topography: partially filled cells
@@ -84,7 +84,7 @@ r_f(k)` and the physical thickness of the open side is given by
 :math:`h_w` and :math:`h_s` are used to describe the geometry:
 :varlink:`hFacC`, :varlink:`hFacW` and :varlink:`hFacS` respectively. These are calculated in
 subroutine :filelink:`INI_MASKS_ETC <model/src/ini_masks_etc.F>` along with there reciprocals
-:varlink:`RECIP_hFacC`, :varlink:`RECIP_hFacW` and :varlink:`RECIP_hFacS`.
+:varlink:`recip_hFacC`, :varlink:`recip_hFacW` and :varlink:`recip_hFacS`.
 
 The non-dimensional fractions (or h-facs as we call them) are calculated
 from the model depth array and then processed to avoid tiny volumes. The
@@ -101,7 +101,7 @@ based on the thinnest unlopped thickness;
 .. admonition:: S/R :filelink::filelink:`INI_MASKS_ETC <model/src/ini_masks_etc.F>`
   :class: note
 
-    | :math:`h_c , h_w , h_s` : **hFacC, hFacW, hFacS** ( :filelink:`GRID.h <model/inc/GRID.h>` )
-    | :math:`h_c^{-1} , h_w^{-1} , h_s^{-1}` : **RECIP_hFacC, RECIP_hFacW, RECIP_hFacS** ( :filelink:`GRID.h <model/inc/GRID.h>` )
+    | :math:`h_c , h_w , h_s` : :varlink:`hFacC`, :varlink:`hFacW`, :varlink:`hFacS` ( :filelink:`GRID.h <model/inc/GRID.h>` )
+    | :math:`h_c^{-1} , h_w^{-1} , h_s^{-1}` : :varlink:`recip_hFacC`, :varlink:`recip_hFacW`, :varlink:`recip_hFacS` ( :filelink:`GRID.h <model/inc/GRID.h>` )
 
 
