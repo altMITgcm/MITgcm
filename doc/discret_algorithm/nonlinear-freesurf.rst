@@ -399,9 +399,9 @@ before starting the main calling sequence (eq. :eq:`phi-hyd-nlfs` to
 .. admonition:: S/R  :filelink:`INTEGR_CONTINUITY <model/src/integr_continuity.F>`
   :class: note
 
-    | :math:`h^{n+1} - H_o` : **etaH** ( :filelink:`DYNVARS.h <model/inc/DYNVARS.h>` )
-    | :math:`h^n - H_o` : **etaHnm1** ( :filelink:`SURFACE.h <model/inc/SURFACE.h>` )
-    | :math:`(h^{n+1} - h^n ) / \Delta t` : **dEtaHdt** ( :filelink:`SURFACE.h <model/inc/SURFACE.h>` )
+    | :math:`h^{n+1} - H_o` : :varlink:`etaH` ( :filelink:`DYNVARS.h <model/inc/DYNVARS.h>` )
+    | :math:`h^n - H_o` : :varlink:`etaHnm1` ( :filelink:`SURFACE.h <model/inc/SURFACE.h>` )
+    | :math:`(h^{n+1} - h^n ) / \Delta t` : :varlink:`dEtaHdt` ( :filelink:`SURFACE.h <model/inc/SURFACE.h>` )
 
 
 .. _nonlin-freesurf-dzsurf:

@@ -15,8 +15,8 @@ model is to run the case study examples provided in the MITgcm repository.
 Information is also provided
 here on how to customize the code when you are ready to try implementing 
 the configuration you have in mind.  The code and algorithm
-are described more fully in :numref:`discret_algorithm` through 
-\ref{chap:sarch}. 
+are described more fully in :numref:`discret_algorithm` and 
+:numref:`sarch`. 
 
 .. _whereToFindInfo:
 
@@ -27,9 +27,9 @@ Where to find information
 There is a web-archived support mailing list for the model that you can
 email at MITgcm-support@mitgcm.org.
 
-To sign up for the mailing list (highly recommended), click `here <http://mitgcm.org/mailman/listinfo/mitgcm-support/>`_ 
+To sign up for the mailing list (highly recommended), click `here <http://mailman.mitgcm.org/mailman/listinfo/mitgcm-support/>`_ 
 
-To browse through the support archive, click `here <http://mitgcm.org/pipermail/mitgcm-support/>`_
+To browse through the support archive, click `here <http://mailman.mitgcm.org/pipermail/mitgcm-support/>`_
 
 
 Obtaining the code

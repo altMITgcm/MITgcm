@@ -1,4 +1,4 @@
-.. _sub_phys_pkg_exf:
+.. _sub_phys_pkg_cal:
 
 CAL: The calendar package
 -------------------------
