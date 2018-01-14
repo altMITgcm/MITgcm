@@ -1089,29 +1089,10 @@ check_nf90io_mpi_libs()  {
     fi
     echo >> $LOGFILE
     echo "running: check_nf90io_libs()" >> $LOGFILE
-    echo "First looking for hdf5 in nc-config:" >> $LOGFILE
-    echo "running: $NETCDF/bin/nc-config --has-hdf5" >> $LOGFILE
-    if [[ $($NETCDF/bin/nc-config --has-hdf5) != "yes" ]]; then
-      echo "nc-config could not fine hdf5" >> $LOGFILE
-      return
-    fi
-    echo "         ...returns yes" >> $LOGFILE
-
-    echo "Looking for h5pcc:" >> $LOGFILE
-    echo "running: $HDF5/bin/h5pcc -showconfig | grep Parallel" >> $LOGFILE
-    if [[ $($HDF5/bin/h5pcc -showconfig | grep Parallel) != *yes* ]]; then
-      echo "Somehow h5pcc not compiled w/ parallel" >> $LOGFILE
-      return
-    fi
-    echo "         ...returns yes" >> $LOGFILE
-
-    # now we check if the parallel tests can actually compile...
-    echo "===  f90tst_parallel.f90  >>>" > f90tst_parallel.log
-    #cat genmake_tnc.F >> f90tst_parallel.log
-    echo "<<<  f90tst_parallel.f90 ===" >> f90tst_parallel.log
-    echo "$FC $FFLAGS $FOPTIM -c f90tst_parallel.f90 \ " >> f90tst_parallel.log
+    # check if the parallel tests can actually compile...
+    echo "$F90C $FFLAGS $FOPTIM -c f90tst_parallel.f90 \ " >> f90tst_parallel.log
     echo "  &&  $LINK $FFLAGS $FOPTIM -o f90tst_parallel.o $LIBS" >> f90tst_parallel.log
-    $FC $FFLAGS $FOPTIM  $INCLUDES -c ${TOOLSDIR}/maketests/f90tst_parallel.f90 >> f90tst_parallel.log 2>&1  \
+    $F90C $FFLAGS $FOPTIM  $INCLUDES -c ${TOOLSDIR}/maketests/f90tst_parallel.f90 >> f90tst_parallel.log 2>&1  \
 	&&  $LINK $FFLAGS $FOPTIM -o  f90tst_parallel f90tst_parallel.o $LIBS >> f90tst_parallel.log 2>&1
     RET_COMPILE=$?
     cat f90tst_parallel.log >> $LOGFILE
@@ -1122,9 +1103,9 @@ check_nf90io_mpi_libs()  {
     else
 	# try again with "-lnetcdf" added to the libs
 	echo "==> try again with added '-lnetcdf'" > f90tst_parallel.log
-	echo "$FC $FFLAGS $FOPTIM -c f90tst_parallel.f90 \ " >> f90tst_parallel.log
+	echo "$F90C $FFLAGS $FOPTIM -c f90tst_parallel.f90 \ " >> f90tst_parallel.log
 	echo "  &&  $LINK $FFLAGS $FOPTIM -o f90tst_parallel.o $LIBS -lnetcdf" >> f90tst_parallel.log
-	$FC $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_parallel.f90 >> f90tst_parallel.log 2>&1  \
+	$F90C $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_parallel.f90 >> f90tst_parallel.log 2>&1  \
 	    &&  $LINK $FFLAGS $FOPTIM -o  f90tst_parallel f90tst_parallel.o $LIBS -lnetcdf >> f90tst_parallel.log 2>&1
 	RET_COMPILE=$?
 	echo >> $LOGFILE
@@ -1137,9 +1118,9 @@ check_nf90io_mpi_libs()  {
 	# try again with "-lnetcdff" added to the libs
 	    echo "==> try again with added '-lnetcdff -lnetcdf'" > f90tst_parallel.log
 
-	    echo "$FC $FFLAGS $FOPTIM -c f90tst_parallel.f90 \ " >> f90tst_parallel.log
+	    echo "$F90C $FFLAGS $FOPTIM -c f90tst_parallel.f90 \ " >> f90tst_parallel.log
 	    echo "  &&  $LINK $FFLAGS $FOPTIM -o f90tst_parallel.o $LIBS -lnetcdf" >> f90tst_parallel.log
-	    $FC $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_parallel.f90 >> f90tst_parallel.log 2>&1  \
+	    $F90C $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_parallel.f90 >> f90tst_parallel.log 2>&1  \
 		&&  $LINK $FFLAGS $FOPTIM -o f90tst_parallel f90tst_parallel.o $LIBS -lnetcdf -lnetcdff >> f90tst_parallel.log 2>&1
 	    RET_COMPILE=$?
 	    echo >> $LOGFILE
@@ -1164,9 +1145,9 @@ check_nf90io_nompi_libs()  {
     echo "===  f90tst_vars.f90  >>>" > f90tst_parallel.log
     #cat genmake_tnc.F >> f90tst_vars.log
     echo "<<<  f90tst_vars.f90 ===" >> f90tst_vars.log
-    echo "$FC $FFLAGS $FOPTIM -c f90tst_vars.f90 \ " >> f90tst_parallel.log
+    echo "$F90C $FFLAGS $FOPTIM -c f90tst_vars.f90 \ " >> f90tst_parallel.log
     echo "  &&  $LINK $FFLAGS $FOPTIM -o f90tst_vars.o $LIBS" >> f90tst_vars.log
-    $FC $FFLAGS $FOPTIM  $INCLUDES -c ${TOOLSDIR}/maketests/f90tst_vars.f90 >> f90tst_vars.log 2>&1  \
+    $F90C $FFLAGS $FOPTIM  $INCLUDES -c ${TOOLSDIR}/maketests/f90tst_vars.f90 >> f90tst_vars.log 2>&1  \
 	&&  $LINK $FFLAGS $FOPTIM -o  f90tst_vars f90tst_vars.o $LIBS >> f90tst_vars.log 2>&1
     RET_COMPILE=$?
     cat f90tst_vars.log >> $LOGFILE
@@ -1177,9 +1158,9 @@ check_nf90io_nompi_libs()  {
     else
 	# try again with "-lnetcdf" added to the libs
 	echo "==> try again with added '-lnetcdf'" > f90tst_vars.log
-	echo "$FC $FFLAGS $FOPTIM -c f90tst_vars.f90 \ " >> f90tst_vars.log
+	echo "$F90C $FFLAGS $FOPTIM -c f90tst_vars.f90 \ " >> f90tst_vars.log
 	echo "  &&  $LINK $FFLAGS $FOPTIM -o f90tst_vars.o $LIBS -lnetcdf" >> f90tst_vars.log
-	$FC $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_vars.f90 >> f90tst_vars.log 2>&1  \
+	$F90C $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_vars.f90 >> f90tst_vars.log 2>&1  \
 	    &&  $LINK $FFLAGS $FOPTIM -o  f90tst_vars f90tst_vars.o $LIBS -lnetcdf >> f90tst_vars.log 2>&1
 	RET_COMPILE=$?
 	echo >> $LOGFILE
@@ -1192,9 +1173,9 @@ check_nf90io_nompi_libs()  {
 	# try again with "-lnetcdff" added to the libs
 	    echo "==> try again with added '-lnetcdff -lnetcdf'" > f90tst_vars.log
 
-	    echo "$FC $FFLAGS $FOPTIM -c f90tst_vars.f90 \ " >> f90tst_vars.log
+	    echo "$F90C $FFLAGS $FOPTIM -c f90tst_vars.f90 \ " >> f90tst_vars.log
 	    echo "  &&  $LINK $FFLAGS $FOPTIM -o f90tst_vars.o $LIBS -lnetcdf" >> f90tst_vars.log
-	    $FC $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_vars.f90 >> f90tst_vars.log 2>&1  \
+	    $F90C $FFLAGS $FOPTIM  $INCLUDES -c  ${TOOLSDIR}/maketests/f90tst_vars.f90 >> f90tst_vars.log 2>&1  \
 		&&  $LINK $FFLAGS $FOPTIM -o f90tst_vars f90tst_vars.o $LIBS -lnetcdf -lnetcdff >> f90tst_vars.log 2>&1
 	    RET_COMPILE=$?
 	    echo >> $LOGFILE
