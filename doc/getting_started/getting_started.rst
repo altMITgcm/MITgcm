@@ -39,6 +39,8 @@ The MITgcm code and documentation are under continuous development and we genera
 
 Periodically we release an official checkpoint (or “tag”). We recommend one download the latest code, unless there are reasons for obtaining a specific checkpoint (e.g. duplicating older results, collaborating with someone using an older release, etc.) 
 
+.. _git-aware_download:
+
 Method 1
 --------
 

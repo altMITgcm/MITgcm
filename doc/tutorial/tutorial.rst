@@ -59,7 +59,7 @@ where :math:`L_{y}` is the lateral domain extent (1200~km) and
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    barotropic_gyre/barotropic_gyre.rst
 
@@ -85,7 +85,7 @@ example illustration from GFD lab here
  
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    tank/tank.rst
 
