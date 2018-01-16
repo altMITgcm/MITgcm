@@ -45,22 +45,22 @@ Quickstart Guide
 
     % git remote add upstream https://github.com/altMITgcm/MITgcm.git
 
-**4.** Make a new branch from ``upstream/master`` (name it something appropriate, here we assume it is a bugfix) and make edits on this branch:
+**4.** Make a new branch from ``upstream/master`` (name it something appropriate, here we assume it is a new feature) and make edits on this branch:
 
 ::
 
    % git fetch upstream
    % git checkout -b newfeature upstream/master
 
-5. When edits are done, do all git add’s and git commit’s. In the commit, make a succinct (<70 char) summary, followed by a blank line and a longer description. Reference any outstanding issues addressed using the syntax ``#ISSUE_NUMBER``.
+**5.** When edits are done, do all git add’s and git commit’s. In the commit, make a succinct (<70 char) summary, followed by a blank line and a longer description. Reference any outstanding issues addressed using the syntax ``#ISSUE_NUMBER``.
 
-6. Push the edited branch to the origin remote (i.e. your fork) on GitHub:
+**6.** Push the edited branch to the origin remote (i.e. your fork) on GitHub:
 
 ::
 
     % git push -u origin newfeature
 
-7. On GitHub, go to your fork and hit the pull request (PR) button, and wait for the MITgcm head developers to review your proposed changes. You may get additional questions or requests before your changes are accepted into the primary MITgcm source code.
+**7.** On GitHub, go to your fork and hit the pull request (PR) button, and wait for the MITgcm head developers to review your proposed changes. You may get additional questions or requests before your changes are accepted into the primary MITgcm source code.
 
 If you want to update your code branch before submitting (or any point in development), follow the following recipe. It will ensure that your GitHub repo stays up to date with the main repository. Note again that your edits should always be to a development branch (here, “newfeature”), not the master branch.
 
@@ -73,7 +73,7 @@ If you want to update your code branch before submitting (or any point in develo
     % git merge master
 
 
-If preferred, you can rebase rather than merge in the final step above; just be careful regarding your rebase syntax!   
+If you prefer, you can rebase rather than merge in the final step above; just be careful regarding your rebase syntax!   
 
 
 Detailed guide for those less familiar with Git and GitHub
