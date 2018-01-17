@@ -45,14 +45,14 @@ Quickstart Guide
 
     % git remote add upstream https://github.com/altMITgcm/MITgcm.git
 
-**4.** Make a new branch from ``upstream/master`` (name it something appropriate, here we assume it is a new feature) and make edits on this branch:
+**4.** Make a new branch from ``upstream/master`` (name it something appropriate, here we call the new feature branch ``newfeature``) and make edits on this branch:
 
 ::
 
    % git fetch upstream
    % git checkout -b newfeature upstream/master
 
-**5.** When edits are done, do all git add’s and git commit’s. In the commit, make a succinct (<70 char) summary, followed by a blank line and a longer description. Reference any outstanding issues addressed using the syntax ``#ISSUE_NUMBER``.
+**5.** When edits are done, do all git add’s and git commit’s. In the commit message, make a succinct (<70 char) summary of your changes. If you need more space to describe your changes, you can leave a blank line and type a longer description, or break your commit into multiple smaller commits. Reference any outstanding issues addressed using the syntax ``#ISSUE_NUMBER``.
 
 **6.** Push the edited branch to the origin remote (i.e. your fork) on GitHub:
 
@@ -62,7 +62,7 @@ Quickstart Guide
 
 **7.** On GitHub, go to your fork and hit the pull request (PR) button, and wait for the MITgcm head developers to review your proposed changes. You may get additional questions or requests before your changes are accepted into the primary MITgcm source code.
 
-If you want to update your code branch before submitting (or any point in development), follow the following recipe. It will ensure that your GitHub repo stays up to date with the main repository. Note again that your edits should always be to a development branch (here, “newfeature”), not the master branch.
+If you want to update your code branch before submitting a PR (or any point in development), follow the following recipe. It will ensure that your GitHub repo stays up to date with the main repository. Note again that your edits should always be to a development branch (here, ``newfeature``), not the master branch.
 
 ::
 
@@ -153,7 +153,7 @@ This means that we now have two "remotes" of the project. A remote is just a poi
     % git fetch upstream
     % git checkout -b newfeature upstream/master
 
-You will make edits on this new branch, to keep these new edits completely separate from all files on the master branch. The first command ``git fetch upstream`` makes sure your new branch is the latest code from the main repository; as such, you can redo step 4 at any time to start additional, separate development projects (on a separate, new branch). Note that this second command above not only creates the new branch ‘newfeature’ from the ``upstream/master`` branch, it switches you onto this newly created branch.  Naming the branch something more descriptive than ‘newfeature’ is helpful. 
+You will make edits on this new branch, to keep these new edits completely separate from all files on the master branch. The first command ``git fetch upstream`` makes sure your new branch is the latest code from the main repository; as such, you can redo step 4 at any time to start additional, separate development projects (on a separate, new branch). Note that this second command above not only creates this new branch, which we name ``newfeature``, from the ``upstream/master`` branch, it also switches you onto this newly created branch.  Naming the branch something more descriptive than ‘newfeature’ is helpful. 
  
 
 **5.** Doing stuff! This usually comes in one of three flavors: 
@@ -167,7 +167,7 @@ You will make edits on this new branch, to keep these new edits completely separ
 
     - edit the relevant file(s) and/or create new files. Refer to :ref:`sec_code_style_guide` for details on expected documentation standards and code style requirements. Of course, changes should be thoroughly tested to ensure they compile and run successfully!
     - type ``git add <FILENAME1> <FILENAME2> ...`` to stage the file(s) ready for a commit command (note both existing and brand new files need to be added). “Stage” effectively means to notify Git of the the list of files you plan to “commit” for changes into the version tracking system. Note you can change other files and NOT have them sent to model developers; only staged files will be sent. You can repeat this ``git add`` command as many times as you like and it will continue to augment the list of files.  ``git diff`` and ``git status`` are useful commands to see what you have done so far.
-    - use ``git commit`` to commit the files. This is the first step in bundling a collection of files together to be sent off to the MITgcm maintainers. When you enter this command, an editor window will pop up. On the top line, type a succinct (<70 character) summary of what these changes accomplished. Then, leave a blank line and type a longer description of why the action in this commit was appropriate. It is good practice to link with known issues using the syntax ``#ISSUE_NUMBER`` in either the summary line or detailed comment. Note that all the changes do not have to be handled in a single commit (i.e. you can git add some files, do a commit, than continue anew by adding different files, do another commit etc.); note that the ``git commit`` command itself does not (yet) submit anything to maintainers.  
+    - use ``git commit`` to commit the files. This is the first step in bundling a collection of files together to be sent off to the MITgcm maintainers. When you enter this command, an editor window will pop up. On the top line, type a succinct (<70 character) summary of what these changes accomplished. If your commit is non-trivial and addition explanation is required, leave a blank line and then type a longer description of why the action in this commit was appropriate etc. It is good practice to link with known issues using the syntax ``#ISSUE_NUMBER`` in either the summary line or detailed comment. Note that all the changes do not have to be handled in a single commit (i.e. you can git add some files, do a commit, than continue anew by adding different files, do another commit etc.); the ``git commit`` command itself does not (yet) submit anything to maintainers.  
     - if you are fixing a more involved bug or adding a new feature, such that many changes are required, it is preferable to break your contribution into multiple commits (each documented separately) rather than submitting one massive commit; each commit should encompass a single conceptual change to the code base, regardless of how many files it touches. This will allow the MITgcm maintainers to more easily understand your proposed changes and will expedite the review process. 
     - if you make any change to the code, however small, i.e., flavor ii or iii above, we expect you to add your changes to the top of :filelink:`doc/tag-index` (starting at line 4), which is a running history of all development of the MITgcm. Again, be concise, describing your changes in one or several lines of text. We will not accept code changes without this edit.
 
@@ -252,7 +252,8 @@ Internal document references
 
 rst allows internal referencing of figures, tables, section headings, and equations, i.e. clickable links that bring the reader to the respective figure etc. in the manual.
 To be referenced, a unique label is required. To reference figures, tables, or section headings by number,
-the rst (inline) directive is ``:numref:`LABELNAME```. For example, this syntax would write out ``Figure XX`` on a line. and when clicked, would relocate your position
+the rst (inline) directive is ``:numref:`LABELNAME```. For example, this syntax would write out ``Figure XX`` on a line (assuming LABELNAME referred to a figure),
+and when clicked, would relocate your position
 in the manual to figure XX.  Section Headings can also be referenced so that the name is written out instead of the section number, instead using this 
 directive ``:ref:`LABELNAME```.
 
@@ -264,7 +265,7 @@ Note the necessary leading underscore.
 External references
 --------------------
 
-hyperlinks
+Hyperlinks: to reference a URL, the syntax is ```clickable_text <URL>`_``  (using separate text as a clickable link is optional).
 filelink
 varlink
 
