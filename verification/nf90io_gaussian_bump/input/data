@@ -52,7 +52,7 @@
  &PARM03
 # times are in s
  startTime=0,
- endTime=186,
+ endTime=372,
  deltaT=12.4,
  abEps=0.1,
 # once per tide checkpoint...
@@ -60,7 +60,7 @@
  chkptFreq=0.0,
  dumpFreq=0,
  dumpInitAndLast=.FALSE.
- monitorFreq=1860,
+ monitorFreq=124,
 /
 
 # Gridding parameters

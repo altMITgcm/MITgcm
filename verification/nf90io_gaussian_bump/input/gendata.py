@@ -40,7 +40,7 @@ topo[topo<0.]=0.
 topo=-H+topo
 topo[topo<-H]=-H
 
-TT0 = topo[:, None] + y[None, :] * 0
+TT0 = topo[ None, :] + y[:, None] * 0
 with open(outdir+"/topo.bin", "wb") as f:
   TT0.astype('>f8').tofile(f)
 f.close()
@@ -63,7 +63,7 @@ f.close()
 
 # save T0 over whole domain
 slope = np.arange(nx) * 0.2
-TT0 = T0[None, None, :] + 0 * y[None, :, None] + slope[:, None, None]
+TT0 = T0[:, None, None] + 0 * y[None, :, None] + slope[ None, None, :]
 with open(outdir+"/T0.bin", "wb") as f:
   TT0.astype('>f8').tofile(f)
 
