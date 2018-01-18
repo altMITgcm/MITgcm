@@ -3,7 +3,7 @@ Ocean State Estimation Packages
 
 This chapter describes packages that have been introduced for ocean
 state estimation purposes and in relation with automatic differentiation
-(see :ref:`chap_autodiff`)
+(see :ref:`chap_autodiff`).
 
 .. FYI the corresponding tex was: (see Chapter~\ref{chap:autodiff})
 .. which pandoc has translated as: (see Chapter \ `[chap:autodiff] <#chap:autodiff>`__)
@@ -13,13 +13,15 @@ state estimation purposes and in relation with automatic differentiation
 ECCO: model-data comparisons using gridded data sets
 ----------------------------------------------------
 
+Author: Gael Forget
+
 The functionalities implemented in ``pkg/ecco`` are: (1) output
 time-averaged model fields to compare with gridded data sets; (2)
 compute normalized model-data distances (i.e., cost functions); (3)
 compute averages and transports (i.e., integrals). The former is
 achieved as the model runs forwards in time whereas the others occur
 after time-integration has completed. Following
-:raw-latex:`\cite{for-eta:15}` the total cost function is formulated
+:cite:`for-eta:15` the total cost function is formulated
 generically as
 
 .. FYI the equations below were translated by pandoc as:
@@ -192,7 +194,7 @@ function terms amongst the model output (STDOUT.0000, STDERR.0000,
 costfunction000, misfit*.data). Exceptions listed in
 :numref:`gencost_ecco_name` however
 activate alternative cost function codes (in place of
-``cost_generic.F``) described in section \ `1.3 <#v4custom>`__. In this
+``cost_generic.F``) described in section :numref:`v4custom`. In this
 section and in :numref:`gencost_ecco_barfile`
 (unlike in other parts of the manual) ‘zonal’ / ‘meridional’ are to be
 taken literally and these components are centered (i.e., not at the
@@ -233,13 +235,11 @@ YC.
   +-----------------------+-----------------------+-----------------------------------+
   | ``gencost_errfile``   | character(*)          | Uncertainty field                 |
   |                       |                       | name (not used in                 |
-  |                       |                       | section \ `1.2 <#intg             |
-  |                       |                       | en>`__)                           |
+  |                       |                       | :numref:`intgen`)                 |
   +-----------------------+-----------------------+-----------------------------------+
   | ``gencost_mask``      | character(*)          | Mask file name root               |
   |                       |                       | (used only in                     |
-  |                       |                       | section \ `1.2 <#intg             |
-  |                       |                       | en>`__)                           |
+  |                       |                       | :numref:`intgen`)                 |
   +-----------------------+-----------------------+-----------------------------------+
   | ``mult_gencost``      | real                  | Multiplier                        |
   |                       |                       | :math:`\alpha_i`                  |
@@ -290,18 +290,16 @@ YC.
   +-----------------------+-----------------------+-----------------------------------+
   | ``gencost_enddate1``  | integer               | Not fully implemented             |
   |                       |                       | (used only in                     |
-  |                       |                       | sec. \ `1.3 <#v4custo             |
-  |                       |                       | m>`__)                            |
+  |                       |                       | :numref:`v4custom`)               |
   +-----------------------+-----------------------+-----------------------------------+
   | ``gencost_enddate2``  | integer               | Not fully implemented             |
   |                       |                       | (used only in                     |
-  |                       |                       | sec. \ `1.3 <#v4custo             |
-  |                       |                       | m>`__)                            |
+  |                       |                       | :numref:`v4custom`)               |
   +-----------------------+-----------------------+-----------------------------------+
 
 .. table:: Implemented ``gencost_barfile`` options (as of checkpoint
            65z) that can be used via ``cost_generic.F``
-           (section `1.1 <#costgen>`__). An extension starting with ‘\_’ can be
+           (section :numref:`costgen`). An extension starting with ‘\_’ can be
            appended at the end of the variable name to distinguish between separate
            cost function terms. Note: the ‘m_eta’ formula depends on the
            ``ATMOSPHERIC_LOADING`` and ``ALLOW_PSBAR_STERIC`` compile time options
@@ -424,7 +422,7 @@ The functionality described in this section is operated by
 ``cost_gencost_boxmean.F``. It is primarily aimed at obtaining a
 mechanistic understanding of a chosen physical variable via adjoint
 sensitivity computations (see :ref:`chap_autodiff`) as done for example in
-:raw-latex:`\cite{maro-eta:99,heim-eta:11,fuku-etal:14}`. Thus the
+:cite:`maro-eta:99,heim-eta:11,fuku-etal:14`. Thus the
 quadratic term in Eq. :eq:`Jtotal`
 (:math:`\vec{d}_i^T R_i^{-1} \vec{d}_i`) is by default replaced with a
 :math:`d_i` scalar [2]_ that derives from model fields through a generic
@@ -457,7 +455,7 @@ horizontal transport (or overturn) will be computed accordingly.
 
 .. table:: Implemented ``gencost_barfile`` options (as of checkpoint
            65z) that can be used via ``cost_gencost_boxmean.F``
-           (section `1.2 <#intgen>`__).
+           (:numref:`intgen`).
   :name: genint_ecco_barfile
 
   +---------------------+----------------------------------+------------------+
@@ -488,7 +486,7 @@ with ``‘_’``, and set ``gencost_barfile`` to one of ``m_trVol``,
 ``m_trHeat``, and ``m_trSalt``.
 
 .. table:: Pre-defined ``gencost_name`` special cases (as of checkpoint
-           65z; section \ `1.3 <#v4custom>`__).
+           65z; :numref:`v4custom`).
   :name: gencost_ecco_name
 
   +-----------------------+-----------------------+-----------------------+
@@ -533,16 +531,13 @@ with ``‘_’``, and set ``gencost_barfile`` to one of ``m_trVol``,
   |                       |                       | the above)            |
   +-----------------------+-----------------------+-----------------------+
   | ``transp_trVol``      | volume transport      | specify section as in |
-  |                       |                       | section \ `1.2 <#intg |
-  |                       |                       | en>`__                |
+  |                       |                       |      :numref:`intgen` |
   +-----------------------+-----------------------+-----------------------+
   | ``transp_trHeat``     | heat transport        | specify section as in |
-  |                       |                       | section \ `1.2 <#intg |
-  |                       |                       | en>`__                |
+  |                       |                       |      :numref:`intgen` |
   +-----------------------+-----------------------+-----------------------+
   | ``transp_trSalt``     | salt transport        | specify section as in |
-  |                       |                       | section \ `1.2 <#intg |
-  |                       |                       | en>`__                |
+  |                       |                       |      :numref:`intgen` |
   +-----------------------+-----------------------+-----------------------+
 
 Key Routines
@@ -567,6 +562,8 @@ smooth, profiles, ctrl
 PROFILES: model-data comparisons at observed locations
 ------------------------------------------------------
 
+Author: Gael Forget
+
 The purpose of pkg/profiles is to allow sampling of MITgcm runs
 according to a chosen pathway (after a ship or a drifter, along
 altimeter tracks, etc.), typically leading to easy model-data
@@ -576,31 +573,22 @@ location. In particular, pkg/profiles can be used to do model-data
 comparison online and formulate a least-squares problem (ECCO
 application).
 
-| pkg/profiles is associated with three CPP keys:
-| (k1) ALLOW_PROFILES
-| (k2) ALLOW_PROFILES_GENERICGRID
-| (k3) ALLOW_PROFILES_CONTRIBUTION
-| k1 switches the package on. By default, pkg/profiles assumes a regular
-  lat-long grid. For other grids such as the cubed sphere, k2 and
-  pre-processing (see below) are necessary. k3 switches the
-  least-squares application on (pkg/ecco needed). pkg/profiles requires
-  needs pkg/cal and netcdf libraries.
-
-The namelist (data.profiles) is illustrated in table
-`[PkgProfNamelist] <#PkgProfNamelist>`__. This example includes two
-input netcdf files name (ARGOifremer_r8.nc and XBT_v5.nc are to be
-provided) and *cost function* multipliers (for least-squares only). The
+The pkg/profiles namelist is called data.profiles. In the example below,
+it includes two input netcdf file names (ARGOifremer_r8.nc 
+and XBT_v5.nc) that should be linked to the run directory
+and *cost function* multipliers that only matter in the
+context of automatic differentiation (see :ref:`chap_autodiff`). The
 first index is a file number and the second index (in mult\* only) is a
 variable number. By convention, the variable number is an integer
 ranging 1 to 6: temperature, salinity, zonal velocity, meridional
 velocity, sea surface height anomaly, and passive tracer.
 
-The input file structure is illustrated in table
-`[PkgProfInput] <#PkgProfInput>`__. To create such files, one can use
-the netcdf_ecco_create.m matlab script, which can be checked out of
-MITgcm_contrib/gael/profilesMatlabProcessing/
-along with a full suite of matlab scripts associated with
-pkg/profiles. At run time, each file is scanned to determine which
+.. more updates are needed below
+
+The netcdf input file structure is illustrated in the case of XBT_v5.nc
+To create such files, one can use the MITprof matlab toolbox obtained 
+from https://github.com/gaelforget/MITprof .
+At run time, each file is scanned to determine which
 variables are included; these will be interpolated. The (final) output
 file structure is similar but with interpolated model values in prof_T
 etc., and it contains model mask variables (e.g. prof_Tmask). The very
@@ -617,62 +605,66 @@ special grid files (profilesXCincl1PointOverlap\* etc.) and then stop.
 You then want to run netcdf_ecco_GenericgridMain.m using the special
 grid files. *This operation could eventually be inlined.*
 
-| #
-| # \*****************\*
-| # PROFILES cost function
-| # \*****************\*
-| &PROFILES_NML
-| #
-| profilesfiles(1)= ’ARGOifremer_r8’,
-| mult_profiles(1,1) = 1.,
-| mult_profiles(1,2) = 1.,
-| profilesfiles(2)= ’XBT_v5’,
-| mult_profiles(2,1) = 1.,
-| #
-| /
+``Example: data.profiles``
 
-| netcdf XBT_v5 {
-| dimensions:
-| īPROF = 278026 ;
-| iDEPTH = 55 ;
-| lTXT = 30 ;
-| variables:
-| double depth(iDEPTH) ;
-| depth:units = "meters" ;
-| double prof_YYYYMMDD(iPROF) ;
-| prof_YYYYMMDD:missing_value = -9999. ;
-| prof_YYYYMMDD:long_name = "year (4 digits), month (2 digits), day (2
-  digits)" ;
-| double prof_HHMMSS(iPROF) ;
-| prof_HHMMSS:missing_value = -9999. ;
-| prof_HHMMSS:long_name = "hour (2 digits), minute (2 digits), seconde
-  (2 digits)" ;
-| double prof_lon(iPROF) ;
-| prof_lon:units = "(degree E)" ;
-| prof_lon:missing_value = -9999. ;
-| double prof_lat(iPROF) ;
-| prof_lat:units = "(degree N)" ;
-| prof_lat:missing_value = -9999. ;
-| char prof_descr(iPROF, lTXT) ;
-| prof_descr:long_name = "profile description" ;
-| double prof_T(iPROF, iDEPTH) ;
-| prof_T:long_name = "potential temperature" ;
-| prof_T:units = "degree Celsius" ;
-| prof_T:missing_value = -9999. ;
-| double prof_Tweight(iPROF, iDEPTH) ;
-| prof_Tweight:long_name = "weights" ;
-| prof_Tweight:units = "(degree Celsius)-2" ;
-| prof_Tweight:missing_value = -9999. ;
-| }
+::
+
+    #
+    # \*****************\*
+    # PROFILES cost function
+    # \*****************\*
+    &PROFILES_NML
+    #
+    profilesfiles(1)= ’ARGOifremer_r8’,
+    mult_profiles(1,1) = 1.,
+    mult_profiles(1,2) = 1.,
+    profilesfiles(2)= ’XBT_v5’,
+    mult_profiles(2,1) = 1.,
+    #
+    /
+
+``Example: XBT_v5.nc``
+
+::
+
+    netcdf XBT_v5 {
+    dimensions:
+    īPROF = 278026 ;
+    iDEPTH = 55 ;
+    lTXT = 30 ;
+    variables:
+    double depth(iDEPTH) ;
+    depth:units = "meters" ;
+    double prof_YYYYMMDD(iPROF) ;
+    prof_YYYYMMDD:missing_value = -9999. ;
+    prof_YYYYMMDD:long_name = "year (4 digits), month (2 digits), day (2 digits)" ;
+    double prof_HHMMSS(iPROF) ;
+    prof_HHMMSS:missing_value = -9999. ;
+    prof_HHMMSS:long_name = "hour (2 digits), minute (2 digits), second (2 digits)" ;
+    double prof_lon(iPROF) ;
+    prof_lon:units = "(degree E)" ;
+    prof_lon:missing_value = -9999. ;
+    double prof_lat(iPROF) ;
+    prof_lat:units = "(degree N)" ;
+    prof_lat:missing_value = -9999. ;
+    char prof_descr(iPROF, lTXT) ;
+    prof_descr:long_name = "profile description" ;
+    double prof_T(iPROF, iDEPTH) ;
+    prof_T:long_name = "potential temperature" ;
+    prof_T:units = "degree Celsius" ;
+    prof_T:missing_value = -9999. ;
+    double prof_Tweight(iPROF, iDEPTH) ;
+    prof_Tweight:long_name = "weights" ;
+    prof_Tweight:units = "(degree Celsius)-2" ;
+    prof_Tweight:missing_value = -9999. ;
+    }
 
 .. _sec:pkg:ctrl:
 
 CTRL: Model Parameter Adjustment Capability
 -------------------------------------------
 
-.. raw:: latex
-
-   \def65z{65x}
+Author: Gael Forget
 
 The parameters available for configuring generic cost terms in
 ``data.ctrl`` are given in :numref:`gencost_ctrl_params`.
@@ -819,9 +811,8 @@ The parameters available for configuring generic cost terms in
   | ``docycle``           | Average period        | integer: cycle length |
   |                       | replication           |                       |
   +-----------------------+-----------------------+-----------------------+
-  | ``replicate``         | Alias for ``docycle`` |     (units of         |
-  |                       |                       | ``xx_gentim2d_period``|
-  |                       |                       |  )                    |
+  | ``replicate``         | Alias for ``docycle`` |(units of              |
+  |                       |                       |``xx_gentim2d_period``)|
   +-----------------------+-----------------------+-----------------------+
   | ``rmcycle``           | Periodic average      | integer: cycle length |
   |                       | subtraction           |                       |
@@ -883,10 +874,14 @@ this operator is specified by ``gen*Precond`` (:math:`=1` by default).
 SMOOTH: Smoothing And Covariance Model
 --------------------------------------
 
-TBA ...
+Author: Gael Forget
 
-The line search optimisation algorithm [sectionoptim]
------------------------------------------------------
+TO BE CONTINUED...
+
+.. _sectionoptim:
+
+The line search optimisation algorithm
+--------------------------------------
 
 Author: Patrick Heimbach
 
@@ -894,7 +889,7 @@ General features
 ~~~~~~~~~~~~~~~~
 
 The line search algorithm is based on a quasi-Newton variable storage
-method which was implemented by :raw-latex:`\cite{gil-lem:89}`.
+method which was implemented by :cite:`gil-lem:89`.
 
 TO BE CONTINUED...
 
@@ -1029,10 +1024,6 @@ iteration to update Hessian:
 
 -  **OPWARMI**: contains index settings and scalar variables
 
-   .. raw:: latex
-
-      \footnotesize
-
    +-------------+-------------------------------------------------------+
    | n = nn      | no. of control variables                              |
    +-------------+-------------------------------------------------------+
@@ -1050,10 +1041,6 @@ iteration to update Hessian:
    +-------------+-------------------------------------------------------+
 
 -  **OPWARMD**: contains vectors (control and gradient)
-
-   .. raw:: latex
-
-      \scriptsize
 
    +-----------------------+-----------------------+-----------------------+
    | entry                 | name                  | description           |
@@ -1075,10 +1062,6 @@ iteration to update Hessian:
    |                       | (i-1)                 | (jmax)                |
    +-----------------------+-----------------------+-----------------------+
 
-.. raw:: latex
-
-   \footnotesize
-
 ::
 
 
@@ -1096,14 +1079,6 @@ iteration to update Hessian:
 
 Error handling
 ^^^^^^^^^^^^^^
-
-.. raw:: latex
-
-   \newpage
-
-.. raw:: latex
-
-   \scriptsize
 
 ::
 
@@ -1158,10 +1133,6 @@ Error handling
           |      (---- CALL OPTLINE / LSLINE
           |      )       |
          ...    ...     ...
-
-.. raw:: latex
-
-   \scriptsize
 
 ::
 
@@ -1218,10 +1189,6 @@ Error handling
           |      (         goto 1000
           |      )
          ...    ...
-
-.. raw:: latex
-
-   \scriptsize
 
 ::
 
