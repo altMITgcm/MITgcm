@@ -163,7 +163,7 @@ description of the directory structure of the model under the root tree.
    work with different combinations of domain decompositions.
 
 -  ``verification``: this directory contains the model examples. See
-   numref:`chap_modelExamples`.
+   :numref:`chap_modelExamples`.
 
 -  ``jobs``: contains sample job scripts for running MITgcm.
 
