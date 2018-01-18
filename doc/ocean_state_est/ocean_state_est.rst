@@ -5,9 +5,6 @@ This chapter describes packages that have been introduced for ocean
 state estimation purposes and in relation with automatic differentiation
 (see :ref:`chap_autodiff`).
 
-.. FYI the corresponding tex was: (see Chapter~\ref{chap:autodiff})
-.. which pandoc has translated as: (see Chapter \ `[chap:autodiff] <#chap:autodiff>`__)
-
 .. _sec:pkg:ecco:
 
 ECCO: model-data comparisons using gridded data sets
@@ -23,14 +20,6 @@ achieved as the model runs forwards in time whereas the others occur
 after time-integration has completed. Following
 :cite:`for-eta:15` the total cost function is formulated
 generically as
-
-.. FYI the equations below were translated by pandoc as:
-.. \begin{aligned}
-.. 	\mathcal{J}(\vec{u}) &= \sum_i \alpha_i \left(\vec{d}_i^T R_i^{-1} \vec{d}_i\right) + \sum_j \beta_j \vec{u}^T\vec{u}, \label{eq:Jtotal} \\
-.. 	\vec{d}_i &= \mathcal{P}(\vec{m}_i - \vec{o}_i), \label{eq:Jposproc} \\
-.. 	\vec{m}_i &= \mathcal{S}\mathcal{D}\mathcal{M}(\vec{v}), \label{eq:Jpreproc} \\
-.. 	\vec{v}	  &= \mathcal{Q}(\vec{u}), \label{eq:Upreproc} \\
-.. 	\vec{u}	  &= \mathcal{R}(\vec{u}') \label{eq:Uprecond}\end{aligned}
 
 .. math::
    \mathcal{J}(\vec{u}) = \sum_i \alpha_i \left(\vec{d}_i^T R_i^{-1} \vec{d}_i\right) + \sum_j \beta_j \vec{u}^T\vec{u}
@@ -107,18 +96,6 @@ section :numref:`sec:pkg:ctrl` (:ref:`sec:pkg:ctrl`).
   +-----------------------------------+-----------------------------------+
   | :math:`\mathcal{R}`               | Pre-conditioning operator         |
   +-----------------------------------+-----------------------------------+
-
-.. FYI the above table was mis-handled by pandoc which had 
-.. (1) before the table:
-.. < .. raw:: latex
-.. <
-.. <    \centering
-.. <
-.. < .. table:: Symbol definitions for pkg/ecco and pkg/ctrl generic cost
-.. < functions.
-.. (2) the tables shifted by one blank which made it disappear
-.. (3) after the table:
-.. < [tbl:gencost_symbols]
 
 .. _costgen:
 
