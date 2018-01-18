@@ -303,12 +303,12 @@ C     Write the data
          CALL NF90IO_FILL_3D(ncid, cdiag(ndId), qtmp(:,:,1,:,:), iRec,
      $        myThid)
       ELSEIF (nLevOutp.LT.Nr) THEN
-         CALL NF90IO_FILL_4DNlev(ncid, cdiag(ndId), nLevOutp, qtmp, iRec
-     $        ,myThid)
+         CALL NF90IO_FILL_4DNlev(ncid, cdiag(ndId), nLevOutp,
+     $        qtmp(:,:,1:nLevOutp,:,: ), iRec, myThid)
 
       ELSE
-         CALL NF90IO_FILL_4D(ncid, cdiag(ndId), qtmp, iRec,
-     $        myThid)
+         CALL NF90IO_FILL_4D(ncid, cdiag(ndId), qtmp(:,:,1:Nr,:,: ),
+     $        iRec, myThid)
       ENDIF
 
       err = nf90_close(ncid)
