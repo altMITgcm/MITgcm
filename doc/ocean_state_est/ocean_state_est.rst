@@ -56,7 +56,7 @@ directly in Eq. :eq:`Jtotal` but penalized misfits
 :math:`\vec{m}_i-\vec{o}_i` through the generic :math:`\mathcal{P}`
 post-processor (Eq. :eq:`Jposproc`). Eqs. :eq:`Upreproc`-:eq:`Uprecond`
 pertain to model control parameter adjustment capabilities described in
-section :numref:`sec:pkg:ctrl` (:ref:`sec:pkg:ctrl`).
+:numref:`sec:pkg:ctrl` (:ref:`sec:pkg:ctrl`).
 
 .. table:: Symbol used in formulating generic cost functions.
   :name: gencost_symbols
@@ -171,7 +171,7 @@ function terms amongst the model output (STDOUT.0000, STDERR.0000,
 costfunction000, misfit*.data). Exceptions listed in
 :numref:`gencost_ecco_name` however
 activate alternative cost function codes (in place of
-``cost_generic.F``) described in section :numref:`v4custom`. In this
+``cost_generic.F``) described in :numref:`v4custom`. In this
 section and in :numref:`gencost_ecco_barfile`
 (unlike in other parts of the manual) ‘zonal’ / ‘meridional’ are to be
 taken literally and these components are centered (i.e., not at the
@@ -276,7 +276,7 @@ YC.
 
 .. table:: Implemented ``gencost_barfile`` options (as of checkpoint
            65z) that can be used via ``cost_generic.F``
-           (section :numref:`costgen`). An extension starting with ‘\_’ can be
+           (:numref:`costgen`). An extension starting with ‘\_’ can be
            appended at the end of the variable name to distinguish between separate
            cost function terms. Note: the ‘m_eta’ formula depends on the
            ``ATMOSPHERIC_LOADING`` and ``ALLOW_PSBAR_STERIC`` compile time options
@@ -507,14 +507,14 @@ with ``‘_’``, and set ``gencost_barfile`` to one of ``m_trVol``,
   | ``si4-exconc``        | model sea ice excess  | proxy penalty (from   |
   |                       |                       | the above)            |
   +-----------------------+-----------------------+-----------------------+
-  | ``transp_trVol``      | volume transport      | specify section as in |
-  |                       |                       |      :numref:`intgen` |
+  | ``transp_trVol``      | volume transport      | specify masks         |
+  |                       |                       | (:numref:`intgen`)    |
   +-----------------------+-----------------------+-----------------------+
-  | ``transp_trHeat``     | heat transport        | specify section as in |
-  |                       |                       |      :numref:`intgen` |
+  | ``transp_trHeat``     | heat transport        | specify masks         |
+  |                       |                       | (:numref:`intgen`)    |
   +-----------------------+-----------------------+-----------------------+
-  | ``transp_trSalt``     | salt transport        | specify section as in |
-  |                       |                       |      :numref:`intgen` |
+  | ``transp_trSalt``     | salt transport        | specify masks         |
+  |                       |                       | (:numref:`intgen`)    |
   +-----------------------+-----------------------+-----------------------+
 
 Key Routines
@@ -827,7 +827,7 @@ to the :math:`i^\text{th}` control are clipped so that they remain
 between ``xx_gen*_bounds(i,1)`` and ``xx_gen*_bounds(i,4)``. If
 ``xx_gen*_bounds(i,1)`` :math:`<` ``xx_gen*_bounds(i+1,1)`` for
 :math:`i = 1, 2, 3`, then the bounds will “emulate a local
-minimum;” [3]_ otherwise, the bounds have no effect in adjoint mode.
+minimum;” otherwise, the bounds have no effect in adjoint mode.
 
 For the case of time-varying controls, the frequency is specified by
 ``xx_gentim2d_period``. The generic control package interprets special
@@ -1224,5 +1224,3 @@ Error handling
    The quadratic option in fact does not yet exist in
    ``cost_gencost_boxmean.F``...
 
-.. [3]
-   Not sure what this means.
