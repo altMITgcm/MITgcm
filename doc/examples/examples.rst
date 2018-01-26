@@ -19,7 +19,7 @@ Each example is briefly described below.
 Barotropic Gyre MITgcm Example
 ==============================
 
-  (in directory: `verification/tutorial_barotropic_gyre/`)
+  (in directory  :filelink:`verification/tutorial_barotropic_gyre/`)
 
 
 This example experiment demonstrates using the MITgcm to simulate a Barotropic, wind-forced, ocean gyre circulation. The files for this experiment can be found in the verification directory `verification/tutorial_barotropic_gyre`. The experiment is a numerical rendition of the gyre circulation problem similar to the problems described analytically by Stommel in 1966  :cite:`Stommel66` and numerically in Holland et. al :cite:`Holland75`.
@@ -49,7 +49,7 @@ where :math:`L_{y}` is the lateral domain extent (1200~km) and
 :numref:`fig_eg_baro_simulation_config` summarizes the configuration simulated.
 
 
-  .. figure:: figs/barogyre_simulation_config.*
+  .. figure:: barotropic_gyre/figs/barogyre_simulation_config.*
       :width: 70%
       :align: center
       :alt: barotropic gyre configuration
@@ -69,7 +69,7 @@ where :math:`L_{y}` is the lateral domain extent (1200~km) and
 A Rotating Tank in Cylindrical Coordinates
 ==========================================
 
-  (in directory: :code:`verification/rotating_tank/`)
+  (in directory: :filelink:`verification/rotating_tank/`)
 
 This example configuration demonstrates using the MITgcm to simulate a
 laboratory demonstration using a differentially heated rotating
@@ -87,6 +87,6 @@ example illustration from GFD lab here
 .. toctree::
    :maxdepth: 1
 
-   tank/tank.rst
+   rotating_tank/rotating_tank.rst
 
 

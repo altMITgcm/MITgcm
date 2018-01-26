@@ -951,6 +951,8 @@ procedure, the vertical integration of the continuity equation has been
 moved to the beginning of the time step (instead of at the end), without
 any consequence on the solution.
 
+.. _correction_step_sr_in-out:
+
 .. admonition:: S/R  :filelink:`CORRECTION_STEP <model/src/correction_step.F>`
   :class: note
 
@@ -2868,7 +2870,7 @@ Kolmogorov viscous length, then
 .. math::
    L_\epsilon(A_{hSmag})\propto\pi\epsilon^{-1/4}A_{hSmag}^{3/4}\approx\pi(A_{hSmag}
    \overline D^2)^{-1/4}A_{hSmag}^{3/4} = \pi A_{hSmag}^{1/2}\overline D^{-1/2}
-   :label:kolm_visc_len
+   :label: kolm_visc_len
 
 To make :math:`L_\epsilon(A_{hSmag})` scale with the gridscale, then
 
@@ -2903,7 +2905,7 @@ This vertical viscosity is currently not implemented in MITgcm.
 Leith Viscosity
 ~~~~~~~~~~~~~~~
 
-Leith (1968, 1993) :cite:`leith:68` :cite:`leith:96` notes that 2-d turbulence is
+Leith (1968, 1996) :cite:`leith:68` :cite:`leith:96` notes that 2-d turbulence is
 quite different from 3-d. In two-dimensional turbulence, energy cascades
 to larger scales, so there is no concern about resolving the scales of
 energy dissipation. Instead, another quantity, enstrophy, (which is the

@@ -20,7 +20,7 @@ To request a new feature, or guidance on how to implement it yourself, please op
  - a clear explanation of what the feature will do; and
  - a summary of the equations to be solved.
 
-
+.. _using_git_and_github:
 
 Using Git and Github
 ========================
@@ -60,9 +60,17 @@ Quickstart Guide
 
     % git push -u origin newfeature
 
-**7.** On GitHub, go to your fork and hit the pull request (PR) button, and wait for the MITgcm head developers to review your proposed changes. You may get additional questions or requests before your changes are accepted into the primary MITgcm source code.
+**7.** On GitHub, go to your fork and hit the pull request (PR) button, and wait for the MITgcm head developers to review your proposed changes. 
+In general the MITgcm code reviewers try to respond to a new PR within
+a week. A response may accept the changes, or may request edits and
+changes. Occasionally the review team will reject changes that are not
+sufficiently aligned with and do not fit with the code structure. The
+review team is always happy to discuss their decisions, but wants to
+avoid people investing extensive effort in code that has a fundamental
+design flaw. The current review team is Jean-Michel Campin, Ed Doddridge, Chris
+Hill and Oliver Jahn.
 
-If you want to update your code branch before submitting a PR (or any point in development), follow the following recipe. It will ensure that your GitHub repo stays up to date with the main repository. Note again that your edits should always be to a development branch (here, ``newfeature``), not the master branch.
+If you want to update your code branch before submitting a PR (or any point in development), follow the recipe below. It will ensure that your GitHub repo stays up to date with the main repository. Note again that your edits should always be to a development branch (here, ``newfeature``), not the master branch.
 
 ::
 
@@ -167,7 +175,7 @@ You will make edits on this new branch, to keep these new edits completely separ
 
     - edit the relevant file(s) and/or create new files. Refer to :ref:`sec_code_style_guide` for details on expected documentation standards and code style requirements. Of course, changes should be thoroughly tested to ensure they compile and run successfully!
     - type ``git add <FILENAME1> <FILENAME2> ...`` to stage the file(s) ready for a commit command (note both existing and brand new files need to be added). “Stage” effectively means to notify Git of the the list of files you plan to “commit” for changes into the version tracking system. Note you can change other files and NOT have them sent to model developers; only staged files will be sent. You can repeat this ``git add`` command as many times as you like and it will continue to augment the list of files.  ``git diff`` and ``git status`` are useful commands to see what you have done so far.
-    - use ``git commit`` to commit the files. This is the first step in bundling a collection of files together to be sent off to the MITgcm maintainers. When you enter this command, an editor window will pop up. On the top line, type a succinct (<70 character) summary of what these changes accomplished. If your commit is non-trivial and addition explanation is required, leave a blank line and then type a longer description of why the action in this commit was appropriate etc. It is good practice to link with known issues using the syntax ``#ISSUE_NUMBER`` in either the summary line or detailed comment. Note that all the changes do not have to be handled in a single commit (i.e. you can git add some files, do a commit, than continue anew by adding different files, do another commit etc.); the ``git commit`` command itself does not (yet) submit anything to maintainers.  
+    - use ``git commit`` to commit the files. This is the first step in bundling a collection of files together to be sent off to the MITgcm maintainers. When you enter this command, an editor window will pop up. On the top line, type a succinct (<70 character) summary of what these changes accomplished. If your commit is non-trivial and additional explanation is required, leave a blank line and then type a longer description of why the action in this commit was appropriate etc. It is good practice to link with known issues using the syntax ``#ISSUE_NUMBER`` in either the summary line or detailed comment. Note that all the changes do not have to be handled in a single commit (i.e. you can git add some files, do a commit, than continue anew by adding different files, do another commit etc.); the ``git commit`` command itself does not (yet) submit anything to maintainers.  
     - if you are fixing a more involved bug or adding a new feature, such that many changes are required, it is preferable to break your contribution into multiple commits (each documented separately) rather than submitting one massive commit; each commit should encompass a single conceptual change to the code base, regardless of how many files it touches. This will allow the MITgcm maintainers to more easily understand your proposed changes and will expedite the review process. 
     - if you make any change to the code, however small, i.e., flavor ii or iii above, we expect you to add your changes to the top of :filelink:`doc/tag-index` (starting at line 4), which is a running history of all development of the MITgcm. Again, be concise, describing your changes in one or several lines of text. We will not accept code changes without this edit.
 
@@ -205,9 +213,26 @@ Some additional ``git diff`` commands to help sort out file changes, in case you
 Aside comment: if you are familiar with git, you might realize there is an alternate way to merge, using the “rebase” syntax. If you know what you are doing, feel free to use this command instead of our suggested merge command above.
 
 
-**7.** Finally create a “pull request” (a.k.a. “PR”; in other words, you are requesting that the maintainers pull your changes into the main code repository). In GitHub, go to the fork of the project that you made (https://github.com/your_github_user_name/MITgcm.git). There is a button for "Compare and Pull" in your newly created branch. Click the button! Now you can add a final succinct summary description of what you've done in your commit(s), and flag up any issues. The maintainers will now be notified and be able to peruse your changes! While the PR remains open, you can go back to step #5 and make additional edits, git adds, git commits, and then redo step #6; such changes will be added to the PR (and maintainers re-notified), no need to redo step #7. 
+**7.** Finally create a “pull request” (a.k.a. “PR”; in other words, you are requesting that the maintainers pull your changes into the main code repository). In GitHub, go to the fork of the project that you made (https://github.com/your_github_user_name/MITgcm.git). There is a button for "Compare and Pull" in your newly created branch. Click the button! Now you can add a final succinct summary description of what you've done in your commit(s), and flag up any issues. The maintainers will now be notified and be able to peruse your changes! In general, the maintainers will try to respond to a new PR within
+a week. While the PR remains open, you can go back to step #5 and make additional edits, git adds,
+git commits, and then redo step #6; such changes will be added to the PR (and maintainers re-notified), no need to redo step #7. 
 
-Your pull request remains open until either the maintainers fully accept and merge your code changes into the main repository, or decide to reject your changes. But much more likely than the latter, you will instead be asked to respond to feedback, modify your code changes in some way, and/or clean up your code to better satisfy our style requirements, etc., and the pull request will remain open instead of outright rejection. It is possible for other users (besides the maintainers) to examine or even download your pull request; see :ref:`sec_pullreq`.
+Your pull request remains open until either the maintainers fully accept and
+merge your code changes into the main repository, or decide to reject your changes
+(occasionally, the review team will reject changes that are not
+sufficiently aligned with and do not fit with the code structure).
+But much more likely than the latter, you will instead be asked to respond to feedback, 
+modify your code changes in some way, and/or clean up your code to better satisfy our style requirements, etc.,
+and the pull request will remain open instead of outright rejection. 
+The review team is always happy to discuss their decisions, but wants to
+avoid people investing extensive effort in code that has a fundamental
+design flaw. 
+
+It is possible for other users (besides the maintainers) to examine 
+or even download your pull request; see :ref:`sec_pullreq`.
+
+The current review team is Jean-Michel Campin, Ed Doddridge, Chris
+Hill and Oliver Jahn.
 
 .. _sec_code_style_guide:
 
@@ -233,6 +258,10 @@ Whether you are simply correcting typos or describing undocumented packages, we 
 The manual is written in **rst** format, which is short for ReStructuredText directives. rst offers many wonderful features: it automatically does much of the formatting for you, it is reasonably well documented on the web (e.g. primers available `here <http://www.sphinx-doc.org/en/stable/rest.html>`_ and
 `here <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_), it can accept raw latex syntax and track equation labelling for you, in addition to numerous other useful features. On the down side however, it can be very fussy about formatting, requiring exact spacing and indenting, and seemingly innocuous things such as blank spaces at ends of lines can wreak havoc. We suggest looking at the existing rst files in the manual to see exactly how something is formatted, along with the syntax guidelines specified in this section, prior to writing and formatting your own manual text.
 
+The manual can be viewed either of two ways: interactively (i.e., web-based), as hosted by read-the-docs (https://readthedocs.org/),
+requiring an html format build, or downloaded as a pdf file. 
+When you have completed your documentation edits, you should double check both versions are to your satisfaction, particularly noting that figure sizing and placement
+may be render differently in the pdf build.
 
 Section headings
 ----------------
@@ -254,20 +283,34 @@ rst allows internal referencing of figures, tables, section headings, and equati
 To be referenced, a unique label is required. To reference figures, tables, or section headings by number,
 the rst (inline) directive is ``:numref:`LABELNAME```. For example, this syntax would write out ``Figure XX`` on a line (assuming LABELNAME referred to a figure),
 and when clicked, would relocate your position
-in the manual to figure XX.  Section Headings can also be referenced so that the name is written out instead of the section number, instead using this 
+in the manual to figure XX.  Section headings can also be referenced so that the name is written out instead of the section number, instead using this 
 directive ``:ref:`LABELNAME```.
 
 Equation references have a slightly different inline syntax: ``:eq:`LABELNAME``` will produce a clickable equation number reference,  surrounded by parentheses. 
 
-For instructions how to assign a label to tables and figures, see below. To label a section heading, labels go above the section they refer to, with the format ``.. _LABELNAME:``.
-Note the necessary leading underscore.
+For instructions how to assign a label to tables and figures, see :ref:`below <how_to_figures>`. To label a section heading,
+labels go above the section heading they refer to, with the format ``.. _LABELNAME:``.
+Note the necessary leading underscore. You can also place a clickable link to *any* spot in the text (e.g., mid-section),
+using this same syntax to make the label, and using the syntax
+``:ref:`some_text_to_clickon <LABELNAME>``` for the link.
 
-External references
+Other embedded links
 --------------------
 
-Hyperlinks: to reference a URL, the syntax is ```clickable_text <URL>`_``  (using separate text as a clickable link is optional).
-filelink
-varlink
+**Hyperlinks:** to reference a (clickable) URL, simply enter the full URL. If you want to have a different,
+clickable text link instead of displaying the full URL, the syntax
+is ```clickable_text <URL>`_``  (the ‘<’ and ‘>’ are literal characters, and note the trailing underscore). 
+
+**File references:** to create a link to pull up MITgcm code (or any file in the repo) in a code browser window, the syntax is ``:filelink:`path/filename```.
+If you want to have a different text link to click on (e.g., say you didn’t want to display the full path), the syntax is ``:filelink:`clickable_text <path/filename>```
+(again, the ‘<‘ and ‘>’ are literal characters). The top directory here is https://github.com/altMITgcm/MITgcm ,
+so if for example you wanted to pop open the file :filelink:`dynamics.F <model/src/dynamics.F>`
+from the main model source directory, you would specify ``model/src/dynamics.F`` in place of path/filename.
+
+**Variable references:** to create a link to bring up a webpage displaying all MITgcm repo references to a particular variable name (for this purpose we are using the LXR Cross Referencer),
+the syntax is ``:varlink:`name_of_variable```.
+
+.. _symbolic_notation:
 
 Symbolic Notation
 -----------------
@@ -283,13 +326,84 @@ Separate equations, which will be typeset on their own lines, are produced with:
 
 Labelled separate equations are assigned an equation number, which may be referenced elsewhere in the document (see :numref:`referencing`). Omitting the ``:label:`` above
 will still produce an equation on its own line, except without an equation label.
-Note that using latex formatting ``\begin{aligned}`` ...  ``\end{aligned}`` across multiple lines of equations will not work in conjunction with unique equation labels for each separate line. (Latex alignment will work however if you assign a single label for the multiple lines of equations.)
+Note that using latex formatting ``\begin{aligned}`` ...  ``\end{aligned}`` across multiple lines of equations will not work in conjunction with unique equation labels for each separate line
+(any embedded formatting ``&`` characters will cause errors too). Latex alignment will work however if you assign a single label for the multiple lines of equations.
+
+Discuss conversion of .tex files.
+
+.. _how_to_figures:
+
+Figures
+-------
+
+The syntax to insert a figure is as follows::
+
+ .. figure:: pathname/filename.*
+    :width: 80%
+    :align: center
+    :alt: text description of figure here
+    :name: myfigure
+
+    The figure caption goes here as a single line of text.
+
+``figure::``: The figure file is located in subdirectory ``pathname`` above; in practice, we have located figure files in subdirectories ``figs``
+off each manual chapter subdirectory.
+The wild-card is used here so that different file formats can be used in the build process.
+For vector graphic images, save a ``pdf`` for the pdf build plus a ``svg`` file for the html build. 
+For bitmapped images, ``gif``, ``png``, or ``jpeg`` formats can be used for both builds, no wild-card necessary
+(see `here <http://www.sphinx-doc.org/en/stable/builders.html>`_ for more info
+on compatible formats).
+
+``:width:``:  used to scale the size of the figure, here specified as 80% scaling factor
+(check sizing in both the pdf and html builds, as you may need to adjust the figure size within the pdf file independently).
+
+``:align:``: can be right, center, or left.
+
+``:name:``  use this name when you refer to the figure in the text, i.e. :``:numref:`myfigure```.
+
+Note the indentation and line spacing employed above.
 
 
-Figures and tables
-------------------
+Tables
+------
 
-provide example syntax of each
+There are two syntaxes for tables in reStructuredText. Grid tables are more flexible but cumbersome to create. Simple
+tables are easy to create but limited (no row spans, etc.). At left is the raw rst syntax, right the output.
+
++---------------------------------------------------------------+------------------------------------------------------+
+| ::                                                            |                                                      |
+|                                                               |     Grid Table Example                               |
+|                                                               |                                                      |
+|   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
+|   | Header 1   | Header 2   | Header 3  |                     |   | Header 1   | Header 2   | Header 3  |            |
+|   +============+============+===========+                     |   +============+============+===========+            |
+|   | body row 1 | column 2   | column 3  |                     |   | body row 1 | column 2   | column 3  |            |
+|   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
+|   | body row 2 | Cells may span columns.|                     |   | body row 2 | Cells may span columns.|            |
+|   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
+|   | body row 3 | Cells may  | - Cells   |                     |   | body row 3 | Cells may  | - Cells   |            |
+|   +------------+ span rows. | - contain |                     |   +------------+ span rows. | - contain |            |
+|   | body row 4 |            | - blocks. |                     |   | body row 4 |            | - blocks. |            |
+|   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
++---------------------------------------------------------------+------------------------------------------------------+
+| ::                                                            |                                                      |
+|                                                               |     Simple Table Example                             |
+|                                                               |                                                      |
+|   =====  =====  ======                                        |   =====  =====  ======                               |
+|      Inputs     Output                                        |      Inputs     Output                               |
+|   ------------  ------                                        |   ------------  ------                               |
+|     A      B    A or B                                        |     A      B    A or B                               |
+|   =====  =====  ======                                        |   =====  =====  ======                               |
+|   False  False  False                                         |   False  False  False                                |
+|   True   False  True                                          |   True   False  True                                 |
+|   False  True   True                                          |   False  True   True                                 |
+|   True   True   True                                          |   True   True   True                                 |
+|   =====  =====  ======                                        |   =====  =====  ======                               |
++---------------------------------------------------------------+------------------------------------------------------+
+
+
+Note that the spacing of your tables in your ``.rst`` file(s) will not match the generated output; rather,
+when you build the final output, the rst builder (Sphinx) will determine how wide the columns need to be and space them appropriately.
 
 
 Other text blocks
@@ -305,7 +419,8 @@ For example::
 
 
 
-A splashier way to outline a block, including a box label, is to employ what is termed in rst as an ‘admonition block’.
+(note the ``::`` would not appear in the output html) A splashier way to outline a block, including a box label,
+is to employ what is termed in rst as an ‘admonition block’.
 In the manual these are used to show calling trees and for describing subroutine inputs and outputs. An example of 
 a subroutine input/output block is as follows:
 
@@ -321,9 +436,9 @@ a subroutine input/output block is as follows:
    |     | :math:`var3` : **VAR1** ( :filelink:`WHERE_VAR3_DEFINED.h </model/inc/where_var3_defined.h>` )
 
 
+An example of a subroutine in/out admonition box in the documentation is :ref:`here <correction_step_sr_in-out>`.
 
-An example of a calling tree syntax is :filelink:`here </doc/discrete_algorithm/discret_algorithm.rst>`.
-
+An example of a calling tree in the documentation is :ref:`here <call-tree-press-meth>`.
 
 
 
@@ -333,10 +448,23 @@ An example of a calling tree syntax is :filelink:`here </doc/discrete_algorithm/
 Other style conventions
 -----------------------
 
-double quotes for inline literal computer output, variables, typing etc.
-how to break up into smaller files
-probably want to add more to this subsection; maybe add another subsection “other useful rst syntax”
+Units should be typeset in normal text, with a space between a numeric value and the unit, and exponents added with the ``:sup:`` command. 
 
+::
+
+  9.8 m/s\ :sup:`2`
+
+will produce 9.8 m/s\ :sup:`2`. If the exponent is negative use two dashes ``--`` to make the minus sign sufficiently long.
+The backslash removes the space between the unit and the exponent.
+
+Alternatively, latex ``:math:`` directives (see :ref:`above <symbolic_notation>`) may also be used to display units, using the ``\text{}`` syntax to display non-italic characters.
+
+
+- double quotes for inline literal computer command, variables, syntax etc.
+
+- discuss how to break up sections into smaller files
+
+- discuss | lines
 
 Building the manual
 -------------------
@@ -390,19 +518,6 @@ and switch to the desired branch
 You now have a local copy of the code from the pull request and can run tests locally. If you have write access to the main repository you can push fixes or changes directly to the pull request.
 
 None of these steps, apart from pushing fixes back to the pull request, require write access to either the main repository or the repository of the person proposing the pull request. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
-
-
-Old Stuff to remove:
-
-Units should be typeset in normal text, and exponents added with the ``:sup:`` command. 
-
-::
-
-  100 N m\ :sup:`--2`
-
-If the exponent is negative use two dashes ``--`` to make the minus sign long enough. The backslash removes the space between the unit and the exponent.
-
-
 
 
 Describing subroutine inputs and outputs
