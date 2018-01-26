@@ -368,46 +368,63 @@ Tables
 ------
 
 There are two syntaxes for tables in reStructuredText. Grid tables are more flexible but cumbersome to create. Simple
-tables are easy to create but limited (no row spans, etc.).
+tables are easy to create but limited (no row spans, etc.).  The raw rst syntax is shown first, then the output.
 
-.. only:: html
 
-    At left is the raw rst syntax, right the output.
+Grid Table Example:
 
-    +---------------------------------------------------------------+------------------------------------------------------+
-    | ::                                                            |                                                      |
-    |                                                               |     Grid Table Example                               |
-    |                                                               |                                                      |
-    |   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
-    |   | Header 1   | Header 2   | Header 3  |                     |   | Header 1   | Header 2   | Header 3  |            |
-    |   +============+============+===========+                     |   +============+============+===========+            |
-    |   | body row 1 | column 2   | column 3  |                     |   | body row 1 | column 2   | column 3  |            |
-    |   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
-    |   | body row 2 | Cells may span columns.|                     |   | body row 2 | Cells may span columns.|            |
-    |   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
-    |   | body row 3 | Cells may  | - Cells   |                     |   | body row 3 | Cells may  | - Cells   |            |
-    |   +------------+ span rows. | - contain |                     |   +------------+ span rows. | - contain |            |
-    |   | body row 4 |            | - blocks. |                     |   | body row 4 |            | - blocks. |            |
-    |   +------------+------------+-----------+                     |   +------------+------------+-----------+            |
-    +---------------------------------------------------------------+------------------------------------------------------+
-    | ::                                                            |                                                      |
-    |                                                               |     Simple Table Example                             |
-    |                                                               |                                                      |
-    |   =====  =====  ======                                        |   =====  =====  ======                               |
-    |      Inputs     Output                                        |      Inputs     Output                               |
-    |   ------------  ------                                        |   ------------  ------                               |
-    |     A      B    A or B                                        |     A      B    A or B                               |
-    |   =====  =====  ======                                        |   =====  =====  ======                               |
-    |   False  False  False                                         |   False  False  False                                |
-    |   True   False  True                                          |   True   False  True                                 |
-    |   False  True   True                                          |   False  True   True                                 |
-    |   True   True   True                                          |   True   True   True                                 |
-    |   =====  =====  ======                                        |   =====  =====  ======                               |
-    +---------------------------------------------------------------+------------------------------------------------------+
+::
 
-.. only:: latex
-    
-    *The table example is not compatible with the pdf build. Example syntax can be found in the online version of this document.*
+    +------------+------------+-----------+
+    | Header 1   | Header 2   | Header 3  |
+    +============+============+===========+
+    | body row 1 | column 2   | column 3  |
+    +------------+------------+-----------+
+    | body row 2 | Cells may span columns.|
+    +------------+------------+-----------+
+    | body row 3 | Cells may  | - Cells   |
+    +------------+ span rows. | - contain |
+    | body row 4 |            | - blocks. |
+    +------------+------------+-----------+
+
++------------+------------+-----------+
+| Header 1   | Header 2   | Header 3  |
++============+============+===========+
+| body row 1 | column 2   | column 3  |
++------------+------------+-----------+
+| body row 2 | Cells may span columns.|
++------------+------------+-----------+
+| body row 3 | Cells may  | - Cells   |
++------------+ span rows. | - contain |
+| body row 4 |            | - blocks. |
++------------+------------+-----------+
+
+
+Simple Table Example:
+
+::
+
+    =====  =====  ======                                        
+       Inputs     Output                                        
+    ------------  ------                                        
+      A      B    A or B                                        
+    =====  =====  ======                                        
+    False  False  False                                         
+    True   False  True                                          
+    False  True   True                                          
+    True   True   True                                          
+    =====  =====  ======                                        
+
+=====  =====  ======
+   Inputs     Output
+------------  ------
+  A      B    A or B
+=====  =====  ======
+False  False  False
+True   False  True
+False  True   True
+True   True   True
+=====  =====  ======
 
 Note that the spacing of your tables in your ``.rst`` file(s) will not match the generated output; rather,
 when you build the final output, the rst builder (Sphinx) will determine how wide the columns need to be and space them appropriately.
