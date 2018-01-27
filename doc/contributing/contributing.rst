@@ -359,7 +359,7 @@ on compatible formats).
 
 ``:align:``: can be right, center, or left.
 
-``:name:``  use this name when you refer to the figure in the text, i.e. :``:numref:`myfigure```.
+``:name:``  use this name when you refer to the figure in the text, i.e. ``:numref:`myfigure```.
 
 Note the indentation and line spacing employed above.
 
@@ -373,7 +373,7 @@ tables are easy to create but limited (no row spans, etc.).
 .. only:: html
 
     At left is the raw rst syntax, right the output.
-    
+
     +---------------------------------------------------------------+------------------------------------------------------+
     | ::                                                            |                                                      |
     |                                                               |     Grid Table Example                               |
@@ -441,7 +441,6 @@ a subroutine input/output block is as follows:
    |     | :math:`var1` : **VAR1** ( :filelink:`WHERE_VAR1_DEFINED.h </model/inc/where_var1_defined.h>`)
    |     | :math:`var2` : **VAR1** ( :filelink:`WHERE_VAR2_DEFINED.h </model/inc/where_var2_defined.h>` )
    |     | :math:`var3` : **VAR1** ( :filelink:`WHERE_VAR3_DEFINED.h </model/inc/where_var3_defined.h>` )
-
 
 An example of a subroutine in/out admonition box in the documentation is :ref:`here <correction_step_sr_in-out>`.
 
@@ -525,27 +524,3 @@ and switch to the desired branch
 You now have a local copy of the code from the pull request and can run tests locally. If you have write access to the main repository you can push fixes or changes directly to the pull request.
 
 None of these steps, apart from pushing fixes back to the pull request, require write access to either the main repository or the repository of the person proposing the pull request. This means that anyone can review pull requests. However, unless you are one of the core developers you won't be able to directly push changes. You will instead have to make a comment describing any problems you find.
-
-
-Describing subroutine inputs and outputs
-----------------------------------------
-
-This information should go in an 'adminition' block. The source code to achieve this is:
-
-::
-
-  .. admonition:: Subroutine
-    :class: note
-
-    S/R GMREDI_CALC_TENSOR (*pkg/gmredi/gmredi_calc_tensor.F*)
-
-    :math:`\sigma_x`: **SlopeX** (argument on entry)
-
-    :math:`\sigma_y`: **SlopeY** (argument on entry)
-
-    :math:`\sigma_z`: **SlopeY** (argument)
-
-    :math:`S_x`: **SlopeX** (argument on exit)
-
-    :math:`S_y`: **SlopeY** (argument on exit)
-
