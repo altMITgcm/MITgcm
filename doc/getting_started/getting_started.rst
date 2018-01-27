@@ -179,7 +179,7 @@ description of the directory structure of the model under the root tree.
    that can run MITgcm (see :numref:`genmake2_optfiles`).
    This directory also contains subdirectories ``adjoint`` and ``OAD_support``
    that are used to generate the tangent linear and adjoint model (see details
-   in :numref:`automatic_differentation`).
+   in :numref:`chap_autodiff`).
 
 -  ``utils``: this directory contains various utilities. The ``matlab`` subdirectory
    contains matlab scripts for reading model output directly into
@@ -188,7 +188,7 @@ description of the directory structure of the model under the root tree.
    joining processor-based and tiled-based model output. 
 
 -  ``verification``: this directory contains the model examples. See
-   numref:`chap_modelExamples`.
+   :numref:`chap_modelExamples`.
 
 -  ``jobs``: contains sample job scripts for running MITgcm.
 

@@ -1,6 +1,7 @@
     Notes on tags used in MITgcmUV
     ==============================
 
+o Add moist-static energy mode (MSE_LAYERS) to package layers.
 o migrate from CVS to Git
 o pkg/cheapaml: major changes to relaxation coefficient setting:
   - rename parameters cheapaml_taurelax & cheapaml_taurelaxocean (in days)
