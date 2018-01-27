@@ -368,10 +368,12 @@ Tables
 ------
 
 There are two syntaxes for tables in reStructuredText. Grid tables are more flexible but cumbersome to create. Simple
-tables are easy to create but limited (no row spans, etc.). At left is the raw rst syntax, right the output.
+tables are easy to create but limited (no row spans, etc.).
 
 .. only:: html
 
+    At left is the raw rst syntax, right the output.
+    
     +---------------------------------------------------------------+------------------------------------------------------+
     | ::                                                            |                                                      |
     |                                                               |     Grid Table Example                               |
@@ -403,6 +405,9 @@ tables are easy to create but limited (no row spans, etc.). At left is the raw r
     |   =====  =====  ======                                        |   =====  =====  ======                               |
     +---------------------------------------------------------------+------------------------------------------------------+
 
+.. only:: latex
+    
+    *The table example is not compatible with the pdf build. Example syntax can be found in the online version of this document.*
 
 Note that the spacing of your tables in your ``.rst`` file(s) will not match the generated output; rather,
 when you build the final output, the rst builder (Sphinx) will determine how wide the columns need to be and space them appropriately.
