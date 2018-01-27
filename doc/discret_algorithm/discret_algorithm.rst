@@ -864,7 +864,7 @@ following equations:
 
 .. math::
    v^{n+1} = v^{**} - \Delta t \partial_y \phi_{nh}^{n+1}
-   :label: vn+1-nh}
+   :label: vn+1-nh
 
 .. math::
    \partial_r w^{n+1} = - \partial_x u^{n+1} - \partial_y v^{n+1}
@@ -1112,7 +1112,7 @@ dissipation and metric forces:
 .. math::
    G_u = G_u^{adv} + G_u^{cor} + G_u^{h-diss} + G_u^{v-diss} +
    G_u^{metric} + G_u^{nh-metric}
-   :label: gsplit_momu}
+   :label: gsplit_momu
 
 .. math::
    G_v = G_v^{adv} + G_v^{cor} + G_v^{h-diss} + G_v^{v-diss} +
