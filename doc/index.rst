@@ -14,7 +14,7 @@ Welcome to MITgcm's user manual
    overview/overview
    discret_algorithm/discret_algorithm
    getting_started/getting_started
-   tutorial/tutorial.rst
+   examples/examples.rst
    contributing/contributing.rst
    software_arch/software_arch.rst
    auto_diff/auto_diff.rst

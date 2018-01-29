@@ -16,18 +16,17 @@ Information is also provided
 here on how to customize the code when you are ready to try implementing 
 the configuration you have in mind.  The code and algorithm
 are described more fully in :numref:`discret_algorithm` and 
-:numref:`sarch`. 
+:numref:`sarch` and chapters thereafter. 
 
 .. _whereToFindInfo:
 
 Where to find information
 =========================
 
-
 There is a web-archived support mailing list for the model that you can
-email at MITgcm-support@mitgcm.org.
+email at MITgcm-support@mitgcm.org once you have subscribed.
 
-To sign up for the mailing list (highly recommended), click `here <http://mailman.mitgcm.org/mailman/listinfo/mitgcm-support/>`_ 
+To sign up (subscribe) for the mailing list (highly recommended), click `here <http://mailman.mitgcm.org/mailman/listinfo/mitgcm-support/>`_ 
 
 To browse through the support archive, click `here <http://mailman.mitgcm.org/pipermail/mitgcm-support/>`_
 
@@ -38,6 +37,8 @@ Obtaining the code
 The MITgcm code and documentation are under continuous development and we generally recommend that one downloads the latest version of the code. You will need to decide if you want to work in a “git-aware” environment (`Method 1`_) or with a one-time “stagnant” download (`Method 2`_). We generally recommend method 1, as it is more flexible and allows your version of the code to be regularly updated as MITgcm developers check in bug fixes and new features. However, this typically requires at minimum a rudimentary understanding of git in order to make it worth one’s while. 
 
 Periodically we release an official checkpoint (or “tag”). We recommend one download the latest code, unless there are reasons for obtaining a specific checkpoint (e.g. duplicating older results, collaborating with someone using an older release, etc.) 
+
+.. _git-aware_download:
 
 Method 1
 --------
@@ -83,32 +84,61 @@ For specific checkpoint release ``XXX``, instead type:
 Updating the code
 =================
 
-There are several different approaches one can use to obtain updates to the MITgcm; which is best for you depends a bit on how you intend to use the MITgcm and your knowledge of git (and/or willingness to learn). Below we outline three suggested update pathways:
+There are several different approaches one can use to obtain updates to the MITgcm; which is best for
+you depends a bit on how you intend to use the MITgcm and your knowledge of git (and/or willingness
+to learn). Below we outline three suggested update pathways:
 
 1. **Fresh Download of the MITgcm**
 
-This approach is the most simple, and virtually foolproof. Whether you downloaded the code from a static zip file (`Method 2`_) or used the git clone command (`Method 1`_), create a new directory and repeat this procedure to download a current copy of the MITgcm. Say for example you are starting a new research project, this would be a great time to grab the most recent code repository and keep this new work entirely separate from any past simulations. This approach requires no understanding of git, and you are free to make changes to any files in the MIT repo tree (although we generally recommend that you avoid doing so, instead working in new subdirectories or on separate scratch disks as described in :numref:`build_elsewhere`, for example). 
+This approach is the most simple, and virtually foolproof. Whether you downloaded the code from a static
+zip file (`Method 2`_) or used the git clone command (`Method 1`_), create a new directory and repeat
+this procedure to download a current copy of the MITgcm. Say for example you are starting a new
+research project, this would be a great time to grab the most recent code repository and keep this
+new work entirely separate from any past simulations. This approach requires no understanding of git,
+and you are free to make changes to any files in the MIT repo tree (although we generally recommend
+that you avoid doing so, instead working in new subdirectories or on separate scratch disks as described
+in :numref:`build_elsewhere`, for example). 
 
 2. **Using** ``git pull`` **to update the (unmodified) MITgcm repo tree**
 
-If you have downloaded the code through a git clone command (`Method 1`_ above), you can incorporate any changes to the source code (including any changes to any files in the MITgcm repository, new packages or analysis routines, etc.) that may have occurred since your original download. There is a simple command to bring all code in the repository to a ‘current release’ state. From the MITgcm top directory or any of its subdirectories, type:
+If you have downloaded the code through a git clone command (`Method 1`_ above), you can incorporate
+any changes to the source code (including any changes to any files in the MITgcm repository, new packages
+or analysis routines, etc.) that may have occurred since your original download. There is a simple
+command to bring all code in the repository to a ‘current release’ state. From the MITgcm top directory
+or any of its subdirectories, type:
 
 ::
 
     % git pull
 
-and all files will be updated to match the current state of the code repository, as it exists at `GitHub <https://github.com/altMITgcm/MITgcm.git>`_. (*Note:* if you plan to contribute to the MITgcm and followed the steps to download the code as described in 
+and all files will be updated to match the current state of the code repository, as it exists
+at `GitHub <https://github.com/altMITgcm/MITgcm.git>`_. (*Note:* if you plan to contribute to
+the MITgcm and followed the steps to download the code as described in 
 :numref:`chap_contributing`, you will need to type ``git pull upstream`` instead.)
 
-This update pathway is ideal if you are in the midst of a project and you want to incorporate new MITgcm features into your executable(s), or take advantage of recently added analysis utilties, etc. After the git pull, any changes in model source code and include files will be updated, so you can repeat the build procedure (:numref:`building_code`) and you will include all these new features in your new executable.
+This update pathway is ideal if you are in the midst of a project and you want to incorporate new
+MITgcm features into your executable(s), or take advantage of recently added analysis utilties, etc.
+After the git pull, any changes in model source code and include files will be updated, so you can
+repeat the build procedure (:numref:`building_code`) and you will include all these new features
+in your new executable.
 
-Be forewarned, this will only work if you have not modified ANY of the files in the MITgcm repository (adding new files is ok; also, all verification run subdirectories ``build`` and ``run`` are also ignored by git). If you have modified files and the ``git pull`` fails with errors, there is no easy fix other than to learn something about git (continue reading...)
+Be forewarned, this will only work if you have not modified ANY of the files in the MITgcm repository
+(adding new files is ok; also, all verification run subdirectories ``build`` and ``run`` are also ignored by git).
+If you have modified files and the ``git pull`` fails with errors, there is no easy fix other than
+to learn something about git (continue reading...)
 
 3. **Fully embracing the power of git!**
 
-Git offers many tools to help organize and track changes in your work.  For example, one might keep separate projects on different branches, and update the code separately (using ``git pull``) on these separate branches. You can even make changes to code in the MIT repo tree; when git then tries to update code from upstream (see :numref:`git_setup`), it will notify you about possible conflicts and even merge the code changes together if it can. You can also use ``git commit`` to help you track what you are modifying in your simulations over time. If you're planning to submit a pull request to include your changes, you should read the contributing guide in :numref:`chap_contributing`, and you may find it easier to work on a separate, fresh copy of the code. See here (...) for more information and how to use git effectively to manage your workflow.
+Git offers many tools to help organize and track changes in your work.  For example, one might keep separate
+projects on different branches, and update the code separately (using ``git pull``) on these separate branches.
+You can even make changes to code in the MIT repo tree; when git then tries to update code from upstream
+(see :numref:`git_setup`), it will notify you about possible conflicts and even merge the code changes
+together if it can. You can also use ``git commit`` to help you track what you are modifying in your
+simulations over time. If you're planning to submit a pull request to include your changes, you should
+read the contributing guide in :numref:`chap_contributing`, and we suggest you do this model development
+in a separate, fresh copy of the code. See :numref:`using_git_and_github` for more information and how
+to use git effectively to manage your workflow.
 
-(we should be more specific above, need to agree how so however)
 
 Model and directory structure
 =============================
@@ -136,31 +166,26 @@ description of the directory structure of the model under the root tree.
 
 -  ``pkg``: contains the source code for the packages. Each package
    corresponds to a subdirectory. For example, ``gmredi`` contains the
-   code related to the Gent-McWilliams/Redi scheme, ``aim`` the code
-   relative to the atmospheric intermediate physics. The packages are
+   code related to the Gent-McWilliams/Redi scheme, ``seaice`` the code
+   for a dynamic seaice model which can be coupled to the ocean model. The packages are
    described in detail in :numref:`packagesI`].
 
 -  ``doc``: contains the MITgcm documentation in reStructured Text (rst) format.
 
 -  ``tools``: this directory contains various useful tools. For example,
    ``genmake2`` is a script written in bash that should be used
-   to generate your makefile. The directory ``adjoint`` contains the
-   makefile specific to the Tangent linear and Adjoint Compiler (TAMC)
-   that generates the adjoint code. The latter is described in detail in
-   part [chap.ecco]. This directory also contains the subdirectory
-   build\_options, which contains the ‘optfiles’ with the compiler
-   options for the different compilers and machines that can run MITgcm (see :numref:`genmake2_optfiles`).
+   to generate your makefile. The subdirectory ``build_options`` contains
+   ‘optfiles’ with the compiler options for many different compilers and machines
+   that can run MITgcm (see :numref:`genmake2_optfiles`).
+   This directory also contains subdirectories ``adjoint`` and ``OAD_support``
+   that are used to generate the tangent linear and adjoint model (see details
+   in :numref:`chap_autodiff`).
 
--  ``utils``: this directory contains various utilities. The
-   subdirectory ``knudsen2`` contains code and a makefile that compute
-   coefficients of the polynomial approximation to the knudsen formula
-   for an ocean nonlinear equation of state. The ``matlab`` subdirectory
+-  ``utils``: this directory contains various utilities. The ``matlab`` subdirectory
    contains matlab scripts for reading model output directly into
    matlab. The subdirectory ``python`` contains similar routines for python.
    ``scripts`` contains C-shell post-processing scripts for
    joining processor-based and tiled-based model output. 
-   The subdirectory ``exch2`` contains the code needed for the exch2 package to
-   work with different combinations of domain decompositions.
 
 -  ``verification``: this directory contains the model examples. See
    :numref:`chap_modelExamples`.
@@ -236,11 +261,11 @@ re-compilation if and when you start to modify the code. The ``make depend``
 command also creates links from the model source to this directory, except for links to those files 
 in the specified ``-mods`` directory. **IMPORTANT NOTE:** Editing the source code files in the build directory
 will not edit a local copy (since these are just links) but will edit the original files in ``model/src`` (or ``model/inc``)
-or in the specified ``-mods`` directory. While the latter might be what you intend, editing the copy in ``model/src``
-is usually not intended and may cause grief somewhere down the road. Rather, if you need to add 
-to the list of modified source code files, make a copy of
-the file(s) to edit in the ``-mods`` directory, make the edits, 
-and then re-build the makefile (the latter step critical or the makefile will not 
+or in the specified ``-mods`` directory. While the latter might be what you intend, editing the master copy in ``model/src``
+is usually **NOT** what was intended and may cause grief somewhere down the road. Rather, if you need to add 
+to the list of modified source code files, place a copy of
+the file(s) to edit in the ``-mods`` directory, make the edits to these ``-mods`` directory files, go back to the build directory and type ``make Clean``,
+and then re-build the makefile (these latter steps critical or the makefile will not 
 link to to this newly edited file).
 
 It is important to note that the make depend stage will occasionally
@@ -267,6 +292,12 @@ up appreciably using the command:
 where the “2” can be replaced with a number that corresponds to the
 number of cores (or discrete CPUs) available.
 
+In addition, there are several housekeeping ``make clean`` options that might be useful:
+
+- ``make clean`` removes files that ``make`` generates (e.g., \*.o and \*.f files)
+- ``make Clean`` removes files and links generated by ``make`` and ``make depend``
+- ``make CLEAN`` removes pretty much everything, including any executibles and output from genmake2
+
 Now you are ready to run the model. General instructions for doing so
 are given in section :numref:`run_the_model`. 
 
@@ -283,21 +314,19 @@ scratch disk. Here, we show how to configure and compile the code on a scratch d
 without having to copy the entire source
 tree. The only requirement to do so is you have ``genmake2`` in your path, or
 you know the absolute path to ``genmake2``.
--
+
 Assuming the model source is in ``~/MITgcm``, then the
 following commands will build the model in ``/scratch/exp2-run1``:
 
 ::
 
     % cd /scratch/exp2-run1
-    % ~/MITgcm/tools/genmake2 -rootdir ~/MITgcm \
-      -mods ~/MITgcm/verification/exp2/code
+    % ~/MITgcm/tools/genmake2 -rootdir ~/MITgcm -mods ~/MITgcm/verification/exp2/code
     % make depend
     % make
 
-Note the use of the command line option ``-rootdir`` to tell genamke2 where to find the MITgcm directory tree.
-
-In general, one can compile the code in any given directory following this procedure.
+Note the use of the command line option ``-rootdir`` to tell genmake2 where to find the MITgcm directory tree.
+In general, one can compile the code in any given directory by following this procedure.
 
 .. _genmake2_desc:
 
@@ -307,8 +336,8 @@ Using ``genmake2``
 This section describes further details and capabilities of ``genmake2`` (located in the
 ``tools`` directory), the MITgcm tool used to generate a Makefile. ``genmake2`` is a shell
 script written to work with all “sh”–compatible shells including bash
-v1, bash v2, and Bourne. ``genmake2`` parses information from the
-following sources:
+v1, bash v2, and Bourne (like many unix tools, there is a help option that is invoked thru ``genmake -h``).
+``genmake2`` parses information from the following sources:
 
 -
     a ``genmake_local`` file if one is found in the current directory
@@ -324,7 +353,7 @@ following sources:
     a ``packages.conf`` file (if one is found) with the specific list of
     packages to compile. The search path for file ``packages.conf`` is
     first the current directory, and then each of the ``-mods`` directories
-    in the given order (see below).
+    in the given order (see :ref:`here <mods_option>`).
 
 .. _genmake2_optfiles:
 
@@ -428,6 +457,8 @@ The most important command-line options are:
     then find a working FORTRAN compiler within the user’s path. When
     these three items have been identified, genmake2 will try to find an
     optfile that has a matching name.
+
+.. _mods_option:
 
 ``–mods ’dir1 dir2 dir3 ...’``
     specifies a list of directories containing “modifications”. These
@@ -723,7 +754,8 @@ Python
 MDSIO output
 ############
 
-The repository includes Python scripts for reading the ``mdsio`` format under ``utils/python``. The following example shows how to load in some data:
+The repository includes Python scripts for reading the ``mdsio`` format under ``utils/python``.
+The following example shows how to load in some data:
 
 ::
   
@@ -737,9 +769,12 @@ The docstring for ``mds.rdmds`` contains much more detail about using this funct
 NetCDF output
 #############
 
-The NetCDF output is currently produced with one file per processor. This means the individual tiles need to be stitched together to create a single NetCDF file that spans the model domain. The script ``gluemncbig.py`` in the ``utils/python`` folder can do this efficiently from the command line. 
+The NetCDF output is currently produced with one file per processor. This means the individual tiles
+need to be stitched together to create a single NetCDF file that spans the model domain. The script
+``gluemncbig.py`` in the ``utils/python`` folder can do this efficiently from the command line. 
 
-The following example shows how to use the `xarray package <http://xarray.pydata.org/>`_ to read the resulting NetCDF file into python:
+The following example shows how to use the `xarray package <http://xarray.pydata.org/>`_ to read
+the resulting NetCDF file into python:
 
 ::
   
@@ -747,6 +782,839 @@ The following example shows how to use the `xarray package <http://xarray.pydata
   import xarray as xr
 
   Eta = xr.open_dataset('Eta.nc')
+
+Customizing the model configuration
+===================================
+
+When you are ready to run the model in the configuration you want, the
+easiest thing is to use and adapt the setup of the case studies
+experiment (described in :numref:`chap_modelExamples`) that is the closest to your
+configuration. Then, the amount of setup will be minimized. In this
+section, we focus on the setup relative to the “numerical model” part of
+the code (the setup relative to the “execution environment” part is
+covered in the software architecture/wrapper section) and on the variables and
+parameters that you are likely to change.
+
+
+In what follows, the parameters are grouped into categories related to
+the computational domain, the equations solved in the model, and the
+simulation controls.
+
+
+Parameters: Computational Domain, Geometry and Time-Discretization
+------------------------------------------------------------------
+
+Dimensions
+     
+
+    The number of points in the x, y, and r directions are represented
+    by the variables :varlink:`sNx`, :varlink:`sNy` and :varlink:`Nr` respectively which are
+    declared and set in the file :filelink:`SIZE.h <model/inc/SIZE.h>`. (Again, this
+    assumes a mono-processor calculation. For multiprocessor
+    calculations see the section on parallel implementation.)
+
+Grid
+     
+
+    Three different grids are available: cartesian, spherical polar, and
+    curvilinear (which includes the cubed sphere). The grid is set
+    through the logical variables :varlink:`usingCartesianGrid`,
+    :varlink:`usingSphericalPolarGrid`, and :varlink:`usingCurvilinearGrid`. In the
+    case of spherical and curvilinear grids, the southern boundary is
+    defined through the variable :varlink:`ygOrigin` which corresponds to the
+    latitude of the southern most cell face (in degrees). The resolution
+    along the x and y directions is controlled by the 1D arrays :varlink:`delx`
+    and :varlink:`dely` (in meters in the case of a cartesian grid, in degrees
+    otherwise). The vertical grid spacing is set through the 1D array
+    :varlink:`delz` for the ocean (in meters) or :varlink:`delp` for the atmosphere
+    (in Pa). The variable :varlink:`Ro_SeaLevel` represents the standard
+    position of sea level in “r” coordinate. This is typically set to 0 m
+    for the ocean (default value) and 10\ :sup:`5` Pa for the
+    atmosphere. For the atmosphere, also set the logical variable
+    :varlink:`groundAtK1` to ``.TRUE.`` which puts the first level (k=1) at
+    the lower boundary (ground).
+
+    For the cartesian grid case, the Coriolis parameter :math:`f` is set
+    through the variables :varlink:`f0` and :varlink:`beta` which correspond to the
+    reference Coriolis parameter (in s\ :sup:`--1`) and
+    :math:`\frac{\partial f}{ \partial y}`\ (in
+    m\ :sup:`--1`\ s\ :sup:`--1`) respectively. If :varlink:`beta` is set
+    to a nonzero value, :varlink:`f0` is the value of :math:`f` at the southern
+    edge of the domain.
+
+Topography - Full and Partial Cells
+     
+
+    The domain bathymetry is read from a file that contains a 2D (x,y)
+    map of depths (in m) for the ocean or pressures (in Pa) for the
+    atmosphere. The file name is represented by the variable
+    :varlink:`bathyFile`. The file is assumed to contain binary numbers giving
+    the depth (pressure) of the model at each grid cell, ordered with
+    the x coordinate varying fastest. The points are ordered from low
+    coordinate to high coordinate for both axes. The model code applies
+    without modification to enclosed, periodic, and double periodic
+    domains. Periodicity is assumed by default and is suppressed by
+    setting the depths to 0 m for the cells at the limits of the
+    computational domain (note: not sure this is the case for the
+    atmosphere). The precision with which to read the binary data is
+    controlled by the integer variable :varlink:`readBinaryPrec` which can take
+    the value 32 (single precision) or 64 (double precision).
+    See the matlab program ``gendata.m`` in the ``input`` directories of
+    ``verification`` for several tutorial examples (e.g. :filelink:`gendata.m <verification/tutorial_barotropic_gyre/input/gendata.m>`
+    in the :ref:`barotropic gyre tutorial <sec_eg_baro>`)
+    to see how the bathymetry files are generated for the
+    case study experiments.
+
+    To use the partial cell capability, the variable :varlink:`hFacMin` needs
+    to be set to a value between 0 and 1 (it is set to 1 by default)
+    corresponding to the minimum fractional size of the cell. For
+    example if the bottom cell is 500 m thick and :varlink:`hFacMin` is set to
+    0.1, the actual thickness of the cell (i.e. used in the code) can
+    cover a range of discrete values 50 m apart from 50 m to 500 m
+    depending on the value of the bottom depth (in :varlink:`bathyFile`) at
+    this point.
+
+    Note that the bottom depths (or pressures) need not coincide with
+    the models levels as deduced from :varlink:`delz` or :varlink:`delp`. The model
+    will interpolate the numbers in :varlink:`bathyFile` so that they match the
+    levels obtained from :varlink:`delz` or :varlink:`delp` and :varlink:`hFacMin`.
+
+    (Note: the atmospheric case is a bit more complicated than what is
+    written here. To come soon...)
+
+Time-Discretization
+     
+
+    The time steps are set through the real variables :varlink:`deltaTMom` and
+    :varlink:`deltaTtracer` (in s) which represent the time step for the
+    momentum and tracer equations, respectively. For synchronous
+    integrations, simply set the two variables to the same value (or you
+    can prescribe one time step only through the variable :varlink:`deltaT`).
+    The Adams-Bashforth stabilizing parameter is set through the
+    variable :varlink:`abEps` (dimensionless). The stagger baroclinic time
+    stepping can be activated by setting the logical variable
+    :varlink:`staggerTimeStep` to ``.TRUE.``.
+
+.. _parms-eos:
+
+Parameters: Equation of State
+-----------------------------
+
+First, because the model equations are written in terms of
+perturbations, a reference thermodynamic state needs to be specified.
+This is done through the 1D arrays :varlink:`tRef` and :varlink:`sRef`. :varlink:`tRef`
+specifies the reference potential temperature profile (in
+:sup:`o`\ C for the ocean and K for the atmosphere)
+starting from the level k=1. Similarly, :varlink:`sRef` specifies the reference
+salinity profile (in ppt) for the ocean or the reference specific
+humidity profile (in g/kg) for the atmosphere.
+
+The form of the equation of state is controlled by the character
+variables :varlink:`buoyancyRelation` and :varlink:`eosType`. :varlink:`buoyancyRelation` is
+set to ``OCEANIC`` by default and needs to be set to ``ATMOSPHERIC``
+for atmosphere simulations. In this case, :varlink:`eosType` must be set to
+``IDEALGAS``. For the ocean, two forms of the equation of state are
+available: linear (set :varlink:`eosType` to ``LINEAR``) and a polynomial
+approximation to the full nonlinear equation ( set :varlink:`eosType` to
+``POLYNOMIAL``). In the linear case, you need to specify the thermal
+and haline expansion coefficients represented by the variables
+:varlink:`tAlpha` (in K\ :sup:`--1`) and :varlink:`sBeta` (in ppt\ :sup:`--1`).
+For the nonlinear case, you need to generate a file of polynomial
+coefficients called ``POLY3.COEFFS``. To do this, use the program
+:filelink:`utils/knudsen2/knudsen2.f` under the model tree (a Makefile is
+available in the same directory and you will need to edit the number and
+the values of the vertical levels in :filelink:`knudsen2.f <utils/knudsen2/knudsen2.f>` so that they match
+those of your configuration).
+
+There there are also higher polynomials for the equation of state:
+
+``’UNESCO’``:
+    The UNESCO equation of state formula of Fofonoff and Millard (1983)
+    :cite:`fofonoff:83`. This equation of state assumes
+    in-situ temperature, which is not a model variable; *its use is
+    therefore discouraged, and it is only listed for completeness*.
+
+``’JMD95Z’``:
+    A modified UNESCO formula by Jackett and McDougall (1995)
+    :cite:`jackett:95`, which uses the model variable
+    potential temperature as input. The ’Z’ indicates that this
+    equation of state uses a horizontally and temporally constant
+    pressure :math:`p_{0}=-g\rho_{0}z`.
+
+``’JMD95P’``:
+    A modified UNESCO formula by Jackett and McDougall (1995)
+    :cite:`jackett:95`, which uses the model variable
+    potential temperature as input. The ’P’ indicates that this
+    equation of state uses the actual hydrostatic pressure of the last
+    time step. Lagging the pressure in this way requires an additional
+    pickup file for restarts.
+
+``’MDJWF’``:
+    The new, more accurate and less expensive equation of state by
+    McDougall et al. (1983) :cite:`mcdougall:03`. It also requires
+    lagging the pressure and therefore an additional pickup file for
+    restarts.
+
+For none of these options an reference profile of temperature or
+salinity is required.
+
+
+Parameters: Momentum Equations
+------------------------------
+
+In this section, we only focus for now on the parameters that you are
+likely to change, i.e. the ones relative to forcing and dissipation for
+example. The details relevant to the vector-invariant form of the
+equations and the various advection schemes are not covered for the
+moment. We assume that you use the standard form of the momentum
+equations (i.e. the flux-form) with the default advection scheme. Also,
+there are a few logical variables that allow you to turn on/off various
+terms in the momentum equation. These variables are called
+:varlink:`momViscosity`, :varlink:`momAdvection`, :varlink:`momForcing`, :varlink:`useCoriolis`,
+:varlink:`momPressureForcing`, :varlink:`momStepping` and :varlink:`metricTerms` and are assumed to
+be set to ``.TRUE.`` here. Look at the file :filelink:`PARAMS.h <model/inc/PARAMS.h>` for a
+precise definition of these variables.
+
+Initialization
+     
+
+    The initial horizontal velocity components can be specified from
+    binary files :varlink:`uVelInitFile` and :varlink:`vVelInitFile`. These files
+    should contain 3D data ordered in an (x,y,r) fashion with k=1 as the
+    first vertical level (surface level). If no file names are provided,
+    the velocity is initialized to zero. The initial vertical velocity
+    is always derived from the horizontal velocity using the continuity
+    equation, even in the case of non-hydrostatic simulation (see, e.g.,
+    :filelink:`verification/tutorial_deep_convection/input/`).
+
+    In the case of a restart (from the end of a previous simulation),
+    the velocity field is read from a pickup file (see section on
+    simulation control parameters) and the initial velocity files are
+    ignored.
+
+Forcing
+
+    
+    This section only applies to the ocean. You need to generate
+    wind-stress data into two files :varlink:`zonalWindFile` and
+    :varlink:`meridWindFile` corresponding to the zonal and meridional
+    components of the wind stress, respectively (if you want the stress
+    to be along the direction of only one of the model horizontal axes,
+    you only need to generate one file). The format of the files is
+    similar to the bathymetry file. The zonal (meridional) stress data
+    are assumed to be in Pa and located at U-points (V-points). As for
+    the bathymetry, the precision with which to read the binary data is
+    controlled by the variable :varlink:`readBinaryPrec`. See the matlab
+    program ``gendata.m`` in the ``input`` directories of
+    ``verification`` for several tutorial example
+    (e.g. :filelink:`gendata.m <verification/tutorial_barotropic_gyre/input/gendata.m>`
+    in the :ref:`barotropic gyre tutorial <sec_eg_baro>`)
+    to see how simple analytical wind forcing data are generated for the
+    case study experiments.
+
+.. _periodic_forcing_expl:
+
+    There is also the possibility of prescribing time-dependent periodic
+    forcing. To do this, concatenate the successive time records into a
+    single file (for each stress component) ordered in a (x,y,t) fashion
+    and set the following variables: :varlink:`periodicExternalForcing` to
+    ``.TRUE.``, :varlink:`externForcingPeriod` to the period (in s) of which
+    the forcing varies (typically 1 month), and :varlink:`externForcingCycle`
+    to the repeat time (in s) of the forcing (typically 1 year; note
+    :varlink:`externForcingCycle` must be a multiple of
+    :varlink:`externForcingPeriod`). With these variables set up, the model
+    will interpolate the forcing linearly at each iteration.
+
+.. _mom_dissip:
+
+Dissipation
+
+    
+    The lateral eddy viscosity coefficient is specified through the
+    variable :varlink:`viscAh` (in m\ :sup:`2`\ s\ :sup:`--1`). The
+    vertical eddy viscosity coefficient is specified through the
+    variable :varlink:`viscAz` (in m\ :sup:`2`\ s\ :sup:`--1`) for the
+    ocean and :varlink:`viscAp` (in Pa\ :sup:`2`\ s\ :sup:`--1`) for the
+    atmosphere. The vertical diffusive fluxes can be computed implicitly
+    by setting the logical variable :varlink:`implicitViscosity` to
+    ``.TRUE.``. In addition, biharmonic mixing can be added as well
+    through the variable :varlink:`viscA4` (in
+    m\ :sup:`4`\ s\ :sup:`--1`). On a spherical polar grid, you
+    might also need to set the variable :varlink:`cosPower` which is set to 0
+    by default and which represents the power of cosine of latitude to
+    multiply viscosity. Slip or no-slip conditions at lateral and bottom
+    boundaries are specified through the logical variables
+    :varlink:`no_slip_sides` and :varlink:`no_slip_bottom`. If set to
+    ``.FALSE.``, free-slip boundary conditions are applied. If no-slip
+    boundary conditions are applied at the bottom, a bottom drag can be
+    applied as well. Two forms are available: linear (set the variable
+    :varlink:`bottomDragLinear` in m/s) and quadratic (set the variable
+    :varlink:`bottomDragQuadratic`, dimensionless).
+
+    The Fourier and Shapiro filters are described elsewhere.
+
+C-D Scheme
+     
+
+    If you run at a sufficiently coarse resolution, you will need the
+    C-D scheme for the computation of the Coriolis terms. The
+    variable :varlink:`tauCD`, which represents the C-D scheme coupling
+    timescale (in s) needs to be set.
+
+Calculation of Pressure/Geopotential
+     
+
+    First, to run a non-hydrostatic ocean simulation, set the logical
+    variable :varlink:`nonHydrostatic` to ``.TRUE.``. The pressure field is
+    then inverted through a 3D elliptic equation. (Note: this capability
+    is not available for the atmosphere yet.) By default, a hydrostatic
+    simulation is assumed and a 2D elliptic equation is used to invert
+    the pressure field. The parameters controlling the behavior of the
+    elliptic solvers are the variables :varlink:`cg2dMaxIters` and
+    :varlink:`cg2dTargetResidual` for the 2D case and :varlink:`cg3dMaxIters` and
+    :varlink:`cg3dTargetResidual` for the 3D case. You probably won’t need to
+    alter the default values (are we sure of this?).
+
+    For the calculation of the surface pressure (for the ocean) or
+    surface geopotential (for the atmosphere) you need to set the
+    logical variables :varlink:`rigidLid` and :varlink:`implicitFreeSurface` (set one
+    to ``.TRUE.`` and the other to ``.FALSE.`` depending on how you
+    want to deal with the ocean upper or atmosphere lower boundary).
+
+Parameters: Tracer Equations
+----------------------------
+
+This section covers the tracer equations i.e. the potential temperature
+equation and the salinity (for the ocean) or specific humidity (for the
+atmosphere) equation. As for the momentum equations, we only describe
+for now the parameters that you are likely to change. The logical
+variables :varlink:`tempDiffusion`, :varlink:`tempAdvection`, :varlink:`tempForcing`, and
+:varlink:`tempStepping` allow you to turn on/off terms in the temperature
+equation (same thing for salinity or specific humidity with variables
+:varlink:`saltDiffusion`, :varlink:`saltAdvection` etc.). These variables are all
+assumed here to be set to ``.TRUE.``. Look at file
+:filelink:`PARAMS.h <model/inc/PARAMS.h>` for a precise definition.
+
+Initialization
+     
+
+    The initial tracer data can be contained in the binary files
+    :varlink:`hydrogThetaFile` and :varlink:`hydrogSaltFile`. These files should
+    contain 3D data ordered in an (x,y,r) fashion with k=1 as the first
+    vertical level. If no file names are provided, the tracers are then
+    initialized with the values of :varlink:`tRef` and :varlink:`sRef` mentioned :ref:`above <parms-eos>`.
+    In this case, the initial tracer
+    data are uniform in x and y for each depth level.
+
+Forcing
+     
+
+    This part is more relevant for the ocean, the procedure for the
+    atmosphere not being completely stabilized at the moment.
+
+    A combination of fluxes data and relaxation terms can be used for
+    driving the tracer equations. For potential temperature, heat flux
+    data (in W/m\ :sup:`2`) can be stored in the 2D binary file
+    :varlink:`surfQfile`. Alternatively or in addition, the forcing can be
+    specified through a relaxation term. The SST data to which the model
+    surface temperatures are restored to are supposed to be stored in
+    the 2D binary file :varlink:`thetaClimFile`. The corresponding relaxation
+    time scale coefficient is set through the variable
+    :varlink:`tauThetaClimRelax` (in s). The same procedure applies for
+    salinity with the variable names :varlink:`EmPmRfile`, :varlink:`saltClimFile`,
+    and :varlink:`tauSaltClimRelax` for freshwater flux (in m/s) and surface
+    salinity (in ppt) data files and relaxation time scale coefficient
+    (in s), respectively. Also for salinity, if the CPP key
+    ``USE_NATURAL_BCS`` is turned on, natural boundary conditions are
+    applied, i.e., when computing the surface salinity tendency, the
+    freshwater flux is multiplied by the model surface salinity instead
+    of a constant salinity value.
+
+    As for the other input files, the precision with which to read the
+    data is controlled by the variable :varlink:`readBinaryPrec`.
+    Time-dependent, periodic forcing can be applied as well following
+    the same procedure used for the wind forcing data (see :ref:`above <periodic_forcing_expl>`).
+
+Dissipation
+     
+
+    Lateral eddy diffusivities for temperature and salinity/specific
+    humidity are specified through the variables :varlink:`diffKhT` and
+    :varlink:`diffKhS` (in m\ :sup:`2`\ /s). Vertical eddy diffusivities are
+    specified through the variables :varlink:`diffKzT` and :varlink:`diffKzS` (in
+    m\ :sup:`2`\ /s) for the ocean and :varlink:`diffKpT` and :varlink:`diffKpS` (in
+    Pa\ :sup:`2`\ /s) for the atmosphere. The vertical diffusive
+    fluxes can be computed implicitly by setting the logical variable
+    :varlink:`implicitDiffusion` to ``.TRUE.``. In addition, biharmonic
+    diffusivities can be specified as well through the coefficients
+    :varlink:`diffK4T` and :varlink:`diffK4S` (in m\ :sup:`4`\ /s). Note that the
+    cosine power scaling (specified through :varlink:`cosPower`; see :ref:`above <mom_dissip>`)
+    is applied to the tracer diffusivities
+    (Laplacian and biharmonic) as well. The Gent and McWilliams
+    parameterization for oceanic tracers is described in the package
+    section. Finally, note that tracers can be also subject to Fourier
+    and Shapiro filtering (see the corresponding section on these
+    filters).
+
+Ocean convection
+     
+
+    Two options are available to parameterize ocean convection.
+    To use the first option, a convective adjustment scheme, you need to
+    set the variable :varlink:`cadjFreq`, which represents the frequency (in s)
+    with which the adjustment algorithm is called, to a non-zero value
+    (note, if :varlink:`cadjFreq` set to a negative value by the user, the model will set it to
+    the tracer time step). The second option is to parameterize
+    convection with implicit vertical diffusion. To do this, set the
+    logical variable :varlink:`implicitDiffusion` to ``.TRUE.`` and the real
+    variable :varlink:`ivdc_kappa` to a value (in m\ :sup:`2`\ /s) you wish
+    the tracer vertical diffusivities to have when mixing tracers
+    vertically due to static instabilities. Note that :varlink:`cadjFreq` and
+    :varlink:`ivdc_kappa` cannot both have non-zero value.
+
+Parameters: Simulation Controls
+-------------------------------
+
+The model ”clock” is defined by the variable :varlink:`deltaTClock` (in s)
+which determines the I/O frequencies and is used in tagging output.
+Typically, you will set it to the tracer time step for accelerated runs
+(otherwise it is simply set to the default time step :varlink:`deltaT`).
+Frequency of checkpointing and dumping of the model state are referenced
+to this clock (see :ref:`below <freq_of_output>`).
+
+Run Duration
+     
+
+    The beginning of a simulation is set by specifying a start time (in s)
+    through the real variable :varlink:`startTime` or by specifying an
+    initial iteration number through the integer variable :varlink:`nIter0`. If
+    these variables are set to nonzero values, the model will look for a
+    ”pickup” file ``pickup.0000nIter0`` to restart the integration. The
+    end of a simulation is set through the real variable :varlink:`endTime` (in s).
+    Alternatively, you can specify instead the number of time steps
+    to execute through the integer variable :varlink:`nTimeSteps`.
+
+.. _freq_of_output:
+
+Frequency of Output
+
+    Real variables defining frequencies (in s) with which output files
+    are written on disk need to be set up. :varlink:`dumpFreq` controls the
+    frequency with which the instantaneous state of the model is saved.
+    :varlink:`chkPtFreq` and :varlink:`pchkPtFreq` control the output frequency of
+    rolling and permanent checkpoint files, respectively. In addition, time-averaged fields can be written out by
+    setting the variable :varlink:`taveFreq` (in s). The precision with which
+    to write the binary data is controlled by the integer variable
+    :varlink:`writeBinaryPrec` (set it to 32 or 64).
+
+
+Parameters: Default Values
+--------------------------
+
+The CPP keys relative to the “numerical model” part of the code are all
+defined and set in the file :filelink:`CPP_OPTIONS.h <model/inc/CPP_OPTIONS.h>` in the directory
+:filelink:`model/inc/` or in one of the ``code`` directories of the case study
+experiments under :filelink:`verification/`. The model parameters are defined and
+declared in the file :filelink:`PARAMS.h <model/inc/PARAMS.h>` and their default values are
+set in the routine :filelink:`set_defaults.F <model/src/set_defaults.F>`. The default values can
+be modified in the namelist file ``data`` which needs to be located in the
+directory where you will run the model. The parameters are initialized
+in the routine :filelink:`ini_parms.F <model/src/ini_parms.F>`. Look at this routine to see in
+what part of the namelist the parameters are located. Here is a complete
+list of the model parameters related to the main model (namelist
+parameters for the packages are located in the package descriptions),
+their meaning, and their default values:
+
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| **Name**                       | **Value**           | **Description**                                                    |
++--------------------------------+---------------------+--------------------------------------------------------------------+
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`buoyancyRelation`    | OCEANIC             | buoyancy relation                                                  |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`fluidIsAir`          | F                   | fluid major constituent is air                                     |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`fluidIsWater`        | T                   | fluid major constituent is water                                   |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`usingPCoords`        | F                   | use pressure coordinates                                           |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`usingZCoords`        | T                   | use z-coordinates                                                  |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`tRef`                | 2.0E+01 at k=top    | reference temperature profile ( :sup:`o`\ C or K )                 |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`sRef`                | 3.0E+01 at k=top    | reference salinity profile ( psu )                                 |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscAh`              | 0.0E+00             | lateral eddy viscosity ( m\ :sup:`2`\ /s )                         |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscAhMax`           | 1.0E+21             | maximum lateral eddy viscosity ( m\ :sup:`2`\ /s )                 |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscAhGrid`          | 0.0E+00             | grid dependent lateral eddy viscosity ( non-dim. )                 |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`useFullLeith`        | F                   | use full form of Leith viscosity on/off flag                       |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`useStrainTensionVisc`| F                   | use StrainTension form of viscous operator on/off flag             |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`useAreaViscLength`   | F                   | use area for visc length instead of geom. mean                     |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscC2leith`         | 0.0E+00             | Leith harmonic visc. factor (on grad(vort),non-dim.)               |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscC2leithD`        | 0.0E+00             | Leith harmonic viscosity factor (on grad(div),non-dim.)            |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscC2smag`          | 0.0E+00             | Smagorinsky harmonic viscosity factor (non-dim.)                   |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscA4`              | 0.0E+00             | lateral biharmonic viscosity ( m\ :sup:`4`\ /s )                   |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscA4Max`           | 1.0E+21             | maximum biharmonic viscosity ( m\ :sup:`4`\ /s )                   |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscA4Grid`          | 0.0E+00             | grid dependent biharmonic viscosity ( non-dim. )                   |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscC4leith`         | 0.0E+00             | Leith biharmonic viscosity factor (on grad(vort), non-dim.)        |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscC4leithD`        | 0.0E+00             | Leith biharmonic viscosity factor (on grad(div), non-dim.)         |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscC4Smag`          | 0.0E+00             | Smagorinsky biharmonic viscosity factor (non-dim)                  |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`no_slip_sides`       | T                   | viscous BCs: no-slip sides                                         |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`sideDragFactor`      | 2.0E+00             | side-drag scaling factor (non-dim)                                 |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`viscAr`              | 0.0E+00             | vertical eddy viscosity ( units of r\ :sup:`2`\ /s )               |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`no_slip_bottom`      | T                   | viscous BCs: no-slip bottom                                        |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`bottomDragLinear`    | 0.0E+00             | linear bottom-drag coefficient ( m/s )                             |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`bottomDragQuadratic` | 0.0E+00             | quadratic bottom-drag coeff. ( 1 )                                 |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKhT`             | 0.0E+00             | Laplacian diffusion of heat laterally ( m\ :sup:`2`\ /s )          |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffK4T`             | 0.0E+00             | biharmonic diffusion of heat laterally ( m\ :sup:`4`\ /s )         |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKhS`             | 0.0E+00             | Laplacian diffusion of salt laterally ( m\ :sup:`2`\ /s )          |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffK4S`             | 0.0E+00             | biharmonic diffusion of salt laterally ( m\ :sup:`4`\ /s  )        |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKrNrT`           | 0.0E+00 at k=top    | vertical profile of vertical diffusion of temp ( m\ :sup:`2`\ /s ) |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKrNrS`           | 0.0E+00 at k=top    | vertical profile of vertical diffusion of salt ( m\ :sup:`2`\ /s ) |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKrBL79surf`      | 0.0E+00             | surface diffusion for Bryan and Lewis 1979 ( m\ :sup:`2`\ /s )     |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKrBL79deep`      | 0.0E+00             | deep diffusion for Bryan and Lewis 1979 ( m\ :sup:`2`\ /s )        |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKrBL79scl`       | 2.0E+02             | depth scale for Bryan and Lewis 1979 ( m )                         |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`diffKrBL79Ho`        | -2.0E+03            | turning depth for Bryan and Lewis 1979 ( m )                       |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`eosType`             | LINEAR              | equation of state                                                  |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+| :varlink:`tAlpha`              | 2.0E-04             | linear EOS thermal expansion coefficient ( 1/\ :sup:`o`\ C )       |
++--------------------------------+---------------------+--------------------------------------------------------------------+
+
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| **Name**                          | **Value**                     | **Description**                                   |
++-----------------------------------+-------------------------------+---------------------------------------------------+
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`sBeta`                  | 7.4E-04                       | linear EOS haline contraction coef ( 1/psu )      |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`rhonil`                 | 9.998E+02                     | reference density ( kg/m\ :sup:`3` )              |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`rhoConst`               | 9.998E+02                     | reference density ( kg/m\ :sup:`3` )              |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`rhoConstFresh`          | 9.998E+02                     | reference density ( kg/m\ :sup:`3` )              |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`gravity`                | 9.81E+00                      | gravitational acceleration ( m/s\ :sup:`2` )      |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`gBaro`                  | 9.81E+00                      | barotropic gravity ( m/s\ :sup:`2` )              |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`rotationPeriod`         | 8.6164E+04                    | rotation period ( s )                             |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`omega`                  | :math:`2\pi/`\ rotationPeriod | angular velocity ( rad/s )                        |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`f0`                     | 1.0E-04                       | reference coriolis parameter ( 1/s )              |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`beta`                   | 1.0E-11                       | beta ( m\ :sup:`--1`\ s\ :sup:`--1` )             |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`freeSurfFac`            | 1.0E+00                       | implicit free surface factor                      |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`implicitFreeSurface`    | T                             | implicit free surface on/off flag                 |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`rigidLid`               | F                             | rigid lid on/off flag                             |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`implicSurfPress`        | 1.0E+00                       | surface pressure implicit factor (0-1)            |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`implicDiv2Dflow`        | 1.0E+00                       | barotropic flow div. implicit factor (0-1)        |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`exactConserv`           | F                             | exact volume conservation on/off flag             |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`uniformLin_PhiSurf`     | T                             | use uniform Bo_surf on/off flag                   |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`nonlinFreeSurf`         | 0                             | non-linear free surf. options (-1,0,1,2,3)        |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`hFacInf`                | 2.0E-01                       | lower threshold for hFac (nonlinFreeSurf only)    |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`hFacSup`                | 2.0E+00                       | upper threshold for hFac (nonlinFreeSurf only)    |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`select_rStar`           | 0                             | r                                                 |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`useRealFreshWaterFlux`  | F                             | real freshwater flux on/off flag                  |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`convertFW2Salt`         | 3.5E+01                       | convert FW flux to salt flux (-1=use local S)     |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`use3Dsolver`            | F                             | use 3-D pressure solver on/off flag               |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`nonHydrostatic`         | F                             | non-hydrostatic on/off flag                       |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`nh_Am2`                 | 1.0E+00                       | non-hydrostatic terms scaling factor              | 
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`quasiHydrostatic`       | F                             | quasi-hydrostatic on/off flag                     |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`momStepping`            | T                             | momentum equation on/off flag                     |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`vectorInvariantMomentum`| F                             | vector-invariant momentum on/off                  |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`momAdvection`           | T                             | momentum advection on/off flag                    |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`momViscosity`           | T                             | momentum viscosity on/off flag                    |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`momImplVertAdv`         | F                             | momentum implicit vert. advection on/off          |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`implicitViscosity`      | F                             | implicit viscosity on/off flag                    |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`metricTerms`            | F                             | metric terms on/off flag                          |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`useNHMTerms`            | F                             | non-hydrostatic metric terms on/off               |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`useCoriolis`            | T                             | Coriolis on/off flag                              |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`useCDscheme`            | F                             | CD scheme on/off flag                             |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`useJamartWetPoints`     | F                             | Coriolis wetpoints method flag                    |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+| :varlink:`useJamartMomAdv`        | F                             | VI non-linear terms Jamart flag                   |
++-----------------------------------+-------------------------------+---------------------------------------------------+
+
++-----------------------------------+---------------------+-------------------------------------------+
+| **Name**                          | **Value**           | **Description**                           |
++-----------------------------------+---------------------+-------------------------------------------+
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`SadournyCoriolis`      | F                   | Sadourny Coriolis discretization flag     |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`upwindVorticity`       | F                   | upwind bias vorticity flag                |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`useAbsVorticity`       | F                   | work with f                               |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`highOrderVorticity`    | F                   | high order interp. of vort. flag          |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`upwindShear`           | F                   | upwind vertical shear advection flag      |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`selectKEscheme`        | 0                   | kinetic energy scheme selector            |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`momForcing`            | T                   | momentum forcing on/off flag              |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`momPressureForcing`    | T                   | momentum pressure term on/off flag        |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`implicitIntGravWave`   | F                   | implicit internal gravity wave flag       |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`staggerTimeStep`       | F                   | stagger time stepping on/off flag         |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`multiDimAdvection`     | T                   | enable/disable multi-dim advection        |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`useMultiDimAdvec`      | F                   | multi-dim advection is/is-not used        |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`implicitDiffusion`     | F                   | implicit diffusion on/off flag            |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`tempStepping`          | T                   | temperature equation on/off flag          |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`tempAdvection`         | T                   | temperature advection on/off flag         |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`tempImplVertAdv`       | F                   | temp. implicit vert. advection on/off     |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`tempForcing`           | T                   | temperature forcing on/off flag           |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`saltStepping`          | T                   | salinity equation on/off flag             |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`saltAdvection`         | T                   | salinity advection on/off flag            |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`saltImplVertAdv`       | F                   | salinity implicit vert. advection on/off  |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`saltForcing`           | T                   | salinity forcing on/off flag              |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`readBinaryPrec`        | 32                  | precision used for reading binary files   |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`writeBinaryPrec`       | 32                  | precision used for writing binary files   |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`globalFiles`           | F                   | write “global” (=not per tile) files      |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`useSingleCpuIO`        | F                   | only master MPI process does I/O          |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`debugMode`             | F                   | debug Mode on/off flag                    |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`debLevA`               | 1                   | 1st level of debugging                    |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`debLevB`               | 2                   | 2nd level of debugging                    |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`debugLevel`            | 1                   | select debugging level                    |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`cg2dMaxIters`          | 150                 | upper limit on 2d con. grad iterations    |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`cg2dChkResFreq`        | 1                   | 2d con. grad convergence test frequency   |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`cg2dTargetResidual`    | 1.0E-07             | 2d con. grad target residual              |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`cg2dTargetResWunit`    | -1.0E+00            | cg2d target residual [W units]            |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`cg2dPreCondFreq`       | 1                   | freq. for updating cg2d pre-conditioner   |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`nIter0`                | 0                   | run starting timestep number              |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`nTimeSteps`            | 0                   | number of timesteps                       |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`deltatTmom`            | 6.0E+01             | momentum equation timestep ( s )          |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`deltaTfreesurf`        | 6.0E+01             | freeSurface equation timestep ( s )       |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`dTtracerLev`           | 6.0E+01 at k=top    | tracer equation timestep ( s )            |
++-----------------------------------+---------------------+-------------------------------------------+
+|  :varlink:`deltaTClock`           | 6.0E+01             | model clock timestep ( s )                |
++-----------------------------------+---------------------+-------------------------------------------+
+
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| **Name**                            | **Value**                 | **Description**                                               |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`cAdjFreq`                 | 0.0E+00                   | convective adjustment interval ( s )                          |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`momForcingOutAB`          | 0                         | =1: take momentum forcing out of Adams-Bashforth              |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`tracForcingOutAB`         | 0                         | =1: take T,S,pTr forcing out of Adams-Bashforth               |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`momDissip_In_AB`          | T                         | put dissipation tendency in Adams-Bashforth                   |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`doAB_onGtGs`              | T                         | apply AB on tendencies (rather than on T,S)                   |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`abEps`                    | 1.0E-02                   | Adams-Bashforth-2 stabilizing weight                          |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`baseTime`                 | 0.0E+00                   | model base time ( s )                                         |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`startTime`                | 0.0E+00                   | run start time ( s )                                          |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`endTime`                  | 0.0E+00                   | integration ending time ( s )                                 |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`pChkPtFreq`               | 0.0E+00                   | permanent restart/checkpoint file interval ( s )              |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`chkPtFreq`                | 0.0E+00                   | rolling restart/checkpoint file interval ( s )                |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`pickup_write_mdsio`       | T                         | model I/O flag                                                |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`pickup_read_mdsio`        | T                         | model I/O flag                                                |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`pickup_write_immed`       | F                         | model I/O flag                                                |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`dumpFreq`                 | 0.0E+00                   | model state write out interval ( s )                          |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`dumpInitAndLast`          | T                         | write out initial and last iteration model state              |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`snapshot_mdsio`          | T                         | model I/O flag.                                                |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`monitorFreq`              | 6.0E+01                   | monitor output interval ( s )                                 |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`monitor_stdio`           | T                         | model I/O flag.                                                |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`externForcingPeriod`      | 0.0E+00                   | forcing period (s)                                            |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`externForcingCycle`       | 0.0E+00                   | period of the cycle (s)                                       |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`tauThetaClimRelax`        | 0.0E+00                   | relaxation time scale (s)                                     |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`tauSaltClimRelax`         | 0.0E+00                   | relaxation time scale (s)                                     |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`latBandClimRelax`         | 3.703701E+05              | maximum latitude where relaxation applied                     |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`usingCartesianGrid`       | T                         | Cartesian coordinates flag ( true / false )                   |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`usingSphericalPolarGrid`  | F                         | spherical coordinates flag ( true / false )                   |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`usingCylindricalGrid`     | F                         | spherical coordinates flag ( true / false )                   |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`Ro_SeaLevel`              | 0.0E+00                   | r(1) ( units of r )                                           |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`rkSign`                   | -1.0E+00                  | index orientation relative to vertical coordinate             |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`horiVertRatio`            | 1.0E+00                   | ratio on units : horizontal - vertical                        |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`drC`                      | 5.0E+03 at k=1            | center cell separation along Z axis ( units of r )            |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`drF`                      | 1.0E+04 at k=top          | cell face separation along Z axis ( units of r )              |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`delX`                     | 1.234567E+05 at i=east    | U-point spacing ( m - cartesian, degrees - spherical )        |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`delY`                     | 1.234567E+05 at j=1       | V-point spacing ( m - cartesian, degrees - spherical )        |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`ygOrigin`                 | 0.0E+00                   | South edge Y-axis origin (cartesian: m, spherical: deg.)      |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`xgOrigin`                 | 0.0E+00                   | West edge X-axis origin (cartesian: m, spherical: deg.)       |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`rSphere`                  | 6.37E+06                  | Radius ( ignored - cartesian, m - spherical )                 |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`xcoord`                   | 6.172835E+04 at i=1       | P-point X coord ( m - cartesian, degrees - spherical )        |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`ycoord`                   | 6.172835E+04 at j=1       | P-point Y coord ( m - cartesian, degrees - spherical )        |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`rcoord`                   | -5.0E+03 at k=1           | P-point r coordinate ( units of r )                           |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`rF`                       | 0.0E+00 at k=1            | W-interface r coordinate ( units of r )                       |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+| :varlink:`dBdrRef`                  | 0.0E+00 at k=top          | vertical gradient of reference buoyancy [ (m/s/r)\ :sup:`2` ] |
++-------------------------------------+---------------------------+---------------------------------------------------------------+
+
++-------------------+--------------------------------+-------------------------------------------------------+
+| **Name**          | **Value**                      | **Description**                                       |
++-------------------+--------------------------------+-------------------------------------------------------+
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dxF`    | 1.234567E+05 at k=top          | dxF(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dyF`    | 1.234567E+05 at i=east         | dyF(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dxG`    | 1.234567E+05 at i=east         | dxG(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dyG`    | 1.234567E+05 at i=east         | dyG(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dxC`    | 1.234567E+05 at i=east         | dxC(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dyC`    | 1.234567E+05 at i=east         | dyC(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dxV`    | 1.234567E+05 at i=east         | dxV(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`dyU`    | 1.234567E+05 at i=east         | dyU(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`rA`     | 1.524155E+10 at i=east         | rA(:,1,:,1) ( m - cartesian, degrees - spherical )    |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`rAw`    | 1.524155E+10 at k=top          | rAw(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+| :varlink:`rAs`    | 1.524155E+10 at k=top          | rAs(:,1,:,1) ( m - cartesian, degrees - spherical )   |
++-------------------+--------------------------------+-------------------------------------------------------+
+
++--------------------------------+-------------------+----------------------------------------------+
+| **Name**                       | **Value**         | **Description**                              |
++--------------------------------+-------------------+----------------------------------------------+
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`tempAdvScheme`       | 2                 | temp. horiz. advection scheme selector       |
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`tempVertAdvScheme`   | 2                 | temp. vert. advection scheme selector        |
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`tempMultiDimAdvec`   | F                 | use multi-dim advection method for temp      |
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`tempAdamsBashforth`  | T                 | use Adams-Bashforth time-stepping for temp   |
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`saltAdvScheme`       | 2                 | salinity horiz. advection scheme selector    |
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`saltVertAdvScheme`   | 2                 | salinity vert.  advection scheme selector    |
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`saltMultiDimAdvec`   | F                 | use multi-dim advection method for salt      |
++--------------------------------+-------------------+----------------------------------------------+
+| :varlink:`saltAdamsBashforth`  | T                 | use Adams-Bashforth time-stepping for salt   |
++--------------------------------+-------------------+----------------------------------------------+
+
 
 
 

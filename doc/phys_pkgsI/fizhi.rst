@@ -109,7 +109,7 @@ and
 
 .. math:: \left.{\pp{q}{t}}\right|_{c} = \alpha \frac{ m_B}{L} \eta (\pp{h}{p}-\pp{s}{p})
 
- where :math:`\theta = \frac{T}{P^{\kappa}}`, :math:`P = (p/p_0)`, and
+where :math:`\theta = \frac{T}{P^{\kappa}}`, :math:`P = (p/p_0)`, and
 :math:`\alpha` is the relaxation parameter.
 
 As an approximation to a full interaction between the different
@@ -226,7 +226,7 @@ or
 
 .. math:: \pp{T}{t} = \frac{g}{c_p \pi} \pp{F}{\sigma}
 
- where :math:`g` is the accelation due to gravity and :math:`c_p` is the
+where :math:`g` is the accelation due to gravity and :math:`c_p` is the
 heat capacity of air at constant pressure.
 
 The time tendency for Longwave Radiation is updated every 3 hours. The
@@ -583,7 +583,7 @@ and
 
 .. math:: {K_h} (surface) =  C_t \times u_* = C_H W_s
 
- where :math:`u_*=C_uW_s` is the surface friction velocity, :math:`C_D`
+where :math:`u_*=C_uW_s` is the surface friction velocity, :math:`C_D`
 is termed the surface drag coefficient, :math:`C_H` the heat transfer
 coefficient, and :math:`W_s` is the magnitude of the surface layer wind.
 
@@ -597,7 +597,7 @@ layer non-dimensional wind shear given by
 
 .. math:: \psi_{m} = {\int_{\zeta_{0}}^{\zeta} \frac{\phi_{m} }{ \zeta} d \zeta} .
 
- Here :math:`\zeta` is the non-dimensional stability parameter, and
+Here :math:`\zeta` is the non-dimensional stability parameter, and
 :math:`\phi_m` is the similarity function of :math:`\zeta` which
 expresses the stability dependance of the momentum gradient. The
 functional form of :math:`\phi_m` is specified differently for stable
@@ -617,7 +617,7 @@ gradient given by
 
 .. math:: \psi_{h} = {\int_{\zeta_{0}}^{\zeta} \frac{\phi_{h} }{ \zeta} d \zeta} .
 
- Here :math:`\phi_h` is the similarity function of :math:`\zeta`, which
+Here :math:`\phi_h` is the similarity function of :math:`\zeta`, which
 expresses the stability dependance of the temperature and moisture
 gradients, and is specified differently for stable and unstable layers
 according to :cite:`helfschu:95`.
@@ -1506,7 +1506,7 @@ The tendency of V-Momentum due to turbulence is written:
    {\bf TURBV} = {\pp{v}{t}}_{turb} = {\pp{}{z} }{(- \overline{v^{\prime}w^{\prime}})}
     = {\pp{}{z} }{(K_m \pp{v}{z})}
 
-| The Helfand and Labraga level 2.5 scheme models the turbulent flux of
+The Helfand and Labraga level 2.5 scheme models the turbulent flux of
 v-momentum in terms of :math:`K_m`, and the equation has the form of a
 diffusion equation.
 
@@ -1696,8 +1696,8 @@ TUFLUX - Turbulent Flux of U-Momentum (Newton/m^2)
 ##################################################
 
 The turbulent flux of u-momentum is calculated for
-:math:`diagnostic \hspace{.2cm} purposes
- \hspace{.2cm} only` from the eddy coefficient for momentum:
+:math:`diagnostic \hspace{.2cm} purposes 
+\hspace{.2cm} only` from the eddy coefficient for momentum:
 
 .. math::
 
@@ -2455,7 +2455,7 @@ each model timestep, and dividing by the total mass of the column.
 
 .. math:: {\bf VINTVT} = \frac{ \int_{surf}^{top} v T \rho dz  } { \int_{surf}^{top} \rho dz  }
 
-Using :math:`\rho \delta z = -\frac{\delta p}{g} `, we have
+Using :math:`\rho \delta z = -\frac{\delta p}{g}`, we have
 
 .. math:: {\bf VINTVT} = { \int_0^1 v T dp  }
 
@@ -2522,10 +2522,11 @@ specific humidity, given by:
 
    \begin{aligned}
    {\bf QINT} & = & \int_{surf}^{top} \rho q dz \\
-              & = & \frac{\pi}{g} \int_0^1 q dp\end{aligned}
+              & = & \frac{\pi}{g} \int_0^1 q dp
+   \end{aligned}
 
 where we have used the hydrostatic relation
-:math:`\rho \delta z = -\frac{\delta p}{g} `.
+:math:`\rho \delta z = -\frac{\delta p}{g}`.
 
 
 U2M  Zonal U-Wind at 2 Meter Depth (m/sec)

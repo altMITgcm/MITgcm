@@ -80,7 +80,7 @@ For the ocean, :math:`\phi_s = g \eta` and :math:`b_s = g` is uniform.
 For the atmosphere, however, because of topographic effects, the
 reference surface pressure :math:`R_o=p_o` has large spatial variations
 that are responsible for significant :math:`b_s` variations (from 0.8 to
-1.2 :math:`[m^3/kg]`). For this reason, when :varlink:`uniformLin\_PhiSurf`
+1.2 :math:`[m^3/kg]`). For this reason, when :varlink:`uniformLin_PhiSurf`
 =.FALSE. (parameter file ``data``, namelist ``PARAM01``) a non-uniform
 linear coefficient :math:`b_s` is used and computed (:filelink:`INI_LINEAR_PHISURF <model/src/ini_linear_phisurf.F>`)
 according to the reference surface pressure :math:`p_o`:
