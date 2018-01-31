@@ -116,7 +116,7 @@ To better understand this process, :numref:`git_setup` shows a conceptual map of
 
 
  .. figure:: figs/git_setup.*
-    :width: 80%
+    :width: 70%
     :align: center
     :alt: Conceptual model of GitHub
     :name: git_setup

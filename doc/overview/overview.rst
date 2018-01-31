@@ -29,7 +29,7 @@ MITgcm has a number of novel aspects:
 
  - it has a non-hydrostatic capability and so can be used to study both small-scale and large scale processes - see :numref:`all-scales`
 
-  .. figure:: figs/scales.*
+  .. figure:: figs/scales.png
     :width: 90%
     :align: center
     :alt: MITgcm can simulate a wide range of scales
@@ -155,8 +155,8 @@ modeling the atmosphere (right hand side of :numref:`isomorphic-equations`) and 
 the ocean (left hand side of :numref:`isomorphic-equations`).
 
 
-  .. figure:: figs/zandpcoord.*
-    :width: 90%
+  .. figure:: figs/zandpcoord.png
+    :width: 80%
     :align: center
     :alt: isomorphic-equations
     :name: isomorphic-equations
@@ -177,7 +177,7 @@ see :numref:`zandp-vert-coord`.
 
 
   .. figure:: figs/vertcoord.*
-    :width: 70%
+    :width: 60%
     :align: center
     :alt: zandp-vert-coord
     :name: zandp-vert-coord
