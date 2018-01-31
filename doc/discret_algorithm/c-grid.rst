@@ -14,7 +14,7 @@ The continuity cell is synonymous with tracer cells (they are one and
 the same).
 
   .. figure:: figs/cgrid3d.*
-    :width: 60%
+    :width: 40%
     :align: center
     :alt: cgrid3d
     :name: cgrid3d

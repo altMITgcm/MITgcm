@@ -35,7 +35,7 @@ are defined by, in spherical coordinates:
 
 |
 
-  .. figure:: figs/sphere.*
+  .. figure:: figs/sphere.png
     :width: 70%
     :align: center
     :alt: diagram of spherical polar coordinates

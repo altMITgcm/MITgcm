@@ -12,7 +12,7 @@ mixed boundary conditions on temperature and salinity at the surface.
 The transfer properties of ocean eddies, convection and mixing is
 parameterized in this model.
 
-  .. figure:: figs/isovec_atmoce_new.*
+  .. figure:: figs/isovec_atmoce.*
     :width: 100%
     :align: center
     :alt: large-scale-circ

@@ -404,7 +404,7 @@ point.
 
 
   .. figure:: figs/oscil+damp_AB2.*
-    :width: 100%
+    :width: 80%
     :align: center
     :alt: stability_analysis
     :name: oscil+damp_AB2
@@ -2447,12 +2447,12 @@ So that the over all time-stepping looks likes:
 A schematic of multi-dimension time stepping for the cube sphere configuration is show in :numref:`multiDim_CS` .
 
   .. figure:: figs/multiDim_CS.*
-    :width: 70%
+    :width: 60%
     :align: center
     :alt: multiDim_CS
     :name: multiDim_CS
 
-    Muti-dimensional advection time-stepping with cubed-sphere topology.
+    Multi-dimensional advection time-stepping with cubed-sphere topology.
 
 Comparison of advection schemes
 ===============================
@@ -2509,7 +2509,7 @@ Shown in :numref:`advect-1d-lo` and :numref:`advect-1d-hi` is a 1-D comparison o
 :numref:`advect-1d-lo` shown the result for a weak flow  (low Courant number) whereas  :numref:`advect-1d-hi` shows the result for a stronger flow (high Courant number).
 
   .. figure:: figs/advect-1d-lo.*
-    :width: 90%
+    :width: 100%
     :align: center
     :alt: advect-1d-lo
     :name: advect-1d-lo
@@ -2517,7 +2517,7 @@ Shown in :numref:`advect-1d-lo` and :numref:`advect-1d-hi` is a 1-D comparison o
     Comparison of 1-D advection schemes: Courant number is 0.05 with 60 points and solutions are shown for T=1 (one complete period). a) Shows the upwind biased schemes; first order upwind, DST3, third order upwind and second order upwind. b) Shows the centered schemes; Lax-Wendroff, DST4, centered second order, centered fourth order and finite volume fourth order. c) Shows the second order flux limiters: minmod, Superbee, MC limiter and the van Leer limiter. d) Shows the DST3 method with flux limiters due to Sweby with :math:`\mu =1` ,  :math:`\mu =c/(1-c)` and a fourth order DST method with Sweby limiter,  :math:`\mu =c/(1-c)` .
 
   .. figure:: figs/advect-1d-hi.*
-    :width: 90%
+    :width: 100%
     :align: center
     :alt: advect-1d-hi
     :name: advect-1d-hi
@@ -2666,14 +2666,13 @@ SHAP Diagnostics
 
 ::
 
-
-    ------------------------------------------------------------------------
-    <-Name->|Levs|<-parsing code->|<--  Units   -->|<- Tile (max=80c) 
-    ------------------------------------------------------------------------
-    SHAP_dT |  5 |SM      MR      |K/s             |Temperature Tendency due to Shapiro Filter
-    SHAP_dS |  5 |SM      MR      |g/kg/s          |Specific Humidity Tendency due to Shapiro Filter
-    SHAP_dU |  5 |UU   148MR      |m/s^2           |Zonal Wind Tendency due to Shapiro Filter
-    SHAP_dV |  5 |VV   147MR      |m/s^2           |Meridional Wind Tendency due to Shapiro Filter
+    --------------------------------------------------------------
+    <-Name->|Levs|parsing code|<-Units->|<- Tile (max=80c) 
+    --------------------------------------------------------------
+    SHAP_dT |  5 |SM      MR  |K/s      |Temperature Tendency due to Shapiro Filter
+    SHAP_dS |  5 |SM      MR  |g/kg/s   |Specific Humidity Tendency due to Shapiro Filter
+    SHAP_dU |  5 |UU   148MR  |m/s^2    |Zonal Wind Tendency due to Shapiro Filter
+    SHAP_dV |  5 |VV   147MR  |m/s^2    |Meridional Wind Tendency due to Shapiro Filter
 
 
 Nonlinear Viscosities for Large Eddy Simulation

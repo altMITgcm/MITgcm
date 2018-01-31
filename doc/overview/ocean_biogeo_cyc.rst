@@ -13,7 +13,7 @@ at 1°x1° resolution telescoping to :math:`\frac{1}{3}^{\circ}` x :math:`\frac{
 
 
   .. figure:: figs/polar.*
-    :width: 100%
+    :width: 80%
     :align: center
     :alt: biogeo_figure
     :name: biogeo_figure

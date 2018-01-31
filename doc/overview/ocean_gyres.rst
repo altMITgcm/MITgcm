@@ -22,7 +22,7 @@ cold eddies can be clearly seen in the Gulf Stream region. The
 transport of warm water northward by the mean flow of the Gulf Stream
 is also clearly visible.
 
-  .. figure:: figs/atl6.*
+  .. figure:: figs/atl6.png
     :width: 100%
     :align: center
     :alt: ocean-gyres

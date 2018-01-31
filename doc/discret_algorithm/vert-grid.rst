@@ -3,7 +3,7 @@ Vertical grid
 -------------
 
   .. figure:: figs/vgrid-accur-center.*
-    :width: 70%
+    :width: 60%
     :align: center
     :alt: vgrid-accur-center
     :name: vgrid-accur-center
@@ -69,7 +69,7 @@ the storage requirements are excessive so the simpler piece-wise
 constant or partial-step method is all that is currently supported.
 
   .. figure:: figs/vgrid-xz.*
-    :width: 70%
+    :width: 60%
     :align: center
     :alt: vgrid-xz
     :name: vgrid-xz

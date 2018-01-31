@@ -11,7 +11,7 @@ arrested by its instability in a process analogous to that which sets the
 stratification of the ACC.
 
 
-  .. figure:: figs/labflow.*
+  .. figure:: figs/labflow.png
     :width: 70%
     :align: center
     :alt: lab_photo
@@ -19,7 +19,7 @@ stratification of the ACC.
 
     A 1 m diameter laboratory experiment simulating the dynamics of the Antarctic Circumpolar Current.
 
-  .. figure:: figs/lab.*
+  .. figure:: figs/lab.png
     :width: 70%
     :align: center
     :alt: lab-simulation

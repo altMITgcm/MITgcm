@@ -24,7 +24,7 @@ compass. This is purely for convenience but should not be confused with
 the actual geographic orientation of model quantities.
 
   .. figure:: figs/hgrid-abcd.*
-    :width: 90%
+    :width: 80%
     :align: center
     :alt: hgrid-abcd
     :name: hgrid-abcd
