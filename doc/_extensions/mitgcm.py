@@ -23,7 +23,7 @@ from sphinx.util.nodes import split_explicit_title
 def setup(app):
     app.add_role(
         'filelink',
-        filelink('https://github.com/altMITgcm/MITgcm/blob/master/%s'))
+        filelink('https://github.com/MITgcm/MITgcm/blob/master/%s'))
     app.add_role(
         'varlink',
         autolink('http://mitgcm.org/lxr/ident/MITgcm?_i=%s'))
