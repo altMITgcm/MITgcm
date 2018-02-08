@@ -22,7 +22,7 @@ Barotropic Gyre MITgcm Example
   (in directory  :filelink:`verification/tutorial_barotropic_gyre/`)
 
 
-This example experiment demonstrates using the MITgcm to simulate a Barotropic, wind-forced, ocean gyre circulation. The files for this experiment can be found in the verification directory `verification/tutorial_barotropic_gyre`. The experiment is a numerical rendition of the gyre circulation problem similar to the problems described analytically by Stommel in 1966  :cite:`Stommel66` and numerically in Holland et. al :cite:`Holland75`.
+This example experiment demonstrates using the MITgcm to simulate a Barotropic, wind-forced, ocean gyre circulation. The experiment is a numerical rendition of the gyre circulation problem similar to the problems described analytically by Stommel in 1966  :cite:`Stommel66` and numerically in Holland et. al :cite:`Holland75`.
 
 In this experiment the model is configured to represent a rectangular enclosed box of fluid, :math:`1200 \times 1200` km in lateral extent. The fluid is 5 km deep and is forced by a constant in time zonal wind stress, :math:`\tau_x`, that varies sinusoidally in the 'north-south' direction. Topologically the grid is Cartesian and the coriolis parameter :math:`f` is defined according to a mid-latitude beta-plane equation
 
@@ -77,8 +77,7 @@ annulus of water.  The simulation is configured for a laboratory scale
 on a :math:`3^{\circ}\times1\mathrm{cm}` cyclindrical grid with twenty-nine
 vertical levels of 0.5cm each.  This is a typical laboratory setup for
 illustration principles of GFD, as well as for a laboratory data
-assimilation project. The files for this experiment can be found in
-the verification directory under :code:`rotating_tank`.
+assimilation project.
 
 
 example illustration from GFD lab here

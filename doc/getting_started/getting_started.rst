@@ -529,7 +529,7 @@ The steps for building MITgcm with MPI support are:
 #. Determine the locations of your MPI-enabled compiler and/or MPI
    libraries and put them into an options file as described in :numref:`genmake2_optfiles`. 
    One can start with one of the examples in
-   `tools/build_options <https://github.com/MITgcm/MITgcm/tree/master/tools/build_options>`_
+   :filelink:`tools/build_options`
    such as ``linux_amd64_gfortran`` or ``linux_amd64_ifort+impi`` and
    then edit it to suit the machine at hand. You may need help from your
    user guide or local systems administrator to determine the exact
