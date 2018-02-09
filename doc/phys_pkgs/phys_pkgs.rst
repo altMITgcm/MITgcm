@@ -1,6 +1,6 @@
 .. _packagesI:
 
-Physical Parameterizations - Packages I
+Packages I - Physical Parameterizations 
 ***************************************
 
 
@@ -24,10 +24,10 @@ and boundary layer processes, atmospheric processes, sea-ice, coupled
 simulations and state estimation.
 Below this layer are a set of general purpose
 numerical and computational packages. The general purpose numerical packages
-provide code for kernel numerical alogorithms
+provide code for kernel numerical algorithms
 that apply to
 many different simulation types. Similarly, the general purpose computational
-packages implement non-numerical alogorithms that provide parallelism,
+packages implement non-numerical algorithms that provide parallelism,
 I/O and time-keeping functions that are used in many different scenarios.
 
   .. figure:: figs/mitgcm_package_organisation.*
